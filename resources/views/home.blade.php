@@ -74,25 +74,53 @@ https://www.tooplate.com/view/2095-level
                                 </li>    
                                 @endif
                                 @endauth
-                            </div>
                         @endif          
-    </li>          
+                        </li>          
                                 </ul>
                             </div>                            
                         </nav>            
                     </div>
                 </div>
             </div>
+            <form method="post" action="/findSearch">				
+<input type="text" name= "search">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<button>Search Now</button>				
+</form>
+<?php
+if(isset($test)){
+	
+	?>
+	 <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($test as $user)
+            <tr>
+                <td>{{$user->place}}</td>
+                <td>{{$user->detail}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+	<?php
+}
+?>
             <div class="tm-section tm-bg-img" id="tm-section-1">
                 <div class="tm-form-white ie-container-width-fix-2">
                     <div class="container ie-h-align-center-fix">
                         <div class="row">
                             
-                                <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
+                                <form action="/findSearch" method="POST" class="tm-search-form tm-section-pad-2">
+                                @csrf
                                     <div class="form-row tm-search-form-row">
                                         <div class="form-group tm-form-element tm-form-element-100">
                                             <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-                                            <input name="city" type="text" class="form-control" id="inputCity" placeholder="Type your destination...">
+                                            <input name="search" type="search" class="form-control" id="search" placeholder="Type your destination...">
                                         </div>
                                         <div class="form-group tm-form-element tm-form-element-50">
                                             <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
@@ -154,7 +182,7 @@ https://www.tooplate.com/view/2095-level
                                             <i class="fa fa-2x fa-bed tm-form-element-icon"></i>
                                         </div>
                                         <div class="form-group tm-form-element tm-form-element-2">
-                                            <button type="submit" class="btn btn-primary tm-btn-search">Check Availability</button>
+                                            <button type="search" name="search" class="btn btn-primary tm-btn-search">Check Availability</button>
                                         </div>
                                       </div>
                                       <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
@@ -167,46 +195,35 @@ https://www.tooplate.com/view/2095-level
                     </div>
                 </div>                  
             </div>
+           
+
+<div class="container tm-pt-5 tm-pb-4 ">
+<div class="row text-center">
+<?php
+if(isset($test)){
+	
+	?>
+@foreach ($test as $user)
+<tr>
+    
             
-            <div class="tm-section-2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col text-center">
-                            <h2 class="tm-section-title">We are here to help you?</h2>
-                            <p class="tm-color-white tm-section-subtitle">Subscribe to get our newsletters</p>
-                            <a href="#" class="tm-color-white tm-btn-white-bordered">Subscribe Newletters</a>
-                        </div>                
-                    </div>
-                </div>        
-            </div>
-            
-            <div class="tm-section tm-position-relative">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" class="tm-section-down-arrow">
-                    <polygon fill="#ee5057" points="0,0  100,0  50,60"></polygon>                   
-                </svg> 
-                <div class="container tm-pt-5 tm-pb-4">
-                    <div class="row text-center">
                         <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">                            
                             <i class="fa tm-fa-6x fa-legal tm-color-primary tm-margin-b-20"></i>
-                            <h3 class="tm-color-primary tm-article-title-1">Level HTML Template by Tooplate website</h3>
-                            <p>You are allowed to download, edit and use this template for your business or client websites.</p>
-                            <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Continue reading...</a>
+                            <h3 class="tm-color-primary tm-article-title-1">{{ $user->id }} {{ $user->place }}</h3>
+                            <p>{{ $user->detail }}</p>
+                            <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">BOOK NOW</a>
                         </article>
-                        <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">                            
-                            <i class="fa tm-fa-6x fa-plane tm-color-primary tm-margin-b-20"></i>
-                            <h3 class="tm-color-primary tm-article-title-1">Original Website Template Producer</h3>
-                            <p>You are NOT allowed to re-distribute the downloadable template ZIP file on any website.</p>
-                            <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Continue reading...</a>                            
-                        </article>
-                        <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">                           
-                            <i class="fa tm-fa-6x fa-life-saver tm-color-primary tm-margin-b-20"></i>
-                            <h3 class="tm-color-primary tm-article-title-1">Contact us if you have any question</h3>
-                            <p>If you see this template being distributed on any other site, that is an illegal copy.</p>
-                            <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Continue reading...</a>                           
-                        </article>
-                    </div>        
-                </div>
-            </div>
+                      
+                 
+          
+    </tr>
+@endforeach 
+<?php
+}
+?>    
+</div>        
+</div>
+\
             
             <div class="tm-section tm-section-pad tm-bg-gray" id="tm-section-4">
                 <div class="container">
@@ -302,56 +319,7 @@ https://www.tooplate.com/view/2095-level
                 </div>
             </div>
 
-            <div class="tm-bg-video">
-                <div class="overlay">
-                    <i class="fa fa-5x fa-play-circle tm-btn-play"></i>
-                    <i class="fa fa-5x fa-pause-circle tm-btn-pause"></i>
-                </div>
-                <video controls="" loop="" class="tmVideo">
-                    <source src="videos/video.mp4" type="video/mp4">
-                    <source src="videos/video.ogg" type="video/ogg">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="tm-section tm-section-pad tm-bg-img" id="tm-section-5">                                                        
-                    <div class="container ie-h-align-center-fix">
-                        <div class="row tm-flex-align-center">
-                            <div class="col-xs-12 col-md-12 col-lg-3 col-xl-3 tm-media-title-container">
-                                <h2 class="text-uppercase tm-section-title-2">ASIA</h2>
-                                <h3 class="tm-color-primary tm-font-semibold tm-section-subtitle-2">Singapore</h3>
-                            </div>
-                            <div class="col-xs-12 col-md-12 col-lg-9 col-xl-9 mt-0 mt-sm-3">
-                                <div class="ml-auto tm-bg-white-shadow tm-pad tm-media-container">
-                                    <article class="media tm-margin-b-20 tm-media-1">
-                                        <img src="img/img-03.jpg" alt="Image">
-                                        <div class="media-body tm-media-body-1 tm-media-body-v-center">
-                                            <h3 class="tm-font-semibold tm-color-primary tm-article-title-3">Suspendisse vel est libero sem phasellus ac laoreet</h3>
-                                            <p>Vivamus eget tellus ornare, sollicitudin quam id, dictum nulla. Phasellus finibus rhoncus justo, tempus eleifend neque dictum ac. Aenean metus leo, consectetur non. 
-                                            <br><br>
-											Etiam aliquam arcu at mauris consectetur scelerisque. Integer elementum justo in orci facilisis ultricies. Pellentesque at velit ante. Duis scelerisque metus vel felis porttitor gravida.</p>
-                                        </div>                                
-                                    </article>
-                                    <article class="media tm-margin-b-20 tm-media-1">
-                                        <img src="img/img-04.jpg" alt="Image">
-                                        <div class="media-body tm-media-body-1 tm-media-body-v-center">
-                                            <h3 class="tm-font-semibold tm-article-title-3">Suspendisse vel est libero sem phasellus ac laoreet</h3>
-                                            <p>Duis accumsan sagittis tortor in ultrices. Praesent tortor ante, fringilla ac nibh porttitor, fermentum commodo nulla.</p>
-                                            <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Continue reading...</a>
-                                        </div>                                
-                                    </article>
-                                    <article class="media tm-margin-b-20 tm-media-1">
-                                        <img src="img/img-05.jpg" alt="Image">
-                                        <div class="media-body tm-media-body-1 tm-media-body-v-center">
-                                            <h3 class="tm-font-semibold tm-article-title-3">Faucibus dolor ligula nisl metus auctor aliquet</h3>
-                                            <p>Nunc in felis aliquet metus luctus iaculis vel et nisi. Nulla venenatis nisl orci, laoreet ultricies massa tristique id.</p>
-                                            <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">Continue reading...</a>
-                                        </div>                                
-                                    </article>
-                                </div>                            
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>           
+                    
             
             <div class="tm-section tm-section-pad tm-bg-img tm-position-relative" id="tm-section-6">
                 <div class="container ie-h-align-center-fix">
@@ -386,9 +354,7 @@ https://www.tooplate.com/view/2095-level
                 <div class="container">
                     <div class="row">
                         <p class="col-sm-12 text-center tm-font-light tm-color-white p-4 tm-margin-b-0">
-                        Copyright &copy; <span class="tm-current-year">2018</span> Your Company
-                        
-                        - Design: <a rel="nofollow" href="https://www.tooplate.com" class="tm-color-primary tm-font-normal" target="_parent">Tooplate</a></p>        
+                        Copyright &copy; <span class="tm-current-year">2022</span> Nurul Hafizah</p>        
                     </div>
                 </div>                
             </footer>
@@ -433,7 +399,7 @@ https://www.tooplate.com/view/2095-level
             function loadGoogleMap(){
                 var script = document.createElement('script');
                 script.type = 'text/javascript';
-                script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDVWt4rJfibfsEDvcuaChUaZRS5NXey1Cs&v=3.exp&sensor=false&' + 'callback=initialize';
+                script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDnwvMM8i_8JY2Lz_xsvxuvI23AiWQapCIs&v=3.exp&sensor=false&' + 'callback=initialize';
                 document.body.appendChild(script);
             } 
 

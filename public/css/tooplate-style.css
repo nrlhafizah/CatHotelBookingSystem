@@ -28,7 +28,7 @@ a:focus {
 .tm-p-4 { padding: 2rem!important; }
 .tm-color-white { color: white; }
 .tm-color-primary {	color: black; }
-.tm-bg-primary { background: #ee5057; }
+.tm-bg-primary { background: #B79059 ; }
 .tm-bg-gray { background: #F4F4F4; }
 .tm-bg-white { background: #E7A53B; }
 .tm-bg-dark-blue { background: #1f3646; }
@@ -129,6 +129,11 @@ p {
 
 #tm-section-1 {	
 	background-image: url('../img/kit.jpg');	
+	height: 515px;
+}
+
+#tm-section-1s {	
+	background-image: url('../img/5.png');	
 	height: 515px;
 }
 
@@ -251,7 +256,7 @@ select.tm-select::-ms-expand { display: none; }
 .tm-pb-4 { padding-bottom: 100px; }
 
 .tm-section-2 {
-	background: #ee5057;
+	background: #B79059 ;
 	padding-top: 50px;
 	position: relative;
 }
@@ -293,12 +298,14 @@ select.tm-select::-ms-expand { display: none; }
 .tm-article {
 	padding: 40px;
 	transition: all 0.3s ease;
+	
+	
 }
 
 .tm-article:hover {
-	-webkit-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
-	-moz-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
-	box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
+	-webkit-box-shadow: 0px 0px 7px 0px rgb(216, 137, 63);
+	-moz-box-shadow: 0px 0px 7px 0px rgb(216, 137, 63);
+	box-shadow: 0px 0px 7px 0px rgb(216, 137, 63);
 	transform: scale(1.1);
 }
 

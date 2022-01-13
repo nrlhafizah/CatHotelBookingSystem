@@ -18,8 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/home",[homeControl::class,"index"]);
+Route::get("/",[homeControl::class,"index"]);
+
+Route::get("/prof",[homeControl::class,"show"]);
+
+Route::get("/redirect",[homeControl::class,"redirectFunct"]);
+
+Route::get('/find', [homeControl::class,"find"]);
+Route::post('/findSearch', [homeControl::class,"findSearch"]);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
