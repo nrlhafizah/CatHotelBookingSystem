@@ -57,25 +57,29 @@ https://www.tooplate.com/view/2095-level
                                   <li class="nav-item">
                                     <a class="nav-link" href="#tm-section-6"><strong>About Us</strong></a>
                                   </li>
-                                  <li>
+
+                
+                                 
                                   @if (Route::has('login'))
                             
-                                @auth
-                                <x-app-layout>
+                            @auth
+                            <x-app-layout>
 
-                                </x-app-layout>
-                                @else
-                                <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="{{ route('login') }}"><strong>Login</strong></a>
-                                </li>
-                                @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="{{ route('register') }}"><strong>Register</strong></a>
-                                </li>    
-                                @endif
-                                @endauth
-                        @endif          
-                        </li>          
+                            </x-app-layout>
+                            @else
+                            <li class="nav-item">
+                                <a class="nav-link " href="{{ route('login') }}">Login</a>
+                            </li>
+                            @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link " href="{{ route('register') }}">Register</a>
+                            </li>    
+                            @endif
+                            @endauth
+                        </div>
+                    @endif                        
+                           
+                       
                                 </ul>
                             </div>                            
                         </nav>            

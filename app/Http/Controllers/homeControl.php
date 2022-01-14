@@ -54,10 +54,16 @@ class homeControl extends Controller
            
             return view('admin.adminpage');
         }
-        else
+        else if($typeuser=='0')
         {
             return view('customer.custpage');
      
         }
+        else 
+        {
+            return view('provider.provpage');
+        }
+
+
     }
 }
