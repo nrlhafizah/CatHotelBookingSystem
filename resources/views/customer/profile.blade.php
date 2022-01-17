@@ -1,25 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
-    <link href="fontawesome/css/all.min.css" rel="stylesheet" />
-    <link href="customer/css/templatemo-comparto.css" rel="stylesheet" />
-    <title>Comparto HTML CSS Template</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Meowie</title>
+    <link rel="shortcut icon" type="cat/png" href="img/cat.png">
 <!--
 
-Comparto TemplateMo
+Tooplate 2095 Level
 
-https://templatemo.com/tm-544-comparto
+https://www.tooplate.com/view/2095-level
 
 -->
+    <!-- load stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">                                      <!-- Bootstrap style -->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="css/datepicker.css"/>
+    <link rel="stylesheet" href="css/tooplate-style.css">                                   <!-- Templatemo style -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+          <![endif]-->
+          <style>
+
+
+
+/* About Me 
+---------------------*/
+.about-text h3 {
+  font-size: 45px;
+  font-weight: 700;
+  margin: 50px;
+}
+
+.about-text h6 {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  font-size: 18px;
+  margin: 50px;
+  
+  
+}
+.about-text p mark {
+  font-weight: 600;
+  color: #20247b;
+}
+
+.about-list {
+  
+  margin: 50px;
+  
+}
+.about-list .media {
+  padding: 5px 0;
+  
+}
+.about-list label {
+  color: #20247b;
+  font-weight: 600;
+  width: 88px;
+  margin: 0;
+  position: relative;
+}
+.about-list label:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 11px;
+  width: 1px;
+  height: 12px;
+  background: #20247b;
+  -moz-transform: rotate(15deg);
+  -o-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
+  transform: rotate(15deg);
+  margin: auto;
+  opacity: 0.5;
+}
+.about-list p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.dark-color {
+    color: #C0C8C4  ;
+}
+
+.gam {
+  height: 200px;
+  width:200px;
+  margin-left: 60px;
+}
+
+              </style>
 </head>
 
-<body>
-<div class="tm-main-content" id="top">
+    <body>
+        <div class="tm-main-content" id="top">
             <div class="tm-top-bar-bg"></div>
             <div class="tm-top-bar" id="tm-top-bar">
                 <!-- Top Navbar -->
@@ -37,363 +127,100 @@ https://templatemo.com/tm-544-comparto
                             <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
                                 <ul class="navbar-nav ml-auto">
                                   <li class="nav-item">
-                                    <a class="nav-link" href="#top"><strong>Home</strong> <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="{{url('/redirect')}}"><strong>Home</strong> <span class="sr-only">(current)</span></a>
                                   </li>
                                   
                             
                                   <li class="nav-item">
-                                    <a class="nav-link" href="#tm-section-6"><strong>About Us</strong></a>
+                                    <a class="nav-link" href="{{url('/prof')}}"><strong>My Profile</strong></a>
                                   </li>
-                                  <li>
-                                  @if (Route::has('login'))
-                            
-                                @auth
-                                <x-app-layout>
-
-                                </x-app-layout>
-                                @else
-                                <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="{{ route('login') }}"><strong>Login</strong></a>
-                                </li>
-                                @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="{{ route('register') }}"><strong>Register</strong></a>
-                                </li>    
-                                @endif
-                                @endauth
-                        @endif          
-                        </li>          
+                                 
+                                  @auth
+                                    <li class="nav-item">
+                                    <a href="{{ route('logout') }}"  onclick = "event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                                    <form method="POST" action="{{ route('logout')}}">
+                                    @csrf
+                                    <x-jet-responsive-nav-link  href="{{ route('logout') }}" class="nav-link"
+                                    onclick="event.preventDefault();
+                                    this.closest('form').submit();"> LOG OUT
+                      
+                                    </x-jet-responsive-nav-link>
+                                    </form>
+                                    </a>
+                                    </li>
+                                 @endauth
+                               
+                           
                                 </ul>
                             </div>                            
                         </nav>            
                     </div>
                 </div>
             </div>
-        <section class="tm-mb-1" id="about">
-            <div class="tm-row tm-about-row">
-                <div class="tm-section-1-l">
-                    <img src="customer/img/comparto-image-01.jpg" alt="About image" class="tm-img-responsive">
-                </div>
-                <article class="tm-section-1-r tm-bg-color-8">
-                    <h2 class="tm-mb-2 tm-title-color">.01 Comparto CSS Layout</h2>
-                    <p><a rel="nofollow" href="https://templatemo.com/tm-544-comparto" target="_parent">Comparto</a> is a custom light-weight CSS layout for your website. You can easily adapt and use this for your commercial or personal websites. Feel free to use it.</p>
-                    <p>You cannot redistribute this template ZIP file in any template collection website. Please <a rel="nofollow" href="https://templatemo.com/contact" target="_parent">contact TemplateMo</a> if you have any question.</p>
-                    <p>Nunc sed gravida elit. Curabitur rutrum elit id lobortis viverra. Fusce at libero dui.</p>
+           
+            <div class=" tm-bg-img" id="tm-section-1s">
+   
                     
-                    <a href="#services" class="tm-btn tm-btn-1 tm-link-to-services">More Detail</a>
-                </article>
-            </div>
-        </section>
-        <div class="tm-bg-color-1 tm-mb-1 tm-row tm-social-row">
-            <div class="tm-icon">
-                <div class="tm-icon-inner">
-                    <a href="#services">
-                        <i class="fas fa-synagogue fa-4x tm-mb-1"></i>
-                        <p>Aenean vel est id massa condimentum</p>
-                    </a>
-                </div>
-            </div>
-            <div class="tm-icon">
-                <div class="tm-icon-inner">
-                    <a href="#gallery">
-                        <i class="fas fa-chart-bar fa-4x tm-mb-1"></i>
-                        <p>Suspendisse interdum lectus purus</p>
-                    </a>
-                </div>
-            </div>
-            <div class="tm-icon">
-                <div class="tm-icon-inner">
-                    <a href="#contact">
-                        <i class="fas fa-images fa-4x tm-mb-1"></i>
-                        <p>Nulla ac sodales est vel iaculis purus</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <section class="tm-mb-1 tm-row tm-services-row" id="services">
-            <div class="tm-section-2-l">
-                <article class="tm-bg-color-6 tm-box-pad tm-mb-1">
-                    <h2 class="tm-mb-2">.02 Aliquam pretium hendrerit</h2>
-                    <p>Cras tempus, velit amet facilisis venenatis, erat felis imperdiet lectus, at posuere elit metus. Title #333 BG #F2F2F2</p>
-                    <p class="tm-mb-0">Nam iaculis, urna ut laoreet aliquam, massa magna dapibus. Text #666</p>
-                </article>
-                <div class="tm-bg-color-7 tm-em-box">
-                    <p class="tm-text-color-2">Nam iaculis, urna ut laoreet aliquam, massa magna dapibus nibh, at pellentesque lectus odio non risus. Nulla ac sodales est, vel iaculis. Text #333 . BG #DDD</p>
-                    <a href="#gallery" class="tm-btn tm-btn-2">Read More</a>
-                </div>
-            </div>
-            <div class="tm-section-2-r">
-                <img src="customer/img/comparto-image-02.jpg" alt="Services image" class="tm-img-responsive">
-            </div>
-        </section>
-        <section class="tm-bg-color-4 tm-mb-3 tm-gallery-section" id="gallery">
-            <div class="tm-gallery-header">
-                <h2 class="tm-mb-1 text-right">.03 The Gallery Section</h2>
-                <ul class="tm-gallery-filter tabs clearfix filters-button-group">
-                    <li><a role="button" href="#" class="active" data-filter="*">Show All</a></li>
-                    . <li><a role="button" href="#" data-filter=".nature">Nature</a></li>
-                    . <li><a role="button" href="#" data-filter=".animals">Animals</a></li>
-                    . <li><a role="button" href="#" data-filter=".people">People</a></li>
-                </ul>
-            </div>
-            <div class="tm-gallery-outer">
-                <div class="tm-gallery" id="tm-gallery">
-                    <div class="tm-gallery-item nature">
-                        <figure class="effect-bubba">
-                            <img src="customer/img/gallery/gallery-item-01.jpg" alt="Gallery item" class="tm-img-responsive" />
-                            <figcaption>
-                                <h2>Too <span>CSS</span></h2>
-                                <p>It is a great blog you should explore.</p>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="tm-gallery-item animals">
-                        <figure class="effect-bubba">
-                            <img src="customer/img/gallery/gallery-item-02.jpg" alt="Gallery item" class="tm-img-responsive" />
-                            <figcaption>
-                                <h2>Templates</h2>
-                                <p>best templates come from TemplateMo website.</p>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="tm-gallery-item nature">
-                        <figure class="effect-bubba">
-                            <img src="customer/img/gallery/gallery-item-03.jpg" alt="Gallery item" class="tm-img-responsive" />
-                            <figcaption>
-                                <h2>Web <span>Design</span></h2>
-                                <p>This is our special design work.</p>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="tm-gallery-item nature">
-                        <figure class="effect-bubba">
-                            <img src="customer/img/gallery/gallery-item-04.jpg" alt="Gallery item" class="tm-img-responsive" />
-                            <figcaption>
-                                <h2>Free <span>HTML</span></h2>
-                                <p>HTML layouts are easy to edit.</p>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="tm-gallery-item animals">
-                        <figure class="effect-bubba">
-                            <img src="customer/img/gallery/gallery-item-05.jpg" alt="Gallery item" class="tm-img-responsive" />
-                            <figcaption>
-                                <h2>Just <span>Art</span></h2>
-                                <p>You can create your own art website.</p>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="tm-gallery-item animals">
-                        <figure class="effect-bubba">
-                            <img src="customer/img/gallery/gallery-item-06.jpg" alt="Gallery item" class="tm-img-responsive" />
-                            <figcaption>
-                                <h2>Pro <span>Display</span></h2>
-                                <p>You can make your artwork gallery.</p>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="tm-gallery-item peopl">
-                        <figure class="effect-bubba">
-                            <img src="customer/img/gallery/gallery-item-07.jpg" alt="Gallery item" class="tm-img-responsive" />
-                            <figcaption>
-                                <h2>The <span>Nature</span></h2>
-                                <p>You can create your own HTML website.</p>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="tm-gallery-item people">
-                        <figure class="effect-bubba">
-                            <img src="customer/img/gallery/gallery-item-08.jpg" alt="Gallery item" class="tm-img-responsive" />
-                            <figcaption>
-                                <h2>Color <span>Art</span></h2>
-                                <p>You can create your own CSS website.</p>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="tm-gallery-item people">
-                        <figure class="effect-bubba">
-                            <img src="customer/img/gallery/gallery-item-09.jpg" alt="Gallery item" class="tm-img-responsive" />
-                            <figcaption>
-                                <h2>Take it <span>easy</span></h2>
-                                <p>You can create your own art gallery.</p>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="tm-gallery-item people">
-                        <figure class="effect-bubba">
-                            <img src="customer/img/gallery/gallery-item-10.jpg" alt="Gallery item" class="tm-img-responsive" />
-                            <figcaption>
-                                <h2>Share <span>This</span></h2>
-                                <p>You can make your own image gallery.</p>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-            </div>
-        </section> <!-- Gallery -->
-        <section id="contact" class="tm-bg-color-5 tm-mb-3">
-            <h2 class="tm-text-white tm-contact-title">.04 Contact Us</h2>
-            <div class="tm-bg-color-white tm-contact-main">
-                <div class="map-outer">
-                    <div class="gmap-canvas">
-                        <!-- How to change your own map point
-                            1. Go to Google Maps
-                            2. Click on your location point
-                            3. Click "Share" and choose "Embed map" tab
-                            4. Copy only URL and paste it within the src="" field below
-                        -->
-                        <iframe width="100%" height="400" id="gmap-canvas"
-                            src="https://maps.google.com/maps?q=Av.+Lúcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                    </div>
-                </div>
-                <div class="contact-form-outer">
-                    <form id="contact-form" action="" method="POST" class="tm-bg-color-6 tm-contact-form">
-                        <div class="form-group">
-                            <input type="text" name="name" class="form-control" placeholder="Name" required="" />
+                            <img class="gam" src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt="">
+          
+               
+                        <div class="about-text ">
+                            
+                           
+                            &nbsp;
+                            <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores. My passion is to design digital user experiences through the bold interface and meaningful interactions.</p>
+                            <div class="row about-list">
+                                <div class="col-md-6">
+                                    <div class="media">
+                                        <label>Birthday</label>
+                                        <p>4th april 1998</p>
+                                    </div>
+                                    <div class="media">
+                                        <label>Age</label>
+                                        <p>22 Yr</p>
+                                    </div>
+                                    <div class="media">
+                                        <label>Residence</label>
+                                        <p>Canada</p>
+                                    </div>
+                                    <div class="media">
+                                        <label>Address</label>
+                                        <p>California, USA</p>
+                                    </div>
+                                </div>
+                         
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="email" name="email" class="form-control" placeholder="Email" required="" />
-                        </div>
-                        <div class="form-group">
-                            <textarea rows="4" name="message" class="form-control" placeholder="Message..."
-                                required=""></textarea>
-                        </div>
-                        <div>
-                            <button type="submit" class="ml-auto tm-btn tm-btn-3">
-                                Send
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div class="contact-info-outer">
-                    <div class="tm-bg-color-6 contact-info">
-                        <p>Pellentesque egestas odio sed tellus dictum, vel lobortis ante vehicula.</p>
-                        <p>Morbi eget accumsan libero, non tincidunt felis.</p>
-                        <p class="tm-mb-0">Tel: <a href="tel:0100200990">010-020-0990</a></p>
-                        <p>Email: <a href="mailto:info@company.com">info@company.com</a></p>
+                        <button>HISTORY</button>
                     </div>
-                </div>
-            </div>
-        </section>
-        <div class="tm-mb-4 text-center tm-social-s">
-            <a href="https://fb.com/templatemo" class="tm-social-link"><i class="fab fa-facebook tm-social-icon"></i></a>
-            <a href="https://instagram.com" class="tm-social-link"><i class="fab fa-instagram tm-social-icon"></i></a>
-            <a href="https://twitter.com" class="tm-social-link"><i class="fab fa-twitter tm-social-icon"></i></a>
-            <a href="https://youtube.com" class="tm-social-link"><i class="fab fa-youtube tm-social-icon"></i></a>
-        </div>
-        <footer class="text-center tm-mb-1">
-            <p>Copyright &copy; 2020 Comparto Studio 
+                    
+                
+
+</div>
+
+<div class="container tm-pt-5 tm-pb-4 ">
+<div class="row text-center">
+</div>
+</div>
             
-            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
-        </footer>
-    </div> <!-- .container -->
-    <script src="customer/js/jquery.min.js"></script> <!-- https://jquery.com/download/ -->
-    <script src="customer/js/imagesloaded.pkgd.min.js"></script> <!-- https://imagesloaded.desandro.com/ -->
-    <script src="customer/js/isotope.pkgd.min.js"></script> <!-- https://isotope.metafizzy.co/ -->
-    <script src="customer/js/jquery.singlePageNav.min.js"></script> <!-- https://github.com/ChrisWojcik/single-page-nav -->
-    <script>
 
-        // Scroll to Top button
-        var btn = $('#button');
 
-        $(window).scroll(function () {
-            if ($(window).scrollTop() > 300) {
-                btn.addClass('show');
-            } else {
-                btn.removeClass('show');
-            }
-        });
-
-        btn.on('click', function (e) {
-            e.preventDefault();
-            $('html, body').animate({ scrollTop: 0 }, '300');
-        });
-
-        // DOM is ready
-        $(function () {
-            // Single Page Nav
-            $('#tm-nav').singlePageNav({ speed: 600 });
-
-            // Smooth Scroll (https://css-tricks.com/snippets/jquery/smooth-scrolling/)
-            $('a[href*="#"]')
-                // Remove links that don't actually link to anything
-                .not('[href="#"]')
-                .not('[href="#0"]')
-                .click(function (event) {
-                    // On-page links
-                    if (
-                        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
-                        &&
-                        location.hostname == this.hostname
-                    ) {
-                        // Figure out element to scroll to
-                        var target = $(this.hash);
-                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                        // Does a scroll target exist?
-                        if (target.length) {
-                            // Only prevent default if animation is actually gonna happen
-                            event.preventDefault();
-                            $('html, body').animate({
-                                scrollTop: target.offset().top
-                            }, 600, function () {
-                                // Callback after animation
-                                // Must change focus!
-                                var $target = $(target);
-                                $target.focus();
-                                if ($target.is(":focus")) { // Checking if the target was focused
-                                    return false;
-                                } else {
-                                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
-                                    $target.focus(); // Set focus again
-                                };
-                            });
-                        }
-                    }
-                });
-
-            /* Isotope Gallery */
-
-            // init isotope
-            var $gallery = $(".tm-gallery").isotope({
-                itemSelector: ".tm-gallery-item",
-                layoutMode: "fitRows"
-            });
-            // layout Isotope after each image loads
-            $gallery.imagesLoaded().progress(function () {
-                $gallery.isotope("layout");
-            });
-
-            $(".filters-button-group").on("click", "a", function () {
-                var filterValue = $(this).attr("data-filter");
-                $gallery.isotope({ filter: filterValue });
-            });
-
-            $(".tabgroup > div").hide();
-            $(".tabgroup > div:first-of-type").show();
-            $(".tabs a").click(function (e) {
-                e.preventDefault();
-                var $this = $(this),
-                    tabgroup = "#" + $this.parents(".tabs").data("tabgroup"),
-                    others = $this
-                        .closest("li")
-                        .siblings()
-                        .children("a"),
-                    target = $this.attr("href");
-                others.removeClass("active");
-                $this.addClass("active");
-            });
-        });
-    </script>
+<footer class="tm-bg-dark-blue">
+                <div class="container">
+                    <div class="row">
+                        <p class="col-sm-12 text-center tm-font-light tm-color-white p-4 tm-margin-b-0">
+                        Copyright &copy; <span class="tm-current-year">2022</span> Nurul Hafizah</p>        
+                    </div>
+                </div>                
+            </footer>
+        </div>
+        
+        <script src="js/jquery-1.11.3.min.js"></script>             <!-- jQuery (https://jquery.com/download/) -->
+        <script src="js/popper.min.js"></script>                    <!-- https://popper.js.org/ -->       
+        <script src="js/bootstrap.min.js"></script>                 <!-- https://getbootstrap.com/ -->
+        <script src="js/datepicker.min.js"></script>                <!-- https://github.com/qodesmith/datepicker -->
+        <script src="js/jquery.singlePageNav.min.js"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
+        <script src="slick/slick.min.js"></script>
 </body>
 </html>

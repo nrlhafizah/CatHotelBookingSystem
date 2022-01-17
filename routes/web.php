@@ -21,6 +21,7 @@ Route::get('/', function () {
 Route::get("/",[homeControl::class,"index"]);
 
 Route::get("/prof",[homeControl::class,"show"]);
+Route::get("/provprof",[homeControl::class,"show1"]);
 
 Route::get("/redirect",[homeControl::class,"redirectFunct"]);
 

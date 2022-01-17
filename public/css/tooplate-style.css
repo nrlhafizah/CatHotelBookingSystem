@@ -133,8 +133,9 @@ p {
 }
 
 #tm-section-1s {	
-	background-image: url('../img/5.png');	
-	height: 515px;
+	background-image: url('../img/pi.png');	
+	height: 350px;
+	width:100%;
 }
 
 #tm-section-5 { background-image: url('../img/bg-img-2.jpg'); }
@@ -594,7 +595,7 @@ section
 {
 	position: relative;
 	min-height: 100vh;
-	background: #b9b9b9;
+	background: rgb(192, 182, 182);
 	justify-content: center;
 	align-items: center;
 	padding: 20px;
@@ -627,7 +628,7 @@ section .container .user .imgBx
 	position: relative;
 	width: 50%;
 	height: 100%;
-	background: #fff;
+	background: rgb(255, 255, 255);
 	transition: 0.5s ;
 }
  

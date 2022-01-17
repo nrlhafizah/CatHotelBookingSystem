@@ -30,18 +30,23 @@ class homeControl extends Controller
     {
         return view("customer.profile");
     }
+    function show1()
+    {
+        return view("provider.profile");
+    }
     public function find()
     {	
     return view('home');			
     }		
     public function findSearch()
-    {			
+    {		
+         $users = DB::select('select * from search');	
     $search = Request::get("search");	
     $test = Search1::where ( 'place', 'LIKE', '%' . $search . '%' )->orWhere ( 'detail', 'LIKE', '%' . $search . '%' )->get ();
     if (count ( $test ) > 0)
-    return view ( 'home' )->withDetails ( $test )->withQuery ( $search );
+    return view ( 'home', ['users'=>$users] )->withDetails ( $test )->withQuery ( $search );
     else
-    return view ( 'home' )->withMessage ( 'No Details found. Try to search again !' );		
+    return view ( 'home', ['users'=>$users] )->withMessage ( 'No Details found. Try to search again !' );		
     }
 
 
@@ -56,7 +61,8 @@ class homeControl extends Controller
         }
         else if($typeuser=='0')
         {
-            return view('customer.custpage');
+            $users = DB::select('select * from search');
+            return view('customer.custpage', ['users'=>$users]);
      
         }
         else 
