@@ -15,7 +15,7 @@ use Validator, Redirect;
 use Session;
 
 
-use App\Models\Search1;
+use App\Models\Search;
 
 class homeControl extends Controller
 {
@@ -30,6 +30,18 @@ class homeControl extends Controller
     {
         return view("customer.profile");
     }
+    function update()
+    {
+        return view("provider.edit");
+    }
+    function booking()
+    {
+        return view("customer.booking");
+    }
+    function display()
+    {
+        return view("customer.display");
+    }
     function show1()
     {
         return view("provider.profile");
@@ -38,16 +50,16 @@ class homeControl extends Controller
     {	
     return view('home');			
     }		
-    public function findSearch()
-    {		
-         $users = DB::select('select * from search');	
-    $search = Request::get("search");	
-    $test = Search1::where ( 'place', 'LIKE', '%' . $search . '%' )->orWhere ( 'detail', 'LIKE', '%' . $search . '%' )->get ();
-    if (count ( $test ) > 0)
-    return view ( 'home', ['users'=>$users] )->withDetails ( $test )->withQuery ( $search );
-    else
-    return view ( 'home', ['users'=>$users] )->withMessage ( 'No Details found. Try to search again !' );		
-    }
+    // // public function findSearch()
+    // {		
+    //      $users = DB::select('select * from search');	
+    // $search = Request::get("search");	
+    // $test = Search1::where ( 'place', 'LIKE', '%' . $search . '%' )->orWhere ( 'detail', 'LIKE', '%' . $search . '%' )->get ();
+    // if (count ( $test ) > 0)
+    // return view ( 'home', ['users'=>$users] )->withDetails ( $test )->withQuery ( $search );
+    // else
+    // return view ( 'home', ['users'=>$users] )->withMessage ( 'No Details found. Try to search again !' );		
+    // }
 
 
     function redirectFunct()
@@ -69,7 +81,6 @@ class homeControl extends Controller
         {
             return view('provider.provpage');
         }
-
 
     }
 }

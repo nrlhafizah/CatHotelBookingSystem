@@ -79,30 +79,44 @@ https://www.tooplate.com/view/2095-level
                     </div>
                 </div>
             </div>
-    
-<?php
-if(isset($test)){
-	
-	?>
-	 <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($test as $user)
-            <tr>
-                <td>{{$user->place}}</td>
-                <td>{{$user->detail}}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-	<?php
-}
-?>
+
+
+            <br/>
+         <div class="container">
+        <form action="{{url('/search')}}" method="POST" role="search">
+          {{csrf_field()}}
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search for"><span class="input-group-btn">
+             <button type="submit" class="btn btn-info">
+         <i class="fas fa-search fa-sm"></i> Search
+        </button>
+            </span>
+            
+          </div>
+        </form> 
+      </div> <br/><br/> <br/><br/> <br/><br/>
+      <div class="container">
+        @if(isset($data))
+                <table class="table table-striped ">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Name</th>
+                             <th>Email</th>
+                        </tr>
+                    </thead>
+                     <tbody>
+                    @foreach($data as $user)
+                    <tr>
+                        <td>{{$user->place}}</td>
+                        <td>{{$user->detail}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+                </table> 
+                {!! $data->render() !!}
+                @else{{$message}}
+                @endif
+            </div>  
 
             <div class="tm-section tm-bg-img" id="tm-section-1">
                 <div class="tm-form-white ie-container-width-fix-2">
@@ -194,22 +208,6 @@ if(isset($test)){
 <div class="container tm-pt-5 tm-pb-4 ">
 <div class="row text-center">
 
-@foreach ($users as $user)
-<tr>
-    
-            
-                        <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">                            
-                            <i class="fa tm-fa-6x fa-legal tm-color-primary tm-margin-b-20"></i>
-                            <h3 class="tm-color-primary tm-article-title-1">{{ $user->id }} {{ $user->place }}</h3>
-                            <p>{{ $user->detail }}</p>
-                            <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">BOOK NOW</a>
-                        </article>
-                      
-                 
-          
-    </tr>
-@endforeach 
-   
 </div>        
 </div>
 

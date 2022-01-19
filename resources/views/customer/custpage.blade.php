@@ -178,7 +178,7 @@ https://www.tooplate.com/view/2095-level
                             <i class="fa tm-fa-6x fa-legal tm-color-primary tm-margin-b-20"></i>
                             <h3 class="tm-color-primary tm-article-title-1">{{ $user->id }} {{ $user->place }}</h3>
                             <p>{{ $user->detail }}</p>
-                            <a href="#" class="text-uppercase tm-color-primary tm-font-semibold">BOOK NOW</a>
+                            <a href="{{url('/disp')}}" class="text-uppercase tm-color-primary tm-font-semibold">BOOK NOW</a>
                         </article>
                       
                  

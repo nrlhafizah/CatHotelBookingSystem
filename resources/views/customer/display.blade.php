@@ -54,6 +54,9 @@ https://www.tooplate.com/view/2095-level
     margin-bottom: 10px;
 }
 
+a .material-icons {
+    vertical-align: middle;
+}
 
 
 .profile-page .page-header {
@@ -148,6 +151,12 @@ p {
 
 .profile-page .profile-tabs {
     margin-top: 4.284rem;
+}
+
+.nav-pills, .nav-tabs {
+    border: 0;
+    border-radius: 3px;
+    padding: 0 15px;
 }
 
 
@@ -368,9 +377,11 @@ img.rounded {
     	            </div>
                 </div>
                 <div class="box">
-                <a href="{{url('/edit')}}">EDIT PROFILE!</a>
+                <a href="{{url('/book')}}">BOOK NOW!</a>
                 </div>
-               
+                <div class="description text-center">
+                    <p>An artist of considerable range, Chet Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+                </div>
 				<div class="row">
 					<div class="col-md-6 ml-auto mr-auto">
                         <div class="profile-tabs">
@@ -402,10 +413,14 @@ img.rounded {
             <div class="tab-pane active text-center gallery" id="studio">
   				<div class="row">
                       
-                  <div class="description text-center">
-                  <img src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83079913579babb9d2c94a5941b2e69d&auto=format&fit=crop&w=751&q=80" class="rounded">
-                    <p>An artist of considerable range, Chet Faker — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
-                </div>
+  					<div class="col-md-3 ml-auto">
+  					    <img src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83079913579babb9d2c94a5941b2e69d&auto=format&fit=crop&w=751&q=80" class="rounded">
+  						<img src="https://images.unsplash.com/photo-1528249227670-9ba48616014f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=66b8e7db17b83084f16fdeadfc93b95b&auto=format&fit=crop&w=357&q=80" class="rounded">
+  					</div>
+  					<div class="col-md-3 mr-auto">
+  						<img src="https://images.unsplash.com/photo-1521341057461-6eb5f40b07ab?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=72da2f550f8cbd0ec252ad6fb89c96b2&auto=format&fit=crop&w=334&q=80" class="rounded">
+  						<img src="https://images.unsplash.com/photo-1506667527953-22eca67dd919?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6326214b7ce18d74dde5e88db4a12dd5&auto=format&fit=crop&w=750&q=80" class="rounded">
+  					</div>
   				</div>
   			</div>
             <div class="tab-pane text-center gallery" id="works">
