@@ -28,10 +28,10 @@
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="navbar-brand-wrapper d-flex align-items-center">
-          <a class="navbar-brand brand-logo" href="{{url('/redirect')}}">
+          <a class="navbar-brand brand-logo" href="index.html">
             <img src="admin/assets/images/logo.svg" alt="logo" class="logo-dark" />
           </a>
-          <a class="navbar-brand brand-logo-mini" href="{{url('/redirect')}}"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a>
+          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
           <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome Meowie dashboard!</h5>
@@ -42,10 +42,10 @@
         
             <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
               <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <img class="img-xs rounded-circle ml-2" src="admin/assets/images/faces/face28.png" alt="Profile image"> <span class="font-weight-normal"> Administrator </span></a>
+                <img class="img-xs rounded-circle ml-2" src="admin/assets/images/faces/face28.png" alt="Profile image"> <span class="font-weight-normal"> Henry Klein </span></a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <div class="dropdown-header text-center">
-                  
+
                   <p class="mb-1 mt-3">Administrator</p>
                   <p class="font-weight-light text-muted mb-0">haein@gmail.com</p>
                 </div>
@@ -84,13 +84,13 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item nav-profile">
-              <a href="{{url('/redirect')}}" class="nav-link">
+              <a href="#" class="nav-link">
                 <div class="profile-image">
                   <img class="img-xs rounded-circle" src="admin/assets/images/faces/face28.png" alt="profile image">
                   <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Jung Hae In</p>
+                <p class="profile-name">Jung Hae In</p>
                   <p class="designation">Administrator</p>
                 </div>
                 <div class="icon-container">
@@ -129,6 +129,16 @@
               </a>
             </li>
  
+              <div class="collapse" id="auth">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="admin/assets/pages/samples/login.html"> Login </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="admin/assets/pages/samples/register.html"> Register </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="admin/assets/pages/samples/error-404.html"> 404 </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="admin/assets/pages/samples/error-500.html"> 500 </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="admin/assets/pages/samples/blank-page.html"> Blank Page </a></li>
+                </ul>
+              </div>
+            </li>
         
           </ul>
         </nav>
@@ -164,66 +174,102 @@
               </div>
             </div>
             <!-- Quick Action Toolbar Ends-->
+            
+
+            <div class="container">
+        <form action="{{url('/listSearch')}}" method="POST" role="search">
+          {{csrf_field()}}
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search for"><span class="input-group-btn">
+             <button type="submit" class="btn btn-info">
+         <i class="fas fa-search fa-sm"></i> Search
+        </button>
+            </span>
+            
+          </div>
+        </form> 
+      </div> <br/><br/>
+            @if(isset($data))
             <div class="row">
-              <div class="col-md-12 grid-margin">
+              <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="d-sm-flex align-items-baseline report-summary-header">
-                          <h5 class="font-weight-semibold">System Summary</h5> <span class="ml-auto">Updated Report</span> <button class="btn btn-icons border-0 p-2"><i class="icon-refresh"></i></button>
-                        </div>
-                      </div>
+                    <div class="d-sm-flex align-items-center mb-4">
+                      <h4 class="card-title mb-sm-0">Provider List</h4>
+                      <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Products</a>
                     </div>
-                    <div class="row report-inner-cards-wrapper">
-                      <div class=" col-md -6 col-xl report-inner-card">
-                        <div class="inner-card-text">
-                          <span class="report-title">CUSTOMER</span>
-                          <h4>$32123</h4>
-                          <span class="report-count"> 2 Reports</span>
-                        </div>
-                        <div class="inner-card-icon bg-success">
-                          <i class="icon-rocket"></i>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-xl report-inner-card">
-                        <div class="inner-card-text">
-                          <span class="report-title">PROVIDER</span>
-                          <h4>95,458</h4>
-                          <span class="report-count"> 3 Reports</span>
-                        </div>
-                        <div class="inner-card-icon bg-danger">
-                          <i class="icon-briefcase"></i>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-xl report-inner-card">
-                        <div class="inner-card-text">
-                          <span class="report-title">BOOKING</span>
-                          <h4>2650</h4>
-                          <span class="report-count"> 5 Reports</span>
-                        </div>
-                        <div class="inner-card-icon bg-warning">
-                          <i class="icon-globe-alt"></i>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-xl report-inner-card">
-                        <div class="inner-card-text">
-                          <span class="report-title">RETURN</span>
-                          <h4>25,542</h4>
-                          <span class="report-count"> 9 Reports</span>
-                        </div>
-                        <div class="inner-card-icon bg-primary">
-                          <i class="icon-diamond"></i>
-                        </div>
-                      </div>
+                    <div class="table-responsive border rounded p-1">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th class="font-weight-bold">Store ID</th>
+                            <th class="font-weight-bold">Amount</th>
+                            <th class="font-weight-bold">Gateway</th>
+                            <th class="font-weight-bold">Created at</th>
+                            <th class="font-weight-bold">Paid at</th>
+                            <th class="font-weight-bold">Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($data as $user)
+                          <tr>
+                            <td>
+                              <img class="img-sm rounded-circle" src="admin/assets/images/faces/face1.jpg" alt="profile image"> {{$user->place}}
+                            </td>
+                            <td>{{$user->detail}}</td>
+                            <td><img src="admin/assets/images/dashboard/alipay.png" alt="alipay" class="gateway-icon mr-2"> alipay</td>
+                            <td>04 Jun 2019</td>
+                            <td>18 Jul 2019</td>
+                            <td>
+                              <div class="badge badge-success p-2">Paid</div>
+                            </td>
+                          </tr>
+
+                  
+                        </tbody>
+                        @endforeach
+
+                        <br/>
+         
+
+                      </table>
                     </div>
+                    
+                    
+                @endif
+               
+                
+                    
+                      {{ $data->links('vendor.pagination.custom') }}
+                        <!-- <ul class="pagination separated pagination-info">
+                          <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-left"></i></a></li>
+                          <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                          <li class="page-item"><a href="#" class="page-link">2</a></li>
+                          <li class="page-item"><a href="#" class="page-link">3</a></li>
+                          <li class="page-item"><a href="#" class="page-link">4</a></li>
+                          <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-right"></i></a></li>
+                        </ul>
+                      </nav>
+                    </div> -->
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Nurul Hafizah</span>
+            <style>
 
-            
-      
+              .w-5
+              {
+                    display:none;
+              }
+              </style>
+            </div>
           </footer>
           <!-- partial -->
         </div>

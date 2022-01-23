@@ -135,22 +135,26 @@ https://www.tooplate.com/view/2095-level
                                     <a class="nav-link" href="{{url('/prof')}}"><strong>My Profile</strong></a>
                                   </li>
                                  
+                                  <li class="nav-item">
                                   @auth
-                                    <li class="nav-item">
+                                    
                                     <a href="{{ route('logout') }}"  onclick = "event.preventDefault();
                                      document.getElementById('logout-form').submit();">
+                                     
                                     <form method="POST" action="{{ route('logout')}}">
                                     @csrf
-                                    <x-jet-responsive-nav-link  href="{{ route('logout') }}" class="nav-link"
+                                    
+                                    <a href="{{ route('logout') }}" 
                                     onclick="event.preventDefault();
-                                    this.closest('form').submit();"> LOG OUT
+                                    this.closest('form').submit();"><span class="nav-link"><strong>LOG OUT</strong></span>
                       
-                                    </x-jet-responsive-nav-link>
+                                    </a>
+  
                                     </form>
                                     </a>
-                                    </li>
+                                    
                                  @endauth
-                               
+                                 </li>
                            
                                 </ul>
                             </div>                            

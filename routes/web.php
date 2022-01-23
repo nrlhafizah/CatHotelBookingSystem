@@ -1,13 +1,9 @@
 <?php
 
-
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\homeControl;
-
-use App\Models\Search;
-
-
+use App\Http\Controllers\custControl;
+use App\Http\Controllers\adminControl;
+use App\Http\Controllers\provControl;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,46 +17,53 @@ use App\Models\Search;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get("/",[homeControl::class,"index"]);
-
-Route::get("/book",[homeControl::class,"booking"]);
-Route::get("/disp",[homeControl::class,"display"]);
-Route::get("/edit",[homeControl::class,"update"]);
-
-Route::get("/prof",[homeControl::class,"show"]);
-Route::get("/provprof",[homeControl::class,"show1"]);
 
 Route::get("/redirect",[homeControl::class,"redirectFunct"]);
 
-Route::get('/find', [homeControl::class,"find"]);
-Route::post('/findSearch', [homeControl::class,"findSearch"]);
+Route::get('/', [homeControl::class,"dispSearch"]);
+Route::any('/search',[homeControl::class,"goSearch"]);
+
+// Admin page
+
+Route::get('/listCustomer', [adminControl::class,"custSearch"]);
+Route::any('/custSearch',[adminControl::class,"custGo"]);
+
+Route::get('/listProvider', [adminControl::class,"provSearch"]);
+Route::any('/provSearch',[adminControl::class,"provGo"]);
+
+Route::get('/listRequest', [adminControl::class,"reqSearch"]);
+Route::any('/reqSearch',[adminControl::class,"reqGo"]);
+
+
+// Customer page
+  
+Route::get("/prof",[custControl::class,"show"]);
+
+Route::view('create', 'customer.booking');
+Route::POST("add",[custControl::class,'addProject']);
+
+Route::get("/disp",[custControl::class,"display"]);
+      
+
+// Provider page
+
+
+Route::get("/edit",[provControl::class,"update"]);
+
+Route::get("/provprof",[provControl::class,"show1"]);
+
+Route::get("/req",[provControl::class,"reqBook"]);
+
+
+// Middleware
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+      return view('dashboard');
+ })->name('dashboard');
 
-// Route::get("/search",[homeControl::class,"search"]);
-// Route::get('/search', 'homeControl@search')->name('home');
 
-Route::get('/', function () {
-	$data = Search::paginate(9);
-    return view('home')->withData($data);
-});
 
-Route::any('/search',function(){
-	$q = (Request::get('q'));
-	if($q != ''){
-		$data =Search::where('place','like','%'.$q.'%')->orWhere('detail','like','%'.$q.'%')->paginate(5)->setpath('');
-		$data->appends(array(
-           'q' => Request::get('q'),
-		));
-		if(count($data)>0){
-			return view('home')->withData($data);
-		}
-		return view('home')->withMessage("No Results Found!");
-	}
-});
 

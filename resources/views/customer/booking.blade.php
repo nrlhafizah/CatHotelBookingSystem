@@ -37,25 +37,26 @@
 					<div class="booking-form">
 						<div class="booking-bg"></div>
                         
-						<form>
+						<form action="/add" method="POST">
+							@csrf
 							<div class="form-header">
 								<h2>Book Your Hotel</h2>
 							</div>
 							<div class="form-group">
-								<input class="form-control" type="text" placeholder="Enter your Name">
+								<input class="form-control" name="name" type="text" placeholder="Enter your Name">
 								<span class="form-label">Name</span>
 							</div>
 							<div class="form-group">
-								<input class="form-control" type="tel" placeholder="Enter your Email">
+								<input class="form-control" name="email" type="tel" placeholder="Enter your Email">
 								<span class="form-label">Email</span>
 							</div>
 							<div class="form-group">
-								<input class="form-control" type="tel" placeholder="Enter your Phone Number">
+								<input class="form-control" name="no" type="tel" placeholder="Enter your Phone Number">
 								<span class="form-label">Phone Number</span>
 							</div>
                             <div class="form-group">
-								<select class="form-control" required>
-									<option value="" label="&nbsp;" selected hidden></option>
+								<select  name="cats" class="form-control" required>
+									<option value="cats" label="&nbsp;" selected hidden></option>
 									<option>1</option>
 									<option>2</option>
 									<option>3</option>
@@ -67,13 +68,13 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<input class="form-control" type="date" required>
+										<input name="in" class="form-control" type="date" required>
 										<span class="form-label">Check In</span>
 									</div>
 								</div>
                                 <div class="col-md-6">
 									<div class="form-group">
-										<input class="form-control" type="date" required>
+										<input name="out" class="form-control" type="date" required>
 										<span class="form-label">Check Out</span>
 									</div>
 								</div>
@@ -86,7 +87,7 @@
                                 
 							</div>
 							<div class="form-btn">
-								<button class="submit-btn">Book Now</button>
+								<button type="submit" class="submit-btn">Book Now</button>
 							</div>
 						</form>
 					</div>

@@ -14,7 +14,7 @@ use Validator, Redirect;
 
 use Session;
 
-
+use App\Models\Booking;
 use App\Models\Search;
 
 class homeControl extends Controller
@@ -26,40 +26,27 @@ class homeControl extends Controller
         $users = DB::select('select * from search');
         return view('home',['users'=>$users]);
     }
-    function show()
+    
+    function dispSearch()
     {
-        return view("customer.profile");
+        $data = Search::paginate(9);
+        return view('home')->withData($data);
     }
-    function update()
+
+    function goSearch()
     {
-        return view("provider.edit");
+        $q = (Request::get('q'));
+	    if($q != ''){
+		$data =Search::where('place','like','%'.$q.'%')->orWhere('detail','like','%'.$q.'%')->paginate(5)->setpath('');
+		$data->appends(array(
+           'q' => Request::get('q'),
+		));
+		if(count($data)>0){
+			return view('home')->withData($data);
+		}
+		return view('home')->withMessage("No Results Found!");
+	}
     }
-    function booking()
-    {
-        return view("customer.booking");
-    }
-    function display()
-    {
-        return view("customer.display");
-    }
-    function show1()
-    {
-        return view("provider.profile");
-    }
-    public function find()
-    {	
-    return view('home');			
-    }		
-    // // public function findSearch()
-    // {		
-    //      $users = DB::select('select * from search');	
-    // $search = Request::get("search");	
-    // $test = Search1::where ( 'place', 'LIKE', '%' . $search . '%' )->orWhere ( 'detail', 'LIKE', '%' . $search . '%' )->get ();
-    // if (count ( $test ) > 0)
-    // return view ( 'home', ['users'=>$users] )->withDetails ( $test )->withQuery ( $search );
-    // else
-    // return view ( 'home', ['users'=>$users] )->withMessage ( 'No Details found. Try to search again !' );		
-    // }
 
 
     function redirectFunct()
@@ -68,8 +55,9 @@ class homeControl extends Controller
 
         if($typeuser=='1')
         {
-           
-            return view('admin.adminpage');
+            $data = Search::paginate(9);
+            return view('admin.adminpage')->withData($data);
+          
         }
         else if($typeuser=='0')
         {
@@ -79,7 +67,7 @@ class homeControl extends Controller
         }
         else 
         {
-            return view('provider.provpage');
+            return view('provider.profile');
         }
 
     }

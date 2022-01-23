@@ -57,22 +57,26 @@ https://www.tooplate.com/view/2095-level
                                   <li class="nav-item">
                                     <a class="nav-link" href="{{url('/prof')}}"><strong>My Profile</strong></a>
                                   </li>
-                                 
+                                  <li class="nav-item">
                                   @auth
-                                    <li class="nav-item">
-                                    <a href="{{ route('logout') }}" onclick = "event.preventDefault();
+                                    
+                                    <a href="{{ route('logout') }}"  onclick = "event.preventDefault();
                                      document.getElementById('logout-form').submit();">
+                                     
                                     <form method="POST" action="{{ route('logout')}}">
                                     @csrf
-                                    <x-jet-responsive-nav-link  href="{{ route('logout') }}" class="nav-link"
+                                    
+                                    <a href="{{ route('logout') }}" 
                                     onclick="event.preventDefault();
-                                    this.closest('form').submit();"> LOG OUT
+                                    this.closest('form').submit();"><span class="nav-link"><strong>LOG OUT</strong></span>
                       
-                                    </x-jet-responsive-nav-link>
+                                    </a>
+  
                                     </form>
                                     </a>
-                                    </li>
+                                    
                                  @endauth
+                                 </li>
                                
                            
                                 </ul>
@@ -86,71 +90,14 @@ https://www.tooplate.com/view/2095-level
                     <div class="container ie-h-align-center-fix">
                         <div class="row">
                             
-                                <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
-                                    <div class="form-row tm-search-form-row">
+                                <form action="{{url('/search')}}" method="POST" role="search" class="tm-search-form tm-section-pad-2">
+                                {{csrf_field()}}
+                                <div class="form-row tm-search-form-row">
                                         <div class="form-group tm-form-element tm-form-element-100">
                                             <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
                                             <input name="city" type="text" class="form-control" id="inputCity" placeholder="Type your destination...">
                                         </div>
-                                        <div class="form-group tm-form-element tm-form-element-50">
-                                            <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                                            <input name="check-in" type="text" class="form-control" id="inputCheckIn" placeholder="Check In">
-                                        </div>
-                                        <div class="form-group tm-form-element tm-form-element-50">
-                                            <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                                            <input name="check-out" type="text" class="form-control" id="inputCheckOut" placeholder="Check Out">
-                                        </div>
-                                    </div>
-                                    <div class="form-row tm-search-form-row">
-                                        <div class="form-group tm-form-element tm-form-element-2">                                            
-                                            <select name="adult" class="form-control tm-select" id="adult">
-                                                <option value="">Adult</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <i class="fa fa-2x fa-user tm-form-element-icon"></i>
-                                        </div>
-                                        <div class="form-group tm-form-element tm-form-element-2">                                            
-                                            <select name="children" class="form-control tm-select" id="children">
-                                                <option value="">Children</option>
-                                                <option value="0">0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <i class="fa fa-user tm-form-element-icon tm-form-element-icon-small"></i>
-                                        </div>
-                                        <div class="form-group tm-form-element tm-form-element-2">
-                                            <select name="room" class="form-control tm-select" id="room">
-                                                <option value="">Room</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                            <i class="fa fa-2x fa-bed tm-form-element-icon"></i>
-                                        </div>
+                                        
                                         <div class="form-group tm-form-element tm-form-element-2">
                                             <button type="submit" class="btn btn-primary tm-btn-search">Check Availability</button>
                                         </div>

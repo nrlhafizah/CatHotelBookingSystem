@@ -79,58 +79,20 @@ https://www.tooplate.com/view/2095-level
                     </div>
                 </div>
             </div>
-
-
-            <br/>
-         <div class="container">
-        <form action="{{url('/search')}}" method="POST" role="search">
-          {{csrf_field()}}
-          <div class="input-group">
-            <input type="text" class="form-control" name="q" placeholder="Search for"><span class="input-group-btn">
-             <button type="submit" class="btn btn-info">
-         <i class="fas fa-search fa-sm"></i> Search
-        </button>
-            </span>
-            
-          </div>
-        </form> 
-      </div> <br/><br/> <br/><br/> <br/><br/>
-      <div class="container">
-        @if(isset($data))
-                <table class="table table-striped ">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>Name</th>
-                             <th>Email</th>
-                        </tr>
-                    </thead>
-                     <tbody>
-                    @foreach($data as $user)
-                    <tr>
-                        <td>{{$user->place}}</td>
-                        <td>{{$user->detail}}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-                </table> 
-                {!! $data->render() !!}
-                @else{{$message}}
-                @endif
-            </div>  
-
             <div class="tm-section tm-bg-img" id="tm-section-1">
                 <div class="tm-form-white ie-container-width-fix-2">
+                    
                     <div class="container ie-h-align-center-fix">
                         <div class="row">
                             
-                                <form action="/findSearch" method="POST" class="tm-search-form tm-section-pad-2">
-                                @csrf
+                                <form action="{{url('/search')}}" method="POST" role="search" class="tm-search-form tm-section-pad-2">
+                                {{csrf_field()}}
                                     <div class="form-row tm-search-form-row">
                                         <div class="form-group tm-form-element tm-form-element-100">
                                             <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-                                            <input name="search" type="search" class="form-control" id="search" placeholder="Type your destination...">
+                                            <input name="q" type="search" class="form-control" id="search" placeholder="Type your destination...">
                                         </div>
-                                        <div class="form-group tm-form-element tm-form-element-50">
+                                        <!-- <div class="form-group tm-form-element tm-form-element-50">
                                             <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
                                             <input name="check-in" type="text" class="form-control" id="inputCheckIn" placeholder="Check In">
                                         </div>
@@ -188,9 +150,9 @@ https://www.tooplate.com/view/2095-level
                                                 <option value="10">10</option>
                                             </select>
                                             <i class="fa fa-2x fa-bed tm-form-element-icon"></i>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group tm-form-element tm-form-element-2">
-                                            <button type="search" name="search" class="btn btn-primary tm-btn-search">Check Availability</button>
+                                            <button type="submit" name="search" class="btn btn-primary tm-btn-search">Check Availability</button>
                                         </div>
                                       </div>
                                       <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
@@ -207,9 +169,34 @@ https://www.tooplate.com/view/2095-level
 
 <div class="container tm-pt-5 tm-pb-4 ">
 <div class="row text-center">
-
+@if(isset($data))
+@foreach ($data as $user)
+<tr>
+    
+            
+                        <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">                            
+                            <i class="fa tm-fa-6x fa-legal tm-color-primary tm-margin-b-20"></i>
+                            <h3 class="tm-color-primary tm-article-title-1">{{ $user->id }} {{ $user->place }}</h3>
+                            <p>{{ $user->detail }}</p>
+                            <a href="{{url('/disp')}}" class="text-uppercase tm-color-primary tm-font-semibold">BOOK NOW</a>
+                        </article>
+                      
+                 
+          
+    </tr>
+@endforeach 
+{!! $data->render() !!}
+                @else{{$message}}
+                @endif
 </div>        
 </div>
+
+            <style>
+            .w-5
+              {
+                    display:none;
+              }
+              </style>
 
             
            
