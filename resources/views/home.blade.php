@@ -65,7 +65,7 @@ https://www.tooplate.com/view/2095-level
                             </li>
                             @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link " href="{{ route('register') }}">Register</a>
+                                <a class="nav-link " href="{{url('/befregister')}}">Register</a>
                             </li>    
                             @endif
                             @endauth

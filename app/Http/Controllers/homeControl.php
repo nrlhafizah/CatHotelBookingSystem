@@ -48,18 +48,23 @@ class homeControl extends Controller
 	}
     }
 
+    function before()
+    {
+        return view('befregister');
+    }
+
 
     function redirectFunct()
     {
         $typeuser=Auth::user()->usertype;
 
-        if($typeuser=='1')
+        if($typeuser=='0')
         {
             $data = Search::paginate(9);
             return view('admin.adminpage')->withData($data);
           
         }
-        else if($typeuser=='0')
+        else if($typeuser=='1')
         {
             $users = DB::select('select * from search');
             return view('customer.custpage', ['users'=>$users]);

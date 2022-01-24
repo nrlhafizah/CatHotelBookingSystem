@@ -26,6 +26,8 @@ Route::get("/redirect",[homeControl::class,"redirectFunct"]);
 Route::get('/', [homeControl::class,"dispSearch"]);
 Route::any('/search',[homeControl::class,"goSearch"]);
 
+Route::get("/befregister",[homeControl::class,"before"]);
+
 // Admin page
 
 Route::get('/listCustomer', [adminControl::class,"custSearch"]);

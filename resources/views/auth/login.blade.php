@@ -9,57 +9,41 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
     <link rel="stylesheet" href="css/bootstrap.min.css">                                      <!-- Bootstrap style -->
-    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="css/datepicker.css"/>
-    <link rel="stylesheet" href="css/tooplate-style.css">      
+    <link rel="stylesheet" href="css/tooplate-style.css">    
+	<link rel="stylesheet" href="login1/css/style.css">
+
 
 </head>
 <body>
-<div class="tm-main-content" id="top">
-            <div class="tm-top-bar-bg"></div>
-            <div class="tm-top-bar" id="tm-top-bar">
-                <!-- Top Navbar -->
-                <div class="container">
-                    <div class="row">
-                        
-                        <nav class="navbar navbar-expand-lg narbar-light">
-                            <a class="navbar-brand mr-auto" href="#">
-                                <img src="img/cat1.png" alt="Site logo">
-                                MEOWIE
-                            </a>
-                            <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
-                                <ul class="navbar-nav ml-auto">
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="{{url('/')}}"><strong>Home</strong> <span class="sr-only">(current)</span></a>
-                                  </li>
-                                  
-                            
-                                  
-                                                       
-                                </ul>
-                            </div>                            
-                        </nav>            
-                    </div>
-                </div>
-            </div>
+
         
 
-    <section>
-        
-        <div class="container">
-            <div class="user singinBx">
-                <div class="imgBx"><img src="Picture1.jpg" width="100px" height="100px" alt=""></div>
-                <div class="formBx">
-                   
-                
-    <x-jet-authentication-card>
+            <section class="ftco-section">
+            <button onclick="history.back()">Go Back</button><br><br>
+		<div class="container">
+			<div class="row justify-content-center">
+		
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="img" style="background-image: url(login1/images/30.jpg);">
+			      </div>
+						<div class="login-wrap p-4 p-md-5">
+			      	<div class="d-flex">
+			      		<div class="w-100">
+			      			<h3 class="mb-4">Sign In</h3>
+			      		</div>
+								<div class="w-100">
+									<p class="social-media d-flex justify-content-end">
+										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+									</p>
+								</div>
+			      	</div>
+                      <x-jet-authentication-card>
         <x-slot name="logo">
-            <!-- <x-jet-authentication-card-logo />  -->
-            <h2>SIGN IN</h2><br>
+    
         </x-slot>
 
         <x-jet-validation-errors  />
@@ -69,35 +53,56 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
+        <form class="signin-form" method="POST" action="{{ route('login') }}">
             @csrf
 
-            <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <input id="email"  type="email" name="email" :value="old('email')" required autofocus />
+
+            <div class="form-group mb-3">
+                <label class="label" for="name">Email</label>
+                <input type="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <input id="password" type="password" name="password" required autocomplete="current-password" />
+            <div class="form-group mb-3">
+                <label class="label" for="password">Password</label>
+                <input id="password"  class="form-control" type="password" name="password" required autocomplete="current-password" />
             </div>
 
+            <br>
 
-           <br>
-                <x-jet-button class="btn btn-primary tm-btn-search">
+           <div class="form-group">
+                <x-jet-button class="form-control btn btn-primary rounded submit px-3">
                     {{ __('Log in') }}
                 </x-jet-button>
+            </div>
 
                 
             </div>
-        </form>
-        </x-jet-authentication-card>
 
-                </div>
-            </div>
- 
-        </div>
-    </section>
+            <!-- <div class="form-group d-md-flex">
+		            	<div class="w-50 text-left">
+			            	<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+									  <input type="checkbox" checked>
+									  <span class="checkmark"></span>
+										</label>
+									</div>
+									
+		            </div> -->
+        </form>
+        <p class="text-center">Not a member? <a href="{{url('/befregister')}}">Sign Up</a></p>
+        </x-jet-authentication-card>
+                      
+		        </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="login1/js/jquery.min.js"></script>
+  <script src="login1/js/popper.js"></script>
+  <script src="login1/js/bootstrap.min.js"></script>
+  <script src="login1/js/main.js"></script>
+
 </body>
 </html>
 

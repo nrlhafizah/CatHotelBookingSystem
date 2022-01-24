@@ -20,6 +20,8 @@ a:focus {
 	outline: none;
 }
 
+
+
 .tm-position-relative { position: relative; }
 .tm-flex-align-center { align-items: center; }
 .tm-fa-6x { font-size: 6em; }
@@ -132,6 +134,12 @@ p {
 	height: 300px;
 }
 
+#tm-section-16 {	
+	background: white;	
+	height: 700px;
+	
+}
+
 #tm-section-1s {	
 	background-image: url('../img/pi.png');	
 	height: 350px;
@@ -202,6 +210,7 @@ p {
 .tm-form-element { position: relative; }
 .tm-form-element:last-child { margin-right: 0; }
 .tm-form-white { background: white; }
+.tm-form-dk { background: #5F9B7C; }
 
 .tm-form-element-icon {
 	color: #0c0505;
@@ -571,6 +580,10 @@ video {
 @media all and (max-width: 1199px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
 	.ie-container-width-fix { width: 960px; }
 }
+
+ .ie-container-width-fix1 { width: 830px; height: 380px;}
+
+
 
 @media all and (max-width: 600px) {
 	.ie-container-width-fix-2 { width: 800px; }
