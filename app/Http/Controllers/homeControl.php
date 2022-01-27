@@ -16,6 +16,7 @@ use Session;
 
 use App\Models\Booking;
 use App\Models\Search;
+use App\Models\User;
 
 class homeControl extends Controller
 {
@@ -29,8 +30,10 @@ class homeControl extends Controller
     
     function dispSearch()
     {
-        $data = Search::paginate(9);
-        return view('home')->withData($data);
+        $data = User::paginate(9);
+        $x=DB::table('users')
+        ->join('registered_provider','users.id', "=", "registered_provider.reg_id")->get();
+        return view("home",['data'=>$data, 'x' => $x]);
     }
 
     function goSearch()
@@ -54,6 +57,12 @@ class homeControl extends Controller
     }
 
 
+    function showProfile($id)
+    {
+    $data=User::find($id);
+    return view('customer.display', ['data'=>$data]);
+    }
+
     function redirectFunct()
     {
         $typeuser=Auth::user()->usertype;
@@ -76,4 +85,6 @@ class homeControl extends Controller
         }
 
     }
+
+
 }

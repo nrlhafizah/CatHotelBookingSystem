@@ -6,7 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Meowie</title>
-    <link rel="shortcut icon" type="cat/png" href="img/cat.png">
+    <link rel="shortcut icon" type="cat/png" href="{{ asset ('img/cat.png')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset ('css/bootstrap.min.css')}}">                                      <!-- Bootstrap style -->
+    <link rel="stylesheet" type="text/css" href="{{asset ('slick/slick.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset ('slick/slick-theme.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/datepicker.css')}}"/>
+    <link rel="stylesheet" href="{{ asset ('css/tooplate-style.css')}}"/>             
+    
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
 
     @include("customer.displaycss")
 
@@ -22,7 +35,7 @@
                         
                         <nav class="navbar navbar-expand-lg ">
                             <a class="navbar-brand mr-auto" href="#">
-                                <img src="img/cat1.png" alt="Site logo">
+                                <img src="{{ asset ('img/cat1.png')}}" alt="Site logo">
                                 MEOWIE
                             </a>
                             <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +77,7 @@
                                 </ul>
                             </div>                            
                         </nav>            
-                  
+                   
                 </div>
             </div>
 <div class="profile-page">
@@ -179,12 +192,12 @@
             </footer>
         </div>
       <!-- load JS files -->
-      <script src="js/jquery-1.11.3.min.js"></script>             <!-- jQuery (https://jquery.com/download/) -->
-        <script src="js/popper.min.js"></script>                    <!-- https://popper.js.org/ -->       
-        <script src="js/bootstrap.min.js"></script>                 <!-- https://getbootstrap.com/ -->
-        <script src="js/datepicker.min.js"></script>                <!-- https://github.com/qodesmith/datepicker -->
-        <script src="js/jquery.singlePageNav.min.js"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
-        <script src="slick/slick.min.js"></script>                  <!-- http://kenwheeler.github.io/slick/ -->
+      <script src="{{ asset ('js/jquery-1.11.3.min.js')}}"></script>             <!-- jQuery (https://jquery.com/download/) -->
+        <script src="{{ asset ('js/popper.min.js')}}"></script>                    <!-- https://popper.js.org/ -->       
+        <script src="{{ asset ('js/bootstrap.min.js')}}"></script>                 <!-- https://getbootstrap.com/ -->
+        <script src="{{ asset ('js/datepicker.min.js')}}"></script>                <!-- https://github.com/qodesmith/datepicker -->
+        <script src="{{ asset ('js/jquery.singlePageNav.min.js')}}"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
+        <script src="{{ asset ('slick/slick.min.js')}}"></script>                  <!-- http://kenwheeler.github.io/slick/ -->
         <script>
 
 

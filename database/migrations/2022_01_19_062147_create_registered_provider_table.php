@@ -14,7 +14,8 @@ class CreateRegisteredProviderTable extends Migration
     public function up()
     {
         Schema::create('registered_provider', function (Blueprint $table) {
-            $table->bigIncrements('reg_id')->unsigned();
+            $table->id();
+            $table->integer('reg_id')->unsigned();
             $table->string('name');
             $table->string('email');
             $table->string('updated_by')->nullable();

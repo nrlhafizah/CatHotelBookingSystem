@@ -108,24 +108,24 @@ https://www.tooplate.com/view/2095-level
                 </div>                  
             </div>
            
-
+ 
 <div class="container tm-pt-5 tm-pb-4 ">
 <div class="row text-center">
 @if(isset($data))
 @foreach ($data as $user)
+@if ($user->usertype=="2")
 <tr>
     
             
                         <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">                            
                             <i class="fa tm-fa-6x fa-legal tm-color-primary tm-margin-b-20"></i>
-                            <h3 class="tm-color-primary tm-article-title-1">{{ $user->id }} {{ $user->place }}</h3>
-                            <p>{{ $user->detail }}</p>
-                            <a href="{{url('/disp')}}" class="text-uppercase tm-color-primary tm-font-semibold">BOOK NOW</a>
+                            <h3 class="tm-color-primary tm-article-title-1">{{ $user->id }} {{ $user->name }}</h3>
+                            <p>{{ $user->email }}</p>
+                            <a href={{"show/".$user['id']}} class="text-uppercase tm-color-primary tm-font-semibold">BOOK NOW</a>
                         </article>
                       
-                 
-          
     </tr>
+    @endif
 @endforeach 
 {!! $data->render() !!}
                 @else{{$message}}

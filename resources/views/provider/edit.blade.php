@@ -88,21 +88,7 @@ body{
     <label for="psw"><b>Client</b></label>
     <input type="text" placeholder="Enter Client" name="client" value=""required>
 
-    <b>Project Stage</b><br>
-									<select width=200 style="width: 200px " name="stage" id="stage" value="">
-    								<option value="Inception">Inception</option>
-  									<option value="Milestone 1">Milestone 1</option>
-  									<option value="Milestone 2">Milestone 2</option>
-  									<option value="Final Report">Final Report</option>
-									  <option value="Closing">Closing</option>
-									</select><br><br>
-  <b>Project Progress</b><br>						
-									  <select width=200 style="width: 200px" name="progress" id="progress" value="">
-    								<option value="On track">On track</option>
-  									<option value="Delayed">Delayed</option>
-  									<option value="Extended">Extended</option>
-  									<option value="Completed">Completed</option>
-									</select><br><br>
+    
 
   <label for="members"><b> Team Member</b></label><br><br>
    

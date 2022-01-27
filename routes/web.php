@@ -59,12 +59,21 @@ Route::get("/provprof",[provControl::class,"show1"]);
 
 Route::get("/req",[provControl::class,"reqBook"]);
 
+// test
+
+Route::group(['middleware' => ['auth']],function(){
+
+Route::get("show/{id}",[homeControl::class,"showProfile"]);
+});
 
 // Middleware
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
       return view('dashboard');
  })->name('dashboard');
+
+
+
 
 
 
