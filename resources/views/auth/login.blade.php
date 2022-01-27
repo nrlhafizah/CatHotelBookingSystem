@@ -18,7 +18,7 @@
 
         
 
-            <section class="ftco-section">
+<section class="ftco-section">
             <button onclick="history.back()">Go Back</button><br><br>
 		<div class="container">
 			<div class="row justify-content-center">
@@ -32,14 +32,9 @@
 						<div class="login-wrap p-4 p-md-5">
 			      	<div class="d-flex">
 			      		<div class="w-100">
-			      			<h3 class="mb-4">Sign In</h3>
+			      			<h3 class="mb-4">SIGN IN</h3>
 			      		</div>
-								<div class="w-100">
-									<p class="social-media d-flex justify-content-end">
-										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
-										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
-									</p>
-								</div>
+								
 			      	</div>
                       <x-jet-authentication-card>
         <x-slot name="logo">
