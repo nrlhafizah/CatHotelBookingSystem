@@ -76,24 +76,15 @@ body{
 
     <form action="/action" method="post" class="form-container">
     @csrf
-
+<!-- 
     <b>Project Name</b><br>
-    <input type="text" value=""  name="pname" readonly><br>
+    <input type="text" value=""  name="pname" readonly><br> -->
 
-  
+    <label for="psw"><b>Place</b></label>
+    <input type="text" placeholder="Enter place" name="place" value=""required>
 
-    <label for="psw"><b>Cost (In RM)</b></label>
-    <input type="text" placeholder="Enter Cost" name="cost" value=""required>
-
-    <label for="psw"><b>Client</b></label>
-    <input type="text" placeholder="Enter Client" name="client" value=""required>
-
-    
-
-  <label for="members"><b> Team Member</b></label><br><br>
-   
-
-			
+    <label for="psw"><b>Detail</b></label>
+    <input type="text" placeholder="Enter detail" name="detail" value=""required>
 
     <br><br><button type="submit" name="project_id" value="">UPDATE</button>
 

@@ -66,6 +66,15 @@ Route::group(['middleware' => ['auth']],function(){
 Route::get("show/{id}",[homeControl::class,"showProfile"]);
 });
 
+// Route::view('edit', 'provider.edit');
+// Route::POST("action",[provControl::class,'updateProject']);
+
+// Route::get("/action",[provControl::class,"showForm"]);
+// Route::get("/upd{id}",[provControl::class,"showDetail"]);
+
+Route::POST("action",[provControl::class,'addProvider']);
+Route::get("/createproject",[provControl::class,"show"]);
+
 // Middleware
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

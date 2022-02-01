@@ -1,16 +1,4 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset ('css/bootstrap.min.css')}}">                                      <!-- Bootstrap style -->
-    <link rel="stylesheet" type="text/css" href="{{asset ('slick/slick.css')}}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset ('slick/slick-theme.css')}}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset ('css/datepicker.css')}}"/>
-    <link rel="stylesheet" href="{{ asset ('css/tooplate-style.css')}}"/>             
-    
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-    
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
    
 <style>
 
