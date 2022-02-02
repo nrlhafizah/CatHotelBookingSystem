@@ -61,7 +61,7 @@ https://www.tooplate.com/view/2095-level
                             </x-app-layout>
                             @else
                             <li class="nav-item">
-                                <a class="nav-link " href="{{ route('login') }}">Login</a>
+                                <a class="nav-link " href="{{url('/beflogin')}}">Login</a>
                             </li>
                             @if (Route::has('register'))
                             <li class="nav-item">

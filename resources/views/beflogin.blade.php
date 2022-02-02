@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,26 +54,19 @@
 
 <section id="home">
 	<div class="container">
-		<div class="row">
+		<div >
 				<div class="home-thumb">
 
                     <h3 class="wow fadeInUp" data-wow-delay="0.6s">Are you looking for a cat hotel? Let's join us as a <strong>customer</strong> or are you here for a business? Let's join us as a <strong>provider</strong> :)</h3>
           			
-          			@if (Route::has('login'))
-                            
-                            @auth
-                            <x-app-layout>
+          	
 
-                            </x-app-layout>
-                            @else
+                            <a href="{{ route('login') }}" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">LOGIN AS PROVIDER</a>
 
-                            <a href="{{url('/form')}}" class="btn btn-lg btn-default smoothScroll wow fadeInUp hidden-xs" data-wow-delay="0.8s">REGISTER AS PROVIDER</a>
-                            @if (Route::has('register'))
-                            <a href="{{ route('register') }}"   class="btn btn-lg btn-success smoothScroll wow fadeInUp" data-wow-delay="1.0s">REGISTER AS CUSTOMER</a>
-                            @endif
-                            @endauth
+                            <a href="{{ route('login') }}"   class="btn btn-lg btn-success smoothScroll wow fadeInUp" data-wow-delay="1.0s">LOGIN AS CUSTOMER</a>
+
                         </div>
-                    @endif      
+  
                         </div>
 			</div>
 		</div>

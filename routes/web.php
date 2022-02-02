@@ -26,7 +26,9 @@ Route::get("/redirect",[homeControl::class,"redirectFunct"]);
 Route::get('/', [homeControl::class,"dispSearch"]);
 Route::any('/search',[homeControl::class,"goSearch"]);
 
-Route::get("/befregister",[homeControl::class,"before"]);
+Route::get("/befregister",[homeControl::class,"beforeReg"]);
+Route::get("/beflogin",[homeControl::class,"beforeLog"]);
+Route::get("/form",[homeControl::class,"formReg"]);
 
 // Admin page
 

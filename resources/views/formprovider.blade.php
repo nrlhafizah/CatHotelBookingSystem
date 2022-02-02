@@ -36,55 +36,52 @@
 			      		</div>
 								
 			      	</div>
-                      <x-jet-authentication-card>
-        <x-slot name="logo">
-    
-        </x-slot>
-
-        <x-jet-validation-errors  />
-                              @if (session('status'))
+     
             <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
+
             </div>
-        @endif
+  
 
         <form class="signin-form" method="POST" action="{{ route('login') }}">
-            @csrf
+  
 
 
             <div class="form-group mb-3">
-                <label class="label" for="name">Email</label>
-                <input type="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus />
+                <label class="label" for="name">Name</label>
+                <input type="name" class="form-control" type="name" name="name" required/>
             </div>
 
             <div class="form-group mb-3">
-                <label class="label" for="password">Password</label>
-                <input id="password"  class="form-control" type="password" name="password" required autocomplete="current-password" />
+                <label class="label" for="password">Email</label>
+                <input id="email"  class="form-control" type="email" name="email" required/>
             </div>
+            <div class="form-group mb-3">
+                <label class="label" for="password">Phone Number</label>
+                <input id="no"  class="form-control" type="no" name= "no" required/>
+            </div>
+            <div class="form-group mb-3">
+                <label class="label" for="password">Hotel Name</label>
+                <input id="hname"  class="form-control" type="hname" name="hname" required/>
+            </div>
+            <div class="form-group mb-3">
+                <label class="label" for="password">SSM Number</label>
+                <input id="ssm"  class="form-control" type="ssm" name="ssm" required/>
+            </div>
+
 
             <br>
- 
-           <div class="form-group">
-                <x-jet-button class="form-control btn btn-primary rounded submit px-3">
-                    {{ __('Log in') }}
-                </x-jet-button>
+            <div class="form-group">
+                <button class="form-control btn btn-primary rounded submit px-3">
+                    Register
+                </button>
             </div>
+
 
                 
-            </div>
 
-            <!-- <div class="form-group d-md-flex">
-		            	<div class="w-50 text-left">
-			            	<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
-									  <input type="checkbox" checked>
-									  <span class="checkmark"></span>
-										</label>
-									</div>
-									
-		            </div> -->
         </form>
-        <p class="text-center">Not a member? <a href="{{url('/befregister')}}">Sign Up</a></p>
-        </x-jet-authentication-card>
+
+
                       
 		        </div>
 		      </div>
@@ -100,4 +97,3 @@
 
 </body>
 </html>
-

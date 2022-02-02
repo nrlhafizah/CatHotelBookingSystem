@@ -51,9 +51,18 @@ class homeControl extends Controller
 	}
     }
 
-    function before()
+    function beforeReg()
     {
         return view('befregister');
+    }
+    function beforeLog()
+    {
+        return view('beflogin');
+    }
+
+    function formReg()
+    {
+        return view('formprovider');
     }
 
 
