@@ -42,9 +42,9 @@
             </div>
   
 
-        <form class="signin-form" method="POST" action="{{ route('login') }}">
+        <form class="signin-form" method="POST" action="/addProv">
   
-
+        @csrf
 
             <div class="form-group mb-3">
                 <label class="label" for="name">Name</label>
@@ -57,15 +57,15 @@
             </div>
             <div class="form-group mb-3">
                 <label class="label" for="password">Phone Number</label>
-                <input id="no"  class="form-control" type="no" name= "no" required/>
+                <input id="no"  class="form-control" type="number" name= "no" required/>
             </div>
             <div class="form-group mb-3">
                 <label class="label" for="password">Hotel Name</label>
-                <input id="hname"  class="form-control" type="hname" name="hname" required/>
+                <input id="hname"  class="form-control" type="text" name="hname" required/>
             </div>
             <div class="form-group mb-3">
                 <label class="label" for="password">SSM Number</label>
-                <input id="ssm"  class="form-control" type="ssm" name="ssm" required/>
+                <input id="ssm"  class="form-control" type="number" name="ssm" required/>
             </div>
 
 

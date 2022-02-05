@@ -30,6 +30,10 @@ Route::get("/befregister",[homeControl::class,"beforeReg"]);
 Route::get("/beflogin",[homeControl::class,"beforeLog"]);
 Route::get("/form",[homeControl::class,"formReg"]);
 
+Route::view('provForm', 'formprovider');
+Route::POST("addProv",[homeControl::class,"newProvider"]);
+
+
 // Admin page
 
 Route::get('/listCustomer', [adminControl::class,"custSearch"]);
@@ -39,7 +43,7 @@ Route::get('/listProvider', [adminControl::class,"provSearch"]);
 Route::any('/provSearch',[adminControl::class,"provGo"]);
 
 Route::get('/listRequest', [adminControl::class,"reqSearch"]);
-Route::any('/reqSearch',[adminControl::class,"reqGo"]);
+Route::any('/reqSearch',[adminControl::class,"reqGo"]); 
 
 
 // Customer page
@@ -63,6 +67,8 @@ Route::get("/req",[provControl::class,"reqBook"]);
 
 // test
 
+Route::get("/reg",[adminControl::class,"regprov"]);
+
 Route::group(['middleware' => ['auth']],function(){
 
 Route::get("show/{id}",[homeControl::class,"showProfile"]);
@@ -76,6 +82,9 @@ Route::get("show/{id}",[homeControl::class,"showProfile"]);
 
 Route::POST("action",[provControl::class,'addProvider']);
 Route::get("/createproject",[provControl::class,"show"]);
+
+Route::view('addprov', 'auth.registerprov');
+Route::POST("addprovider",[adminControl::class,'addprov']);
 
 // Middleware
 

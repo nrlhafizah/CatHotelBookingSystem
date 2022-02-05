@@ -1,17 +1,34 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Request;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Booking;
+use App\Models\User;
 use App\Models\Search;
+use App\Models\Registered;
+
+use Illuminate\Support\Facades\Validator;
+use Laravel\Fortify\Contracts\CreatesNewUsers;
+use Laravel\Fortify\PasswordValidationRules;
+use Laravel\Jetstream\Jetstream;
+use Laravel\Fortify\Rules\Password;
+use Carbon\Carbon;
 
 class adminControl extends Controller
 {
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+
     //Customer Management 
     function custSearch()
     {
-        $data = Search::paginate(9);
+        $data = User::paginate(9);
         return view('admin.customer')->withData($data);
     }
 
@@ -19,7 +36,7 @@ class adminControl extends Controller
     {
         $q = (Request::get('q'));
 	    if($q != ''){
-		$data =Search::where('place','like','%'.$q.'%')->orWhere('detail','like','%'.$q.'%')->paginate(5)->setpath('');
+		$data =User::where('name','like','%'.$q.'%')->orWhere('email','like','%'.$q.'%')->paginate(5)->setpath('');
 		$data->appends(array(
            'q' => Request::get('q'),
 		));
@@ -34,7 +51,7 @@ class adminControl extends Controller
     //Provider Management 
     function provSearch()
     {
-        $data = Search::paginate(9);
+        $data = User::paginate(9);
         return view('admin.provider')->withData($data);
     }
 
@@ -42,7 +59,7 @@ class adminControl extends Controller
     {
         $q = (Request::get('q'));
 	    if($q != ''){
-		$data =Search::where('place','like','%'.$q.'%')->orWhere('detail','like','%'.$q.'%')->paginate(5)->setpath('');
+		$data =User::where('name','like','%'.$q.'%')->orWhere('email','like','%'.$q.'%')->paginate(5)->setpath('');
 		$data->appends(array(
            'q' => Request::get('q'),
 		));
@@ -57,7 +74,7 @@ class adminControl extends Controller
     //Request Management 
     function reqSearch()
     {
-        $data = Search::paginate(9);
+        $data = Registered::paginate(9);
         return view('admin.request')->withData($data);
     }
 
@@ -65,7 +82,7 @@ class adminControl extends Controller
     {
         $q = (Request::get('q'));
 	    if($q != ''){
-		$data =Search::where('place','like','%'.$q.'%')->orWhere('detail','like','%'.$q.'%')->paginate(5)->setpath('');
+		$data =Registered::where('name','like','%'.$q.'%')->orWhere('email','like','%'.$q.'%')->paginate(5)->setpath('');
 		$data->appends(array(
            'q' => Request::get('q'),
 		));
@@ -75,4 +92,52 @@ class adminControl extends Controller
 		return view('admin.request')->withMessage("No Results Found!");
 	}
     }
+
+
+    function regprov()
+    {
+        return view('auth.registerprov');
+    }
+
+
+
+    protected function addprov(Request $request, User $user)
+    {
+
+      //Check Validation Request
+      $validate = $request->validate(
+        //Check Validation
+        [
+          'name' => ['required'],
+          'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+          'password' => ['required'],
+
+        ],
+        //Error Message
+        [
+          'name.required' => 'Firt Name is required',
+          'email.required' => 'Email is required',
+          'user_password.required' => 'Password is required',
+
+        ]
+      );
+
+      //If Validate Success
+      if($validate){
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+
+
+        //Execute Query
+        $user->save();
+
+
+        //If Success
+        return redirect()->route('login')
+                          ->with("message", "Account Succesffully Created");
+     }
+    }
+
 }

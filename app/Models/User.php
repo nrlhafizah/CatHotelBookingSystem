@@ -59,4 +59,9 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    protected function passwordRules()
+    {
+        return ['required', 'string', new Password, 'confirmed'];
+    }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 
-use Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
@@ -17,11 +17,12 @@ use Session;
 use App\Models\Booking;
 use App\Models\Search;
 use App\Models\User;
+use App\Models\Registered;
 
 class homeControl extends Controller
 {
     //
-
+ 
     function index()
     {
         $users = DB::select('select * from search');
@@ -93,6 +94,20 @@ class homeControl extends Controller
             return view('provider.profile');
         }
 
+    }
+
+    function newProvider(Request $req)
+    {
+        $new= new Registered;
+
+        $new->name=$req->name;
+        $new->email=$req->email;
+        $new->phoneNumber=$req->no;
+        $new->hotelName=$req->hname;
+        $new->SSM=$req->ssm;
+        $new->save();
+
+        return view("success");
     }
 
 

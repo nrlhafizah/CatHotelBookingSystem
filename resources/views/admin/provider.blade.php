@@ -158,16 +158,16 @@
                   </div>
                   <div class="d-md-flex row m-0 quick-action-btns" role="group" aria-label="Quick action buttons">
                     <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
-                      <button type="button" class="btn px-0"> <i class="icon-user mr-2"></i> Add New Provider</button>
+                      <a href="{{ route('register') }}" type="button" class="btn px-0"> <i class="icon-user mr-2"></i> Add New Provider</a>
                     </div>
                     <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
-                      <button type="button" class="btn px-0"><i class="icon-docs mr-2"></i> Request</button>
+                      <a href="{{url('/listRequest')}}" type="button" class="btn px-0"><i class="icon-docs mr-2"></i> Request</a>
                     </div>
                     <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
-                      <button type="button" class="btn px-0"><i class="icon-folder mr-2"></i> Customer</button>
+                      <a href="{{url('/listCustomer')}}" type="button" class="btn px-0"><i class="icon-folder mr-2"></i> Customer</a>
                     </div>
                     <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
-                      <button type="button" class="btn px-0"><i class="icon-book-open mr-2"></i>Provider</button>
+                      <a href="{{url('/listProvider')}}" class="btn px-0"><i class="icon-book-open mr-2"></i>Provider</a>
                     </div>
                   </div>
                 </div>
@@ -177,7 +177,7 @@
             
 
             <div class="container">
-        <form action="{{url('/listSearch')}}" method="POST" role="search">
+        <form action="{{url('/provSearch')}}" method="POST" role="search">
           {{csrf_field()}}
           <div class="input-group">
             <input type="text" class="form-control" name="q" placeholder="Search for"><span class="input-group-btn">
@@ -201,32 +201,34 @@
                     <div class="table-responsive border rounded p-1">
                       <table class="table">
                         <thead>
-                          <tr>
-                            <th class="font-weight-bold">Store ID</th>
-                            <th class="font-weight-bold">Amount</th>
-                            <th class="font-weight-bold">Gateway</th>
+                        <tr>
+                            <th class="font-weight-bold">ID</th>
+                            <th class="font-weight-bold">Name</th>
+                            <th class="font-weight-bold">Email</th>
                             <th class="font-weight-bold">Created at</th>
-                            <th class="font-weight-bold">Paid at</th>
-                            <th class="font-weight-bold">Status</th>
+                            <th class="font-weight-bold">Updated at</th>
+                            <th class="font-weight-bold">Action</th>
+                       
                           </tr>
                         </thead>
                         <tbody>
                         @foreach($data as $user)
-                          <tr>
+                        @if ($user->usertype=='2')
+                        <tr>
+                            <td>{{$user->id}}</td>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->created_at}}</td>
+                            <td>{{$user->updated_at}}</td>
                             <td>
-                              <img class="img-sm rounded-circle" src="admin/assets/images/faces/face1.jpg" alt="profile image"> {{$user->place}}
+                              <button class="badge badge-success p-2">Detail</button>
                             </td>
-                            <td>{{$user->detail}}</td>
-                            <td><img src="admin/assets/images/dashboard/alipay.png" alt="alipay" class="gateway-icon mr-2"> alipay</td>
-                            <td>04 Jun 2019</td>
-                            <td>18 Jul 2019</td>
-                            <td>
-                              <div class="badge badge-success p-2">Paid</div>
-                            </td>
+                            
                           </tr>
 
                   
                         </tbody>
+                        @endif
                         @endforeach
 
                         <br/>
