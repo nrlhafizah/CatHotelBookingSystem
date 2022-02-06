@@ -1972,6 +1972,13 @@ svg {
   overflow: hidden;
   vertical-align: middle; }
 
+h2 {
+  color: white;
+  font-family: 'Cursive';
+  margin-left: 27%;
+
+}
+
 table {
   border-collapse: collapse; }
 

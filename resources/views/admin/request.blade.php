@@ -28,8 +28,8 @@
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="navbar-brand-wrapper d-flex align-items-center">
-          <a class="navbar-brand brand-logo" href="index.html">
-            <img src="admin/assets/images/logo.svg" alt="logo" class="logo-dark" />
+        <a class="navbar-brand brand-logo" href="{{url('/redirect')}}">
+            <h2>MEOWIE</h2>
           </a>
           <a class="navbar-brand brand-logo-mini" href="index.html"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a>
         </div>
@@ -41,37 +41,24 @@
            
         
             <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
-              <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <img class="img-xs rounded-circle ml-2" src="admin/assets/images/faces/face8.jpg" alt="Profile image"> <span class="font-weight-normal"> Henry Klein </span></a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-                <div class="dropdown-header text-center">
-                  <img class="img-md rounded-circle" src="admin/assets/images/faces/face8.jpg" alt="Profile image">
-                  <p class="mb-1 mt-3">Allen Moreno</p>
-                  <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
-                </div>
-                <a class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
-                <a class="dropdown-item"><i class="dropdown-item-icon icon-speech text-primary"></i> Messages</a>
-                <a class="dropdown-item"><i class="dropdown-item-icon icon-energy text-primary"></i> Activity</a>
-                <a class="dropdown-item"><i class="dropdown-item-icon icon-question text-primary"></i> FAQ</a>
-                
-                @auth
-                        <a href="{{ route('logout') }}" class="dropdown-item" onclick = "event.preventDefault();
+              
+                <img class="img-xs rounded-circle ml-2" src="admin/assets/images/faces/face29.jpg" alt="Profile image">
+              
+          @auth
+                        <a href="{{ route('logout') }}"  onclick = "event.preventDefault();
                         document.getElementById('logout-form').submit();">
                         <form method="POST" action="{{ route('logout')}}">
                         @csrf
-                        <x-jet-responsive-nav-link href="{{ route('logout') }}"
+                        <a href="{{ route('logout') }}" class="dropdown-item"
                                    onclick="event.preventDefault();
                                     this.closest('form').submit();"><span class="rect"></span>
-                            <i class="dropdown-item-icon icon-power text-primary"></i> Sign Out
+                            <i class="font-weight-normal"></i> Sign Out
                       
-                    </x-jet-responsive-nav-link>
+                        </a>
                 </form>
                 @csrf
-                </form></a>
                 @endauth
-              
-              </div>
-            </li>
+</li>
           </ul>
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span class="icon-menu"></span>
@@ -86,7 +73,7 @@
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="profile-image">
-                  <img class="img-xs rounded-circle" src="admin/assets/images/faces/face8.jpg" alt="profile image">
+                  <img class="img-xs rounded-circle" src="admin/assets/images/faces/face29.jpg" alt="profile image">
                   <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
@@ -177,7 +164,7 @@
             
 
             <div class="container">
-        <form action="{{url('/reqSearch')}}" method="POST" role="search">
+        <form action="{{url('/reqSearch')}} " method="POST" role="search">
           {{csrf_field()}}
           <div class="input-group">
             <input type="text" class="form-control" name="q" placeholder="Search for"><span class="input-group-btn">
@@ -199,6 +186,8 @@
                       <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Products</a>
                     </div>
                     <div class="table-responsive border rounded p-1">
+                   
+                    @csrf
                       <table class="table">
                         <thead>
                           <tr>
@@ -208,11 +197,14 @@
                             <th class="font-weight-bold">Contact Number</th>
                             <th class="font-weight-bold">Hotel Name</th>
                             <th class="font-weight-bold">SSM Number</th>
-                            <th class="font-weight-bold">Detail</th>
+                            <th class="font-weight-bold">  </th>
+                            <th class="font-weight-bold">  </th>
                           </tr>
                         </thead>
                         <tbody>
                         @foreach($data as $user)
+                        
+                          
                           <tr>
                             <td>{{$user->id}}</td>
                             <td>{{$user->name}}</td>
@@ -220,12 +212,22 @@
                             <td>{{$user->phoneNumber}}</td>
                             <td>{{$user->hotelName}}</td>
                             <td>{{$user->SSM}}</td>
+                            <form action="/insert/{{$user->id}}" method="post" >
+                            @csrf
                             <td>
-                              <button class="badge badge-success p-2">Detail</button>
+                              <a><button class="badge badge-warning p-2" value="{{$user->id}}">Accept</button></a>
                             </td>
+                            </form>
+                            
+                            <form action="/delete/{{$user->id}}" method="post" >
+                            @csrf
+                            <td>
+                              <button class="badge badge-warning p-2">Decline</button>
+                            </td>
+                            </form>
                             
                           </tr>
-
+             
                   
                         </tbody>
                         @endforeach
@@ -234,6 +236,8 @@
          
 
                       </table>
+
+
                     </div>
                     
                     

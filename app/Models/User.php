@@ -60,8 +60,5 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    protected function passwordRules()
-    {
-        return ['required', 'string', new Password, 'confirmed'];
-    }
+    
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\homeControl;
 use App\Http\Controllers\custControl;
 use App\Http\Controllers\adminControl;
 use App\Http\Controllers\provControl;
+use App\Http\Controllers\SendEmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,6 +86,14 @@ Route::get("/createproject",[provControl::class,"show"]);
 
 Route::view('addprov', 'auth.registerprov');
 Route::POST("addprovider",[adminControl::class,'addprov']);
+
+Route::POST("insert/{id}",[adminControl::class,"acceptProv"]);
+Route::POST("delete/{id}",[adminControl::class,"deleteProv"]);
+
+//Email
+
+Route::get('/sendemail', 'App\Http\Controllers\SendEmailController@index');
+Route::post('/sendemail/send', 'App\Http\Controllers\adminControl@acceptProv');
 
 // Middleware
 

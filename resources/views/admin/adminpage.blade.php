@@ -28,8 +28,8 @@
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="navbar-brand-wrapper d-flex align-items-center">
-          <a class="navbar-brand brand-logo" href="{{url('/redirect')}}">
-            <img src="admin/assets/images/logo.svg" alt="logo" class="logo-dark" />
+        <a class="navbar-brand brand-logo" href="{{url('/redirect')}}">
+            <h2>MEOWIE</h2>
           </a>
           <a class="navbar-brand brand-logo-mini" href="{{url('/redirect')}}"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a>
         </div>
@@ -40,39 +40,26 @@
           
            
         
-            <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
-              <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <img class="img-xs rounded-circle ml-2" src="admin/assets/images/faces/face28.png" alt="Profile image"> <span class="font-weight-normal"> Administrator </span></a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-                <div class="dropdown-header text-center">
-                  
-                  <p class="mb-1 mt-3">Administrator</p>
-                  <p class="font-weight-light text-muted mb-0">haein@gmail.com</p>
-                </div>
-                <a class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
-                <a class="dropdown-item"><i class="dropdown-item-icon icon-speech text-primary"></i> Messages</a>
-                <a class="dropdown-item"><i class="dropdown-item-icon icon-energy text-primary"></i> Activity</a>
-                <a class="dropdown-item"><i class="dropdown-item-icon icon-question text-primary"></i> FAQ</a>
-                
-                @auth
-                        <a href="{{ route('logout') }}" class="dropdown-item" onclick = "event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                        <form method="POST" action="{{ route('logout')}}">
-                        @csrf
-                        <x-jet-responsive-nav-link href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                    this.closest('form').submit();"><span class="rect"></span>
-                            <i class="dropdown-item-icon icon-power text-primary"></i> Sign Out
-                      
-                    </x-jet-responsive-nav-link>
-                </form>
-                @csrf
-                </form></a>
-                @endauth
+          <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
               
-              </div>
-            </li>
-          </ul>
+              <img class="img-xs rounded-circle ml-2" src="admin/assets/images/faces/face29.jpg" alt="Profile image">
+            
+        @auth
+                      <a href="{{ route('logout') }}"  onclick = "event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                      <form method="POST" action="{{ route('logout')}}">
+                      @csrf
+                      <a href="{{ route('logout') }}" class="dropdown-item"
+                                 onclick="event.preventDefault();
+                                  this.closest('form').submit();"><span class="rect"></span>
+                          <i class="font-weight-normal"></i> Sign Out
+                    
+                      </a>
+              </form>
+              @csrf
+              @endauth
+</li>
+        </ul>
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span class="icon-menu"></span>
           </button>
@@ -86,11 +73,11 @@
             <li class="nav-item nav-profile">
               <a href="{{url('/redirect')}}" class="nav-link">
                 <div class="profile-image">
-                  <img class="img-xs rounded-circle" src="admin/assets/images/faces/face28.png" alt="profile image">
+                  <img class="img-xs rounded-circle" src="admin/assets/images/faces/face29.jpg" alt="profile image">
                   <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Jung Hae In</p>
+                  <p class="profile-name">Nurul Hafizah</p>
                   <p class="designation">Administrator</p>
                 </div>
                 <div class="icon-container">
@@ -147,17 +134,17 @@
                     <p class="ml-auto mb-0">List Users<i class="icon-bulb"></i></p>
                   </div>
                   <div class="d-md-flex row m-0 quick-action-btns" role="group" aria-label="Quick action buttons">
-                    <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
-                      <button type="button" class="btn px-0"> <i class="icon-user mr-2"></i> Add New Provider</button>
+                  <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
+                      <a href="{{ url('/reg') }}" type="button" class="btn px-0"> <i class="icon-user mr-2"></i> Add New Provider</a>
                     </div>
                     <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
-                      <button type="button" class="btn px-0"><i class="icon-docs mr-2"></i> Request</button>
+                      <a href="{{url('/listRequest')}}" type="button" class="btn px-0"><i class="icon-docs mr-2"></i> Request</a>
                     </div>
                     <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
-                      <button type="button" class="btn px-0"><i class="icon-folder mr-2"></i> Customer</button>
+                      <a href="{{url('/listCustomer')}}" type="button" class="btn px-0"><i class="icon-folder mr-2"></i> Customer</a>
                     </div>
                     <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
-                      <button type="button" class="btn px-0"><i class="icon-book-open mr-2"></i>Provider</button>
+                      <a href="{{url('/listProvider')}}" class="btn px-0"><i class="icon-book-open mr-2"></i>Provider</a>
                     </div>
                   </div>
                 </div>
@@ -175,12 +162,13 @@
                         </div>
                       </div>
                     </div>
+
                     <div class="row report-inner-cards-wrapper">
                       <div class=" col-md -6 col-xl report-inner-card">
                         <div class="inner-card-text">
-                          <span class="report-title">CUSTOMER</span>
-                          <h4>$32123</h4>
-                          <span class="report-count"> 2 Reports</span>
+                          <span class="report-title">CUSTOMER</span><br>
+                          <h4>{{$customer}}</h4>
+                 
                         </div>
                         <div class="inner-card-icon bg-success">
                           <i class="icon-rocket"></i>
@@ -188,9 +176,8 @@
                       </div>
                       <div class="col-md-6 col-xl report-inner-card">
                         <div class="inner-card-text">
-                          <span class="report-title">PROVIDER</span>
-                          <h4>95,458</h4>
-                          <span class="report-count"> 3 Reports</span>
+                          <span class="report-title">PROVIDER</span><br>
+                          <h4>{{$provider}}</h4>
                         </div>
                         <div class="inner-card-icon bg-danger">
                           <i class="icon-briefcase"></i>
@@ -198,9 +185,9 @@
                       </div>
                       <div class="col-md-6 col-xl report-inner-card">
                         <div class="inner-card-text">
-                          <span class="report-title">BOOKING</span>
-                          <h4>2650</h4>
-                          <span class="report-count"> 5 Reports</span>
+                          <span class="report-title">BOOKING</span><br>
+                          <h4>-</h4>
+       
                         </div>
                         <div class="inner-card-icon bg-warning">
                           <i class="icon-globe-alt"></i>
@@ -208,15 +195,16 @@
                       </div>
                       <div class="col-md-6 col-xl report-inner-card">
                         <div class="inner-card-text">
-                          <span class="report-title">RETURN</span>
-                          <h4>25,542</h4>
-                          <span class="report-count"> 9 Reports</span>
+                          <span class="report-title">TOTAL USERS</span><br>
+                          <h4>{{$total}}</h4>
+
                         </div>
                         <div class="inner-card-icon bg-primary">
                           <i class="icon-diamond"></i>
                         </div>
                       </div>
                     </div>
+         
                   </div>
                 </div>
               </div>

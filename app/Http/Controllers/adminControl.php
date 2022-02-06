@@ -14,6 +14,9 @@ use Laravel\Fortify\PasswordValidationRules;
 use Laravel\Jetstream\Jetstream;
 use Laravel\Fortify\Rules\Password;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
+use App\Mail\declineMail;
 
 class adminControl extends Controller
 {
@@ -100,9 +103,42 @@ class adminControl extends Controller
     }
 
 
+   
+    function acceptProv($id, Request $request)
+    {
+        $data=Registered::find($id);
+        $add = new User;
+
+        $add->name=$data->hotelName;
+        $add->email=$data->email;
+        $add->usertype='2';
+        $add->password=Hash::make('12345678');
+
+        $add->save();
+
+        Mail::to($data->email)->send(new SendMail($data));
+
+        $data->delete();
+
+        return view('admin.addProv');
+
+    }
+
+    function deleteProv($id)
+    {
+        $data1=Registered::find($id);
+
+        Mail::to($data1->email)->send(new declineMail($data1));
+
+        $data1->delete();
+
+        return view('admin.request');
+
+    }
 
     protected function addprov(Request $request, User $user)
     {
+
 
       //Check Validation Request
       $validate = $request->validate(
@@ -127,7 +163,8 @@ class adminControl extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        $user->usertype = '2';
+        $user->password = Hash::make('$request->password');
 
 
         //Execute Query

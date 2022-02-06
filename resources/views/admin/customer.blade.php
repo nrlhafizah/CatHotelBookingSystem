@@ -28,8 +28,8 @@
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="navbar-brand-wrapper d-flex align-items-center">
-          <a class="navbar-brand brand-logo" href="index.html">
-            <img src="admin/assets/images/logo.svg" alt="logo" class="logo-dark" />
+          <a class="navbar-brand brand-logo" href="{{url('/redirect')}}">
+            <h2>MEOWIE</h2>
           </a>
           <a class="navbar-brand brand-logo-mini" href="index.html"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a>
         </div>
@@ -40,39 +40,26 @@
           
            
         
-            <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
-              <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <img class="img-xs rounded-circle ml-2" src="admin/assets/images/faces/face8.jpg" alt="Profile image"> <span class="font-weight-normal"> Henry Klein </span></a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-                <div class="dropdown-header text-center">
-                  <img class="img-md rounded-circle" src="admin/assets/images/faces/face8.jpg" alt="Profile image">
-                  <p class="mb-1 mt-3">Allen Moreno</p>
-                  <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
-                </div>
-                <a class="dropdown-item"><i class="dropdown-item-icon icon-user text-primary"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
-                <a class="dropdown-item"><i class="dropdown-item-icon icon-speech text-primary"></i> Messages</a>
-                <a class="dropdown-item"><i class="dropdown-item-icon icon-energy text-primary"></i> Activity</a>
-                <a class="dropdown-item"><i class="dropdown-item-icon icon-question text-primary"></i> FAQ</a>
-                
-                @auth
-                        <a href="{{ route('logout') }}" class="dropdown-item" onclick = "event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                        <form method="POST" action="{{ route('logout')}}">
-                        @csrf
-                        <x-jet-responsive-nav-link href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                    this.closest('form').submit();"><span class="rect"></span>
-                            <i class="dropdown-item-icon icon-power text-primary"></i> Sign Out
-                      
-                    </x-jet-responsive-nav-link>
-                </form>
-                @csrf
-                </form></a>
-                @endauth
+          <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
               
-              </div>
-            </li>
-          </ul>
+              <img class="img-xs rounded-circle ml-2" src="admin/assets/images/faces/face29.jpg" alt="Profile image">
+            
+        @auth
+                      <a href="{{ route('logout') }}"  onclick = "event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                      <form method="POST" action="{{ route('logout')}}">
+                      @csrf
+                      <a href="{{ route('logout') }}" class="dropdown-item"
+                                 onclick="event.preventDefault();
+                                  this.closest('form').submit();"><span class="rect"></span>
+                          <i class="font-weight-normal"></i> Sign Out
+                    
+                      </a>
+              </form>
+              @csrf
+              @endauth
+</li>
+        </ul>
           <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span class="icon-menu"></span>
           </button>
@@ -86,11 +73,11 @@
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="profile-image">
-                  <img class="img-xs rounded-circle" src="admin/assets/images/faces/face8.jpg" alt="profile image">
+                  <img class="img-xs rounded-circle" src="admin/assets/images/faces/face29.jpg" alt="profile image">
                   <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Jung Hae In</p>
+                  <p class="profile-name">Nurul Hafizah</p>
                   <p class="designation">Administrator</p>
                 </div>
                 <div class="icon-container">
@@ -158,7 +145,7 @@
                   </div>
                   <div class="d-md-flex row m-0 quick-action-btns" role="group" aria-label="Quick action buttons">
                   <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
-                      <a href="{{ route('register') }}" type="button" class="btn px-0"> <i class="icon-user mr-2"></i> Add New Provider</a>
+                      <a href="{{ url('/reg') }}" type="button" class="btn px-0"> <i class="icon-user mr-2"></i> Add New Provider</a>
                     </div>
                     <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
                       <a href="{{url('/listRequest')}}" type="button" class="btn px-0"><i class="icon-docs mr-2"></i> Request</a>
@@ -209,7 +196,7 @@
                             <th class="font-weight-bold">Email</th>
                             <th class="font-weight-bold">Created at</th>
                             <th class="font-weight-bold">Updated at</th>
-                            <th class="font-weight-bold">Action</th>
+                            <th class="font-weight-bold">  </th>
                        
                           </tr>
                         </thead>
@@ -223,7 +210,7 @@
                             <td>{{$user->created_at}}</td>
                             <td>{{$user->updated_at}}</td>
                             <td>
-                              <button class="badge badge-success p-2">Detail</button>
+                              <button class="badge badge-warning p-2">Delete</button>
                             </td>
                             
                           </tr>

@@ -79,8 +79,11 @@ class homeControl extends Controller
 
         if($typeuser=='0')
         {
-            $data = Search::paginate(9);
-            return view('admin.adminpage')->withData($data);
+
+            $provider = User::where('usertype','=','2')->count();
+            $customer = User::where('usertype','=','1')->count();
+            $total = User::All()->count();
+            return view('admin.adminpage', ['provider'=>$provider, 'customer'=>$customer], ['total'=>$total]);
           
         }
         else if($typeuser=='1')
