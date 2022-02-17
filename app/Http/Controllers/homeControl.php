@@ -18,6 +18,8 @@ use App\Models\Booking;
 use App\Models\Search;
 use App\Models\User;
 use App\Models\Registered;
+use App\Models\Profile;
+
 
 class homeControl extends Controller
 {
@@ -61,6 +63,26 @@ class homeControl extends Controller
         return view('beflogin');
     }
 
+    function testProf()
+    {
+        return view('provider.testprofile');
+    }
+
+    function changePass()
+    {
+        return view('provider.changepass');
+    }
+
+    function deleteACC()
+    {
+        return view('provider.deleteaccount');
+    }
+
+    function listOut()
+    {
+        return view('provider.list');
+    }
+
     function formReg()
     {
         return view('formprovider');
@@ -94,7 +116,8 @@ class homeControl extends Controller
         }
         else 
         {
-            return view('provider.profile');
+            $data=Profile::all();
+            return view('provider.testprofile', ['data'=>$data]);
         }
 
     }
@@ -107,6 +130,7 @@ class homeControl extends Controller
         $new->email=$req->email;
         $new->phoneNumber=$req->no;
         $new->hotelName=$req->hname;
+        $new->address=$req->address;
         $new->SSM=$req->ssm;
         $new->save();
 

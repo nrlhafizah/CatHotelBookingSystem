@@ -96,6 +96,7 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings
@@ -114,5 +115,6 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+    
 
 ];

@@ -19,6 +19,7 @@ class CreateProviderTable extends Migration
             $table->string('email')->unique();
             $table->integer('phoneNumber');
             $table->string('hotelName');
+            $table->string('address');
             $table->integer('SSM');
             $table->timestamps();
         });

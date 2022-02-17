@@ -31,9 +31,14 @@ Route::get("/befregister",[homeControl::class,"beforeReg"]);
 Route::get("/beflogin",[homeControl::class,"beforeLog"]);
 Route::get("/form",[homeControl::class,"formReg"]);
 
+
 Route::view('provForm', 'formprovider');
 Route::POST("addProv",[homeControl::class,"newProvider"]);
 
+Route::get("/profiletest",[homeControl::class,"testProf"]);
+Route::get("/change",[homeControl::class,"changePass"]);
+Route::get("/delete",[homeControl::class,"deleteACC"]);
+Route::get("/listDown",[homeControl::class,"listOut"]);
 
 // Admin page
 
@@ -60,7 +65,8 @@ Route::get("/disp",[custControl::class,"display"]);
 // Provider page
 
 
-Route::get("/edit",[provControl::class,"update"]);
+Route::get("/showProfile/{id}",[provControl::class,"update"]);
+Route::POST("/editprof",[provControl::class,"testOnly"]);
 
 Route::get("/provprof",[provControl::class,"show1"]);
 
@@ -86,6 +92,8 @@ Route::get("/createproject",[provControl::class,"show"]);
 
 Route::view('addprov', 'auth.registerprov');
 Route::POST("addprovider",[adminControl::class,'addprov']);
+
+
 
 Route::POST("insert/{id}",[adminControl::class,"acceptProv"]);
 Route::POST("delete/{id}",[adminControl::class,"deleteProv"]);

@@ -6,20 +6,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admin</title>
-    <link rel="shortcut icon" type="cat/png" href="img/cat.png">
+    <link rel="shortcut icon" type="cat/png" href="{{ asset ('img/cat.png')}}">
     <!-- plugins:css -->
-    <link rel="stylesheet" href="admin/assets/vendors/simple-line-icons/css/simple-line-icons.css">
-    <link rel="stylesheet" href="admin/assets/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="admin/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="{{ asset ('admin/assets/vendors/simple-line-icons/css/simple-line-icons.css')}}">
+    <link rel="stylesheet" href="{{ asset ('admin/assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
+    <link rel="stylesheet" href="{{ asset ('admin/assets/vendors/css/vendor.bundle.base.css')}}">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="admin/assets/vendors/daterangepicker/daterangepicker.css">
-    <link rel="stylesheet" href="admin/assets/vendors/chartist/chartist.min.css">
+    <link rel="stylesheet" href="{{ asset ('admin/assets/vendors/daterangepicker/daterangepicker.css')}}">
+    <link rel="stylesheet" href="{{ asset ('admin/assets/vendors/chartist/chartist.min.css')}}">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="admin/assets/css/style.css">
+    <link rel="stylesheet" href="{{ asset ('admin/assets/css/style.css')}}">
     <!-- End layout styles -->
    
   </head>
@@ -31,7 +31,7 @@
         <a class="navbar-brand brand-logo" href="{{url('/redirect')}}">
             <h2>MEOWIE</h2>
           </a>
-          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a>
+          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset ('admin/assets/images/logo-mini.svg')}}" alt="logo" /></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1">
           <h5 class="mb-0 font-weight-medium d-none d-lg-flex">Welcome Meowie dashboard!</h5>
@@ -42,7 +42,7 @@
         
             <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
               
-                <img class="img-xs rounded-circle ml-2" src="admin/assets/images/faces/face29.jpg" alt="Profile image">
+                <img class="img-xs rounded-circle ml-2" src="{{ asset ('admin/assets/images/faces/face29.jpg')}}" alt="Profile image">
               
           @auth
                         <a href="{{ route('logout') }}"  onclick = "event.preventDefault();
@@ -73,7 +73,7 @@
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="profile-image">
-                  <img class="img-xs rounded-circle" src="admin/assets/images/faces/face29.jpg" alt="profile image">
+                  <img class="img-xs rounded-circle" src="{{ asset ('admin/assets/images/faces/face29.jpg')}}" alt="profile image">
                   <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
@@ -162,7 +162,7 @@
             </div>
             <!-- Quick Action Toolbar Ends-->
             
-
+        
             <div class="container">
         <form action="{{url('/reqSearch')}} " method="POST" role="search">
           {{csrf_field()}}
@@ -191,11 +191,12 @@
                       <table class="table">
                         <thead>
                           <tr>
-                            <th class="font-weight-bold">ID</th>
+
                             <th class="font-weight-bold">Name</th>
                             <th class="font-weight-bold">Email</th>
                             <th class="font-weight-bold">Contact Number</th>
                             <th class="font-weight-bold">Hotel Name</th>
+                            <th class="font-weight-bold">Address</th>
                             <th class="font-weight-bold">SSM Number</th>
                             <th class="font-weight-bold">  </th>
                             <th class="font-weight-bold">  </th>
@@ -206,12 +207,14 @@
                         
                           
                           <tr>
-                            <td>{{$user->id}}</td>
+
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->phoneNumber}}</td>
                             <td>{{$user->hotelName}}</td>
+                            <td>{{$user->address}}</td>
                             <td>{{$user->SSM}}</td>
+                            
                             <form action="/insert/{{$user->id}}" method="post" >
                             @csrf
                             <td>
@@ -284,6 +287,8 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+
+    
     <script src="admin/assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->

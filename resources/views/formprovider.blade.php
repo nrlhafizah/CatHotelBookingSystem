@@ -32,7 +32,7 @@
 						<div class="login-wrap p-4 p-md-5">
 			      	<div class="d-flex">
 			      		<div class="w-100">
-			      			<h3 class="mb-4">SIGN IN</h3>
+			      			<h3 class="mb-4">REGISTER</h3>
 			      		</div>
 								
 			      	</div>
@@ -62,6 +62,10 @@
             <div class="form-group mb-3">
                 <label class="label" for="password">Hotel Name</label>
                 <input id="hname"  class="form-control" type="text" name="hname" required/>
+            </div>
+            <div class="form-group mb-3">
+                <label class="label" for="password">Address Hotel</label>
+                <input id="hname"  class="form-control" type="text" name="address" required/>
             </div>
             <div class="form-group mb-3">
                 <label class="label" for="password">SSM Number</label>
