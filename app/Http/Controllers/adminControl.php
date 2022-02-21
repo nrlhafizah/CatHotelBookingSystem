@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Request;
 use App\Models\Booking;
 use App\Models\User;
 use App\Models\Hotel;
@@ -113,16 +114,20 @@ class adminControl extends Controller
         $hotel = new Hotel;
         $new = new Profile;
 
-        $add->name=$data->hotelName;
+        $add->name=$data->name;
         $add->email=$data->email;
         $add->usertype='2';
         $add->password=Hash::make('12345678');
+        $add->phoneNumber=$data->phoneNumber;
+        $add->hotelName=$data->hotelName;
+        $add->address=$data->address;
+        $add->SSM=$data->ssm;
         
-
         $add->save();
 
         $userID = DB::table('users')->where('email', $data->email)->first()->id;
          
+            $new->id=$userID;
             $new->description='  ';
             $new->service1='  ';
             $new->desc1='  ';
@@ -133,7 +138,7 @@ class adminControl extends Controller
             $new->service4='  ';
             $new->desc4='  ';
             $new->img='  ';
-            $new->user_name=$userID;
+       
  
             $new->save();
 

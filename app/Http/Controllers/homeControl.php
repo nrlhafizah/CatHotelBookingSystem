@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
@@ -11,7 +11,8 @@ use App\TestModel;
 use App\view;
 use Illuminate\Support\Facades\Route;
 use Validator, Redirect;
-
+use Request;
+ 
 use Session;
 
 use App\Models\Booking;
@@ -24,27 +25,37 @@ use App\Models\Profile;
 class homeControl extends Controller
 {
     //
- 
-    function index()
+
+    function resultOf()
     {
-        $users = DB::select('select * from search');
-        return view('home',['users'=>$users]);
+        $q = (Request::get('q'));
+	    if($q != ''){
+            $data =User::where('name','like','%'.$q.'%')->orWhere('email','like','%'.$q.'%')->paginate(5)->setpath('');
+            $data->appends(array(
+           'q' => Request::get('q'),
+		));
+		if(count($data)>0){
+			return view('customer.custpage')->withData($data);
+		}
+		return view('customer.custpage')->withMessage("No Results Found!");
+	}
     }
     
+    //HOME PAGE FOR DISPLAY DATA AND SEARCH FUNCTION 
+
     function dispSearch()
     {
         $data = User::paginate(9);
-        $x=DB::table('users')
-        ->join('registered_provider','users.id', "=", "registered_provider.reg_id")->get();
-        return view("home",['data'=>$data, 'x' => $x]);
+        return view('home')->withData($data);
+
     }
 
     function goSearch()
     {
         $q = (Request::get('q'));
 	    if($q != ''){
-		$data =Search::where('place','like','%'.$q.'%')->orWhere('detail','like','%'.$q.'%')->paginate(5)->setpath('');
-		$data->appends(array(
+            $data =User::where('name','like','%'.$q.'%')->orWhere('email','like','%'.$q.'%')->paginate(5)->setpath('');
+            $data->appends(array(
            'q' => Request::get('q'),
 		));
 		if(count($data)>0){
@@ -54,6 +65,7 @@ class homeControl extends Controller
 	}
     }
 
+    // OPTION BEFORE USER LOGIN/REGISTER
     function beforeReg()
     {
         return view('befregister');
@@ -92,7 +104,8 @@ class homeControl extends Controller
     function showProfile($id)
     {
     $data=User::find($id);
-    return view('customer.display', ['data'=>$data]);
+    $prof=Profile::all();
+    return view('customer.display', ['data'=>$data, 'prof'=> $prof]);
     }
 
     function redirectFunct()
@@ -110,8 +123,8 @@ class homeControl extends Controller
         }
         else if($typeuser=='1')
         {
-            $users = DB::select('select * from search');
-            return view('customer.custpage', ['users'=>$users]);
+            $data = User::paginate(9);
+            return view('customer.custpage')->withData($data);
      
         }
         else 

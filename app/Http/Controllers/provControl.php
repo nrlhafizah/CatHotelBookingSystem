@@ -21,9 +21,10 @@ use App\Models\Profile;
 
 class provControl extends Controller
 {
-    function update()
+    function update($id)
     {
-        $data=Profile::all();
+
+        $data=Profile::find($id);
         return view("provider.edit", ['data'=>$data]);
     }
 
@@ -62,11 +63,12 @@ class provControl extends Controller
         return view("provider.profile");
     }
 
-    function testOnly(Request $req)
+    public function testOnly(Request $req)
     {
     
-        $new = Profile::all()->where(Auth::user()->id, $req->user_name)->first();
-
+        $new=Profile::find($req->id);
+        
+        $new->id=$req->catid;
         $new->description=$req->desc;
         $new->service1=$req->s1;
         $new->desc1=$req->ds1;
@@ -77,7 +79,6 @@ class provControl extends Controller
         $new->service4=$req->s4;
         $new->desc4=$req->ds4;
         $new->img=$req->imgs;
-        $new->user_name=Auth::user()->id;
 
         $new->save();
 

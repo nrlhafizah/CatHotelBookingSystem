@@ -42,19 +42,21 @@
 			<div class="navbar-collapse collapse">
 				
 				<ul class="nav navbar-nav">
-					<li><a href="{{url('/redirect')}}">Home</a></li>
+				<li class="active"><a href="{{url('/redirect')}}">Home</a></li>
 					<li><a href="{{url('/listDown')}}">List</a></li>
-                    <li><a href="{{url('/listDown)}}">Request</a></li>
-
-                    <li class="dropdown ">
-						<a href="" class="dropdown-toggle" data-toggle="dropdown" >Account <b class="caret"></b></a>
+                    <li><a href="{{url('/listDown')}}">Request</a></li>
+                    <li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="{{url('/edit')}}">Edit Profile</a></li>
+							
+							<li><a href={{"showProfile/".Auth::user()->id}}>Edit Profile</a></li>
+							
+						
+							
 							<li><a href="{{url('/change')}}">Change Password</a></li>
 							<li><a href="{{url('/delete')}}">Delete Account</a></li>
 						</ul>
 					</li>
-
                     <li>
                                   @auth
                                     

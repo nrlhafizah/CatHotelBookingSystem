@@ -49,7 +49,7 @@
                     <li class="dropdown ">
 						<a href="" class="dropdown-toggle" data-toggle="dropdown" >Account <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="{{url('/edit')}}">Edit Profile</a></li>
+						<li><a href={{"showProfile/".Auth::user()->id}}>Edit Profile</a></li>
 							<li><a href="{{url('/change')}}">Change Password</a></li>
 							<li><a href="{{url('/delete')}}">Delete Account</a></li>
 						</ul>
@@ -109,15 +109,15 @@
         
     </div>
 </div>
-@foreach($data as $data)
-@if (Auth::user()->id == $data-> user_name)
+
     <div class="mt-5 md:mt-0 md:col-span-2">
         <form action="/editprof" method="post">
             @csrf
             <div class="px-4 py-5 bg-white sm:p-6 shadow sm:rounded-tl-md sm:rounded-tr-md">
                 <div class="grid grid-cols-6 gap-6">
-
-							
+@foreach($data as $data)
+@endforeach
+				
     <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
             <label class="block font-medium text-sm text-gray-700">
@@ -196,15 +196,16 @@
         </div>
         </div>
     </div>
-@endif
-@endforeach
-    <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md">
+
+    <div  class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md">
                     <div x-data="{ shown: false, timeout: null }" x-init="window.livewire.find('mkdb3GHd6KMtAPysa2Jl').on('saved', () => { clearTimeout(timeout); shown = true; timeout = setTimeout(() => { shown = false }, 2000);  })" x-show.transition.out.opacity.duration.1500ms="shown" x-transition:leave.opacity.duration.1500ms="" style="display: none;" class="text-sm text-gray-600 mr-3">
     Saved.
 </div>
 
-<button  name="userID" type="submit" value="{{Auth::user()->id}}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" >
-    Save
+<input type="hidden" value="{{$data->id}}" name="catid">
+
+<button  name="id" type="submit" value="{{$data->id}}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" >
+    Save {{$data->id}}
 </button>
 
 </form>

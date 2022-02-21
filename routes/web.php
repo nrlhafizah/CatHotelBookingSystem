@@ -17,15 +17,20 @@ use App\Http\Controllers\SendEmailController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+Route::get('/testjer', function () {
+    return view('homenew');
 });
 
 
 Route::get("/redirect",[homeControl::class,"redirectFunct"]);
+Route::any('/findtheuser',[homeControl::class,"resultOf"]);
 
 Route::get('/', [homeControl::class,"dispSearch"]);
+
 Route::any('/search',[homeControl::class,"goSearch"]);
+
+
+
 
 Route::get("/befregister",[homeControl::class,"beforeReg"]);
 Route::get("/beflogin",[homeControl::class,"beforeLog"]);
@@ -56,11 +61,16 @@ Route::any('/reqSearch',[adminControl::class,"reqGo"]);
   
 Route::get("/prof",[custControl::class,"show"]);
 
-Route::view('create', 'customer.booking');
+Route::view('show/create/{id}', 'customer.booking');
+Route::view('show/show/create/{id}', 'customer.booking');
 Route::POST("add",[custControl::class,'addProject']);
 
 Route::get("/disp",[custControl::class,"display"]);
+Route::get("/changepassword",[custControl::class,"pass"]);
+Route::get("/deleteaccount",[custControl::class,"delete"]);
+Route::get("/editaccount",[custControl::class,"edit"]);
       
+Route::get("/history",[custControl::class,"showHistory"]);
 
 // Provider page
 
@@ -76,10 +86,8 @@ Route::get("/req",[provControl::class,"reqBook"]);
 
 Route::get("/reg",[adminControl::class,"regprov"]);
 
-Route::group(['middleware' => ['auth']],function(){
-
 Route::get("show/{id}",[homeControl::class,"showProfile"]);
-});
+Route::get("show/show/{id}",[homeControl::class,"showProfile"]);
 
 // Route::view('edit', 'provider.edit');
 // Route::POST("action",[provControl::class,'updateProject']);

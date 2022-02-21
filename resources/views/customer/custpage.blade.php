@@ -90,7 +90,7 @@ https://www.tooplate.com/view/2095-level
                     <div class="container ie-h-align-center-fix">
                         <div class="row">
                             
-                                <form action="{{url('/search')}}" method="POST" role="search" class="tm-search-form tm-section-pad-2">
+                                <form action="{{url('/findtheuser')}}" method="POST" role="search" class="tm-search-form tm-section-pad-2">
                                 {{csrf_field()}}
                                 <div class="form-row tm-search-form-row">
                                         <div class="form-group tm-form-element tm-form-element-100">
@@ -117,21 +117,24 @@ https://www.tooplate.com/view/2095-level
             <div class="container tm-pt-5 tm-pb-4 ">
 <div class="row text-center">
 
-@foreach ($users as $user)
+@foreach ($data as $data)
+@if ($data->usertype=="2")
 <tr>
     
             
                         <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">                            
                             <i class="fa tm-fa-6x fa-legal tm-color-primary tm-margin-b-20"></i>
-                            <h3 class="tm-color-primary tm-article-title-1">{{ $user->id }} {{ $user->place }}</h3>
-                            <p>{{ $user->detail }}</p>
-                            <a href="{{url('/disp')}}" class="text-uppercase tm-color-primary tm-font-semibold">BOOK NOW</a>
+                            <h3 class="tm-color-primary tm-article-title-1">{{ $data->id }} {{ $data->name }}</h3>
+                            <p>{{ $data->email }}</p>
+                            <a href={{"show/".$data['id']}}  class="text-uppercase tm-color-primary tm-font-semibold">BOOK NOW</a>
                         </article>
                       
                  
           
     </tr>
+@endif
 @endforeach 
+
    
 </div>        
 </div>     

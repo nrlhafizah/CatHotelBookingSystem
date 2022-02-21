@@ -15,9 +15,12 @@ use Validator, Redirect;
 use Session;
 use App\Models\Booking;
 use App\Models\Search;
+use App\Models\User;
 
 class custControl extends Controller
 {
+    
+    
       function addProject(Request $req)
     {
 
@@ -44,5 +47,27 @@ class custControl extends Controller
         return view("customer.display");
     }
 
+    function pass()
+    {
+        return view('customer.manage.changepass');
+    }
+
+    function delete()
+    {
+        return view('customer.manage.deleteaccount');
+    }
+
+    function edit()
+    {
+        return view('customer.manage.edit');
+    }
+
+    function showHistory()
+    {
+        return view('customer.history');
+    }
+
+
+ 
 
 }

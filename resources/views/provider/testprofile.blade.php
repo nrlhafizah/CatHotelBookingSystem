@@ -49,12 +49,8 @@
                     <li><a href="{{url('/listDown')}}">Request</a></li>
                     <li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							
+						<ul class="dropdown-menu">					
 							<li><a href={{"showProfile/".Auth::user()->id}}>Edit Profile</a></li>
-							
-						
-							
 							<li><a href="{{url('/change')}}">Change Password</a></li>
 							<li><a href="{{url('/delete')}}">Delete Account</a></li>
 						</ul>
@@ -85,7 +81,7 @@
 	</nav>
 </header>
 @foreach($data as $data)
-@if (Auth::user()->id == $data-> user_name)
+@if (Auth::user()->id == $data-> id)
 <main id="main">
 
 	<div class="container">
@@ -100,23 +96,23 @@
 			<h2 class="section-title"><span>Services</span></h2>
 			<div class="row">
 				<div class="col-sm-6 col-md-3">
-					<h3 class="text-center">Custom website design</h3>
-					<p>I don't think they tried to market it to the billionaire, spelunking, base-jumping crowd. i did the same thing to gandhi, he didn't eat for three weeks. i once heard a wise man say there are no perfect men.</p>
+					<h3 class="text-center">{{$data->service1}}</h3>
+					<p>{{$data->desc1}}</p>
 		
 				</div>
 				<div class="col-sm-6 col-md-3">
-					<h3 class="text-center">Wordpress integration</h3>
-					<p>I don't think they tried to market it to the billionaire, spelunking, base-jumping crowd. i did the same thing to gandhi, he didn't eat for three weeks. i once heard a wise man say there are no perfect men.</p>
+					<h3 class="text-center">{{$data->service2}}</h3>
+					<p>{{$data->desc2}}</p>
 				
 				</div>
 				<div class="col-sm-6 col-md-3">
-					<h3 class="text-center">Application development</h3>
-					<p>I don't think they tried to market it to the billionaire, spelunking, base-jumping crowd. i did the same thing to gandhi, he didn't eat for three weeks. i once heard a wise man say there are no perfect men.</p>
+					<h3 class="text-center">{{$data->service3}}</h3>
+					<p>{{$data->desc3}}</p>
 			
 				</div>
 				<div class="col-sm-6 col-md-3">
-					<h3 class="text-center">SEO &amp; SEM services</h3>
-					<p>I don't think they tried to market it to the billionaire, spelunking, base-jumping crowd. i did the same thing to gandhi, he didn't eat for three weeks. i once heard a wise man say there are no perfect men.</p>
+					<h3 class="text-center">{{$data->service4}}</h3>
+					<p>{{$data->desc4}}</p>
 					
 				</div>
 			</div>

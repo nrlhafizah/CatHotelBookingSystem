@@ -8,15 +8,29 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 	<title>Booking Form HTML Template</title>
+	<link href="http://code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css" rel="stylesheet" />
 
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+	   <!--date picker -->
+	   <script>
+	   $(document).ready(function(){
+	   $("#datepicker").datepicker({
+	   minDate: +2
+	   });
+	   
+	   });
+	   </script>
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
 
 	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="booking/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="{{ asset ('booking/css/bootstrap.min.css')}}" />
 
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="booking/css/style.css" />
+	<link type="text/css" rel="stylesheet" href="{{ asset ('booking/css/style.css')}}" />
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -65,10 +79,11 @@
 								<span class="form-label">Cats</span>
 							</div>
 					
+					
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<input name="in" class="form-control" type="date" required>
+									<input type="text" class="form-control" id= "datepicker" name="datepicker" required>
 										<span class="form-label">Check In</span>
 									</div>
 								</div>
@@ -95,7 +110,7 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<script src="booking/js/jquery.min.js"></script>
 	<script>
 		$('.form-control').each(function () {
