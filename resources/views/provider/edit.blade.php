@@ -115,7 +115,7 @@
             @csrf
             <div class="px-4 py-5 bg-white sm:p-6 shadow sm:rounded-tl-md sm:rounded-tr-md">
                 <div class="grid grid-cols-6 gap-6">
-@foreach($data as $data)
+@foreach($data as $exdata)
 @endforeach
 				
     <!-- Name -->
@@ -123,7 +123,7 @@
             <label class="block font-medium text-sm text-gray-700">
     		Main Description
 			</label>
-        	<input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$data->description ?? ''}}" name="desc" id="desc" type="text" >
+        	<input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$exdata->description ?? ''}}" name="desc" id="desc" type="text" >
     	</div>
 
         <!-- S1 -->
@@ -131,14 +131,14 @@
             <label class="block font-medium text-sm text-gray-700">
     		Service 1
 			</label>
-            <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$data->service1 ?? ''}}"  name="s1" id="s1" type="text">
+            <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$exdata->service1 ?? ''}}"  name="s1" id="s1" type="text">
         </div>
 
 		<div class="col-span-6 sm:col-span-4">
             <label class="block font-medium text-sm text-gray-700">
     		Description
 			</label>
-        	<input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$data->desc1 ?? ''}}" name="ds1" id="ds1" type="text">
+        	<input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$exdata->desc1 ?? ''}}" name="ds1" id="ds1" type="text">
     	</div>
 
 
@@ -146,14 +146,14 @@
             <label class="block font-medium text-sm text-gray-700">
     		Service 2
 			</label>
-            <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$data->service2 ?? ''}}" name= "s2" id="s2" type="text">
+            <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$exdata->service2 ?? ''}}" name= "s2" id="s2" type="text">
         </div>
 
 		<div class="col-span-6 sm:col-span-4">
             <label class="block font-medium text-sm text-gray-700">
     		Description
 			</label>
-        	<input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$data->desc2 ?? ''}}" name="ds2" id="ds2" type="text">
+        	<input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$exdata->desc2 ?? ''}}" name="ds2" id="ds2" type="text">
     	</div>
 
         <!-- S3 -->
@@ -161,14 +161,14 @@
             <label class="block font-medium text-sm text-gray-700">
     		Service 3
 			</label>
-            <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$data->service3 ?? ''}}" name="s3" id="s3" type="text" >
+            <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$exdata->service3 ?? ''}}" name="s3" id="s3" type="text" >
         </div>
 
 		<div class="col-span-6 sm:col-span-4">
             <label class="block font-medium text-sm text-gray-700">
     		Description
 			</label>
-        	<input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$data->desc3 ?? ''}}"name="ds3" id="ds3" type="text">
+        	<input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$exdata->desc3 ?? ''}}"name="ds3" id="ds3" type="text">
     	</div>
 
         <!-- S4 -->
@@ -176,14 +176,14 @@
             <label class="block font-medium text-sm text-gray-700">
     		Service 4
 			</label>
-            <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$data->service4 ?? ''}}" name="s4" id="s4" type="text">
+            <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$exdata->service4 ?? ''}}" name="s4" id="s4" type="text">
         </div>
  
 		<div class="col-span-6 sm:col-span-4">
             <label class="block font-medium text-sm text-gray-700">
     		Description
 			</label>
-            <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$data->desc4 ?? ''}}"name="ds4" id="ds4" type="text">
+            <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$exdata->desc4 ?? ''}}"name="ds4" id="ds4" type="text">
         </div>
 
 		<!-- IMG -->
@@ -192,7 +192,7 @@
             <label class="block font-medium text-sm text-gray-700">
     		Images
 			</label>
-            <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$data->img ?? ''}}" name="imgs" id="imgs" type="text">
+            <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$exdata->img ?? ''}}" name="imgs" id="imgs" type="text">
         </div>
         </div>
     </div>
@@ -202,10 +202,10 @@
     Saved.
 </div>
 
-<input type="hidden" value="{{$data->id}}" name="catid">
+<input type="hidden" value="{{Auth::user()->id}}" name="catid">
 
-<button  name="id" type="submit" value="{{$data->id}}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" >
-    Save {{$data->id}}
+<button  name="id" type="submit" value="{{Auth::user()->id}}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" >
+    Save
 </button>
 
 </form>

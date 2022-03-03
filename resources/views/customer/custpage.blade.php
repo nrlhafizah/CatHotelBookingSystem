@@ -95,7 +95,7 @@ https://www.tooplate.com/view/2095-level
                                 <div class="form-row tm-search-form-row">
                                         <div class="form-group tm-form-element tm-form-element-100">
                                             <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-                                            <input name="city" type="text" class="form-control" id="inputCity" placeholder="Type your destination...">
+                                            <input name="q" type="text" class="form-control" id="q" placeholder="Type your destination...">
                                         </div>
                                         
                                         <div class="form-group tm-form-element tm-form-element-2">
@@ -124,9 +124,9 @@ https://www.tooplate.com/view/2095-level
             
                         <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">                            
                             <i class="fa tm-fa-6x fa-legal tm-color-primary tm-margin-b-20"></i>
-                            <h3 class="tm-color-primary tm-article-title-1">{{ $data->id }} {{ $data->name }}</h3>
-                            <p>{{ $data->email }}</p>
-                            <a href={{"show/".$data['id']}}  class="text-uppercase tm-color-primary tm-font-semibold">BOOK NOW</a>
+                            <h3 class="tm-color-primary tm-article-title-1">{{ $data->hotelName }}</h3>
+                            <p>{{ $data->address }}</p>
+                            <a href={{"show/".$data['id']}} name="id" value="{{$data->id}}" class="text-uppercase tm-color-primary tm-font-semibold">DETAILS</a>
                         </article>
                       
                  

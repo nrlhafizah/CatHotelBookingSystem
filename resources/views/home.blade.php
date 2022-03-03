@@ -1,218 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Meowie</title>
+<title>Meowie</title>
     <link rel="shortcut icon" type="cat/png" href="img/cat.png">
 <!--
 
-Tooplate 2095 Level
+DIGITAL TREND
 
-https://www.tooplate.com/view/2095-level
+https://templatemo.com/tm-538-digital-trend
 
 -->
-    <!-- load stylesheets -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">                                      <!-- Bootstrap style -->
-    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="css/datepicker.css"/>
-    <link rel="stylesheet" href="css/tooplate-style.css">                                   <!-- Templatemo style -->
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-          <![endif]-->
+     <link rel="stylesheet" href="landingPage/css/bootstrap.min.css">
+     <link rel="stylesheet" href="landingPage/css/font-awesome.min.css">
+     <link rel="stylesheet" href="landingPage/css/aos.css">
+     <link rel="stylesheet" href="landingPage/css/owl.carousel.min.css">
+     <link rel="stylesheet" href="landingPage/css/owl.theme.default.min.css">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="landingPage/css/templatemo-digital-trend.css">
+
 </head>
+<body>
 
-    <body>
-        <div class="tm-main-content" id="top">
-            <div class="tm-top-bar-bg"></div>
-            <div class="tm-top-bar" id="tm-top-bar">
-                <!-- Top Navbar -->
-                <div class="container">
-                    <div class="row">
-                        
-                        <nav class="navbar navbar-expand-lg narbar-light">
-                            <a class="navbar-brand mr-auto" href="#">
-                                <img src="img/cat1.png" alt="Site logo">
-                                MEOWIE
-                            </a>
-                            <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
-                                <ul class="navbar-nav ml-auto">
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="#top"><strong>Home</strong> <span class="sr-only">(current)</span></a>
-                                  </li>
-                                 
-                                  @if (Route::has('login'))
-                            
-                            @auth
-                            <x-app-layout>
+     <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+              
+              <img src="img/cat1.png" alt="Site logo">
+              Meowie
+            </a>
 
-                            </x-app-layout>
-                            @else
-                            <li class="nav-item">
-                                <a class="nav-link " href="{{url('/beflogin')}}">Login</a>
-                            </li>
-                            @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link " href="{{url('/befregister')}}">Register</a>
-                            </li>    
-                            @endif
-                            @endauth
-                        </div>
-                    @endif                        
-                           
-                       
-                                </ul>
-                            </div>                            
-                        </nav>            
-                    </div>
-                </div>
-            </div>
-            <div class="tm-section tm-bg-img" id="tm-section-1">
-                <div class="tm-form-white ie-container-width-fix-2">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
                     
-                    <div class="container ie-h-align-center-fix">
-                        <div class="row">
-                            
-                                <form action="{{url('/search')}}" method="POST" role="search" class="tm-search-form tm-section-pad-2">
-                                {{csrf_field()}}
-                                    <div class="form-row tm-search-form-row">
-                                        <div class="form-group tm-form-element tm-form-element-100">
-                                            <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-                                            <input name="q" type="search" class="form-control" id="search" placeholder="Type your destination...">
-                                        </div>
-                                        
-                                        <div class="form-group tm-form-element tm-form-element-2">
-                                            <button type="submit" name="search" class="btn btn-primary tm-btn-search">Search</button>
-                                        </div>
-                                      </div>
-                                      <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
-                                          <p class="tm-margin-b-0">Fill in all required details to find the best place for your cat!</p>
-                                          <a href="#" class="ie-10-ml-auto ml-auto mt-1 tm-font-semibold tm-color-primary">Need Help?</a>
-                                      </div>
-                                </form>
-                            </div>                        
-                        </div>      
-                    </div>
-                </div>                  
+                    <li class="nav-item">
+                        <a href="#project" class="nav-link smoothScroll">About us</a>
+                    </li>
+            
+                            <li class="nav-item">
+                                <a class="nav-link contact " href="{{url('/beflogin')}}">Login</a>
+                            </li>
+                           
+                
+                </ul>
             </div>
-           
- 
-<div class="container tm-pt-5 tm-pb-4 ">
-<div class="row text-center">
+        </div>
+    </nav>
 
-@foreach($data as $data)
-@if ($data->usertype=="2")
-<tr>
-    
-            
-                        <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">                            
-                            <i class="fa tm-fa-6x fa-legal tm-color-primary tm-margin-b-20"></i>
-                            <h3 class="tm-color-primary tm-article-title-1">{{ $data->id }} {{ $data->name }}</h3>
-                            <p>{{ $data->email }}</p>
-                            <a href={{"show/".$data['id']}} class="text-uppercase tm-color-primary tm-font-semibold">BOOK NOW</a>
-                        </article>
-                      
-    </tr>
-@endif
-@endforeach 
 
-</div>        
-</div>
-
-            <style>
-            .w-5
-              {
-                    display:none;
-              }
-              </style>
-
-            
-           
-            
-            <footer class="tm-bg-dark-blue">
-                <div class="container">
+     <!-- HERO -->
+     <section class="hero hero-bg d-flex justify-content-center align-items-center">
+               <div class="container">
                     <div class="row">
-                        <p class="col-sm-12 text-center tm-font-light tm-color-white p-4 tm-margin-b-0">
-                        Copyright &copy; <span class="tm-current-year">2022</span> Nurul Hafizah</p>        
+
+                        <div class="col-lg-6 col-md-10 col-12 d-flex flex-column justify-content-center align-items-center">
+                              <div class="hero-text">
+
+                                   <h1 class="text-white" data-aos="fade-up">We are ready to assist you to find a suitable place for your cat!</h1>
+                                   
+                                   <a href="{{url('/befregister')}}" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">Let's get started</a>
+
+                                   
+                              </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                          <div class="hero-image" data-aos="fade-up" data-aos-delay="300">
+
+                            <img src="img/kitty.png" class="img-fluid" >
+                          </div>
+                        </div>
+
                     </div>
-                </div>                
-            </footer>
-        </div> 
-
-         <!-- load JS files -->
-         <script src="js/jquery-1.11.3.min.js"></script>             <!-- jQuery (https://jquery.com/download/) -->
-        <script src="js/popper.min.js"></script>                    <!-- https://popper.js.org/ -->       
-        <script src="js/bootstrap.min.js"></script>                 <!-- https://getbootstrap.com/ -->
-        <script src="js/datepicker.min.js"></script>                <!-- https://github.com/qodesmith/datepicker -->
-        <script src="js/jquery.singlePageNav.min.js"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
-        <script src="slick/slick.min.js"></script>                  <!-- http://kenwheeler.github.io/slick/ -->
-        <script>
+               </div>
+     </section>
 
 
-            var center;
+     <!-- ABOUT -->
+     
 
-            
-            
 
-            function setPageNav(){
-                if($(window).width() > 991) {
-                    $('#tm-top-bar').singlePageNav({
-                        currentClass:'active',
-                        offset: 79
-                    });   
-                }
-                else {
-                    $('#tm-top-bar').singlePageNav({
-                        currentClass:'active',
-                        offset: 65
-                    });   
-                }
-            }
+     <!-- SCRIPTS -->
+     <script src="landingPage/js/jquery.min.js"></script>
+     <script src="landingPage/js/bootstrap.min.js"></script>
+     <script src="landingPage/js/aos.js"></script>
+     <script src="landingPage/js/owl.carousel.min.js"></script>
+     <script src="landingPage/js/smoothscroll.js"></script>
+     <script src="landingPage/js/custom.js"></script>
 
-       
-            $(document).ready(function(){
-
-                $(window).on("scroll", function() {
-                    if($(window).scrollTop() > 100) {
-                        $(".tm-top-bar").addClass("active");
-                    } else {
-                        //remove the background property so it comes transparent again (defined in your css)
-                       $(".tm-top-bar").removeClass("active");
-                    }
-                });      
-
-             
-                // Slick carousel
-                setCarousel();
-                setPageNav();
-
-                $(window).resize(function() {
-                  setCarousel();
-                  setPageNav();
-                });
-
-                // Close navbar after clicked
-                $('.nav-link').click(function(){
-                    $('#mainNav').removeClass('show');
-                });
-
-                                
-            });
-
-        </script>             
-
-        
 </body>
 </html>

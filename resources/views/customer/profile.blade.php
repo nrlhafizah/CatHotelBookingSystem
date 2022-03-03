@@ -86,14 +86,9 @@
 		
  
 
-		<div class="row section topspace">
-			<div class="col-md-12">
-				<p class="lead text-center text-muted"> </p>
-			</div>
-		</div> <!-- / section -->
 		
 		<div class="row section featured topspace">
-			<h2 class="section-title"><span>Services</span></h2>
+			<h2 class="section-title"><span>About Me</span></h2>
 			<div class="row">
 				<div class="col-sm-6 col-md-3">
 					<h3 class="text-center"></h3>
@@ -109,7 +104,7 @@
 
 			</div>
 		</div> <!-- / section -->
-		<p class="text-center"><a href="" class="btn btn-action">Make a booking</a></p>
+	
 	
 		<div class="row section recentworks topspace">
 			

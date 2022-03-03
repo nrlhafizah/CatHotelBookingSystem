@@ -17,18 +17,14 @@ use App\Http\Controllers\SendEmailController;
 |
 */
 
-Route::get('/testjer', function () {
-    return view('homenew');
-});
+// Route::get('/testjer', function () {
+//     return view('landing');
+// });
 
 
+Route::get('/', [homeControl::class,"landing"]);
 Route::get("/redirect",[homeControl::class,"redirectFunct"]);
-Route::any('/findtheuser',[homeControl::class,"resultOf"]);
-
-Route::get('/', [homeControl::class,"dispSearch"]);
-
-Route::any('/search',[homeControl::class,"goSearch"]);
-
+Route::any('/findtheuser',[custControl::class,"resultOf"]);
 
 
 
@@ -61,8 +57,8 @@ Route::any('/reqSearch',[adminControl::class,"reqGo"]);
   
 Route::get("/prof",[custControl::class,"show"]);
 
-Route::view('show/create/{id}', 'customer.booking');
-Route::view('show/show/create/{id}', 'customer.booking');
+Route::get("show/create/{id}",[custControl::class,"bookie"]);
+Route::get("/show/show/create/{id}",[custControl::class,"bookie"]);
 Route::POST("add",[custControl::class,'addProject']);
 
 Route::get("/disp",[custControl::class,"display"]);
@@ -71,6 +67,9 @@ Route::get("/deleteaccount",[custControl::class,"delete"]);
 Route::get("/editaccount",[custControl::class,"edit"]);
       
 Route::get("/history",[custControl::class,"showHistory"]);
+
+Route::get("/create",[custControl::class,"success"]);
+
 
 // Provider page
 
@@ -112,6 +111,10 @@ Route::get('/sendemail', 'App\Http\Controllers\SendEmailController@index');
 Route::post('/sendemail/send', 'App\Http\Controllers\adminControl@acceptProv');
 
 // Middleware
+
+
+
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
       return view('dashboard');

@@ -11,6 +11,7 @@ use App\TestModel;
 use App\view;
 use Illuminate\Support\Facades\Route;
 use Validator, Redirect;
+
 use Request;
  
 use Session;
@@ -26,44 +27,17 @@ class homeControl extends Controller
 {
     //
 
-    function resultOf()
-    {
-        $q = (Request::get('q'));
-	    if($q != ''){
-            $data =User::where('name','like','%'.$q.'%')->orWhere('email','like','%'.$q.'%')->paginate(5)->setpath('');
-            $data->appends(array(
-           'q' => Request::get('q'),
-		));
-		if(count($data)>0){
-			return view('customer.custpage')->withData($data);
-		}
-		return view('customer.custpage')->withMessage("No Results Found!");
-	}
-    }
     
     //HOME PAGE FOR DISPLAY DATA AND SEARCH FUNCTION 
 
-    function dispSearch()
+    function landing()
     {
         $data = User::paginate(9);
         return view('home')->withData($data);
 
     }
 
-    function goSearch()
-    {
-        $q = (Request::get('q'));
-	    if($q != ''){
-            $data =User::where('name','like','%'.$q.'%')->orWhere('email','like','%'.$q.'%')->paginate(5)->setpath('');
-            $data->appends(array(
-           'q' => Request::get('q'),
-		));
-		if(count($data)>0){
-			return view('home')->withData($data);
-		}
-		return view('home')->withMessage("No Results Found!");
-	}
-    }
+    
 
     // OPTION BEFORE USER LOGIN/REGISTER
     function beforeReg()
@@ -150,5 +124,7 @@ class homeControl extends Controller
         return view("success");
     }
 
+    
+    
 
 }

@@ -21,38 +21,10 @@
 </head>
 
     <body>
-        <div class="tm-main-content" id="top">
-            <div class="tm-top-bar-bg"></div>
-            <div class="tm-top-bar" id="tm-top-bar">
-                <!-- Top Navbar -->
-                <div class="container">
-                    <div class="row">
-                        
-                        <nav class="navbar navbar-expand-lg narbar-light">
-                            <a class="navbar-brand mr-auto" href="#">
-                                <img src="img/cat1.png" alt="Site logo">
-                                MEOWIE
-                            </a>
-                            <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
-                                <ul class="navbar-nav ml-auto">
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="{{url('/')}}">Home<span class="sr-only">(current)</span></a>
-                                  </li>
-                                 
-                                </ul>
-                            </div>                            
-                        </nav>            
-                    </div>
-                </div>
-            </div>
-
-           
-        </div>
+        
 
 <section id="home">
+<button onclick="history.back()">Go Back</button>
 	<div class="container">
 		<div class="row">
 				<div class="home-thumb">

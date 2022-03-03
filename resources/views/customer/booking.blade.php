@@ -15,14 +15,14 @@
 <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 
 	   <!--date picker -->
-	   <script>
+	   <!-- <script>
 	   $(document).ready(function(){
 	   $("#datepicker").datepicker({
 	   minDate: +2
 	   });
 	   
 	   });
-	   </script>
+	   </script> -->
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
 
@@ -42,7 +42,7 @@
 </head>
 
 <body>
-    
+
 	<div id="booking" class="section">
     <button onclick="history.back()">Go Back</button>
 		<div class="section-center">
@@ -81,10 +81,10 @@
 					
 					
 							<div class="row">
-								<div class="col-md-6">
+							<div class="col-md-6">
 									<div class="form-group">
-									<input type="text" class="form-control" id= "datepicker" name="datepicker" required>
-										<span class="form-label">Check In</span>
+										<input name="in" class="form-control" type="date" required>
+										<span class="form-label">Check Out</span>
 									</div>
 								</div>
                                 <div class="col-md-6">
@@ -101,9 +101,13 @@
 								<!-- </div> -->
                                 
 							</div>
+
 							<div class="form-btn">
-								<button type="submit" class="submit-btn">Book Now</button>
+							<input type="hidden" value="{{$data->id}}" name="bookid">
+								<button type="submit" value="{{$data->id}}" name="bookid" class="submit-btn">Book Now</button>
 							</div>
+
+
 						</form>
 					</div>
 				</div>
