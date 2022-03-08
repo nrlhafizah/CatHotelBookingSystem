@@ -39,7 +39,7 @@ Route::POST("addProv",[homeControl::class,"newProvider"]);
 Route::get("/profiletest",[homeControl::class,"testProf"]);
 Route::get("/change",[homeControl::class,"changePass"]);
 Route::get("/delete",[homeControl::class,"deleteACC"]);
-Route::get("/listDown",[homeControl::class,"listOut"]);
+Route::get("/listDown",[provControl::class,"listOut"]);
 
 // Admin page
 
@@ -77,7 +77,6 @@ Route::get("/create",[custControl::class,"success"]);
 Route::get("/showProfile/{id}",[provControl::class,"update"]);
 Route::POST("/editprof",[provControl::class,"testOnly"]);
 
-Route::get("/provprof",[provControl::class,"show1"]);
 
 Route::get("/req",[provControl::class,"reqBook"]);
 

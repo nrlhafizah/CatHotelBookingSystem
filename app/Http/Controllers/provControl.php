@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 use Redirect;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Support\Facades\Response;
+use App\Images;
+use Image;
+
 use Session;
 use App\Models\Booking;
 use App\Models\Search;
@@ -28,10 +32,7 @@ class provControl extends Controller
         return view("provider.edit", ['data'=>$data]);
     }
 
-    function show1()
-    {
-        return view("provider.profile");
-    }
+   
 
     function reqBook()
     {
@@ -78,8 +79,62 @@ class provControl extends Controller
         $new->desc3=$req->ds3;
         $new->service4=$req->s4;
         $new->desc4=$req->ds4;
-        $new->img=$req->imgs;
+       
+        if($req->hasFile('image1')){
 
+            $destination_path = 'public/images/services';
+            $image = $req->file('image1');
+            $image_name = $image->getClientOriginalName();
+            $path = $req->file('image1')->storeAs($destination_path, $image_name);
+
+            $new->image1 = $image_name;
+        }
+
+        if($req->hasFile('image2')){
+
+            $destination_path = 'public/images/services';
+            $image = $req->file('image2');
+            $image_name = $image->getClientOriginalName();
+            $path = $req->file('image2')->storeAs($destination_path, $image_name);
+
+            $new->image2 = $image_name;
+        }
+        if($req->hasFile('image3')){
+
+            $destination_path = 'public/images/services';
+            $image = $req->file('image3');
+            $image_name = $image->getClientOriginalName();
+            $path = $req->file('image3')->storeAs($destination_path, $image_name);
+
+            $new->image3 = $image_name;
+        }
+        if($req->hasFile('image4')){
+
+            $destination_path = 'public/images/services';
+            $image = $req->file('image4');
+            $image_name = $image->getClientOriginalName();
+            $path = $req->file('image4')->storeAs($destination_path, $image_name);
+
+            $new->image4 = $image_name;
+        }
+        if($req->hasFile('image5')){
+
+            $destination_path = 'public/images/services';
+            $image = $req->file('image5');
+            $image_name = $image->getClientOriginalName();
+            $path = $req->file('image5')->storeAs($destination_path, $image_name);
+
+            $new->image5 = $image_name;
+        }
+        if($req->hasFile('image6')){
+
+            $destination_path = 'public/images/services';
+            $image = $req->file('image6');
+            $image_name = $image->getClientOriginalName();
+            $path = $req->file('image6')->storeAs($destination_path, $image_name);
+
+            $new->image6 = $image_name;
+        }
         $new->save();
 
         $data=Profile::all();
@@ -92,6 +147,14 @@ class provControl extends Controller
     {
         $data=User::all();
         return view('provider.profile',['data'=>$data]);
+    }
+
+
+    function listOut()
+    {
+        $history = Booking::all();
+        return view('provider.list', ['history' => $history]);
+
     }
 
 }

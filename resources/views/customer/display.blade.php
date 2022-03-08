@@ -107,7 +107,7 @@
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 					<a class="thumbnail" href="sidebar-right.html">
 						<span class="img">
-							<img src="{{ asset ('profile/assets/images/s1.jpg')}}" alt="">
+							<img src="{{$data->image}}" alt="">
 							<span class="cover"><span class="more">See details &rarr;</span></span>
 						</span>
 						<span class="title">Sample title - big data solutions</span>

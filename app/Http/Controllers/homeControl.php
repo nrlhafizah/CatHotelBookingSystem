@@ -64,11 +64,7 @@ class homeControl extends Controller
         return view('provider.deleteaccount');
     }
 
-    function listOut()
-    {
-        return view('provider.list');
-    }
-
+    
     function formReg()
     {
         return view('formprovider');
@@ -104,7 +100,7 @@ class homeControl extends Controller
         else 
         {
             $data=Profile::all();
-            return view('provider.testprofile', ['data'=>$data]);
+            return view('provider.testprofile', compact('data'));
         }
 
     }

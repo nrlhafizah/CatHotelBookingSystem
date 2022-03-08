@@ -95,142 +95,39 @@
 	</nav>
 </header>
 
-<main id="main">
-
-	<div class="container">
-		
-		<div class="row section topspace">
-			<div class="col-md-12">
-				<p class="lead text-center text-muted">List Request</p>
-			</div>
-
-		</div> <!-- / section -->
-    </div>       
-</main>
 
 
-<div class="container">
-        <form action="{{url('/custSearch')}}" method="POST" role="search" value="PUT">
-          {{csrf_field()}}
 
-          <div class="input-group">
-            <input type="text" class="form-control" name="q" placeholder="Search for"><span class="input-group-btn">
-             <button type="submit" class="btn btn-info">
-         <i class="fas fa-search fa-sm"></i> Search
-        </button>
-            </span>
-            
-          </div>
-
-        </form> 
-      </div> <br/><br/>
 
 <div class="limiter">
+
 		<div class="container-table100">
 			<div class="wrap-table100">
 				<div class="table100 ver1 m-b-110">
 					<table data-vertable="ver1">
 						<thead>
 							<tr class="row100 head">
-								<th class="column100 column1" data-column="column1"></th>
-								<th class="column100 column2" data-column="column2">Sunday</th>
-								<th class="column100 column3" data-column="column3">Monday</th>
-								<th class="column100 column4" data-column="column4">Tuesday</th>
-								<th class="column100 column5" data-column="column5">Wednesday</th>
-								<th class="column100 column6" data-column="column6">Thursday</th>
-								<th class="column100 column7" data-column="column7">Friday</th>
-								<th class="column100 column8" data-column="column8">Saturday</th>
+							
+								<th class="column100 column2" data-column="column2">Hotel Name</th>
+								<th class="column100 column3" data-column="column3">Check In</th>
+								<th class="column100 column4" data-column="column4">Check Out</th>
+								<th class="column100 column5" data-column="column5">Total cats</th>
+								<th class="column100 column6" data-column="column6">Date of Booking</th>
 							</tr>
 						</thead>
+@foreach($history as $history)
+@if(Auth::user()->id == $history->UserID)
 						<tbody>
 							<tr class="row100">
-								<td class="column100 column1" data-column="column1">Lawrence Scott</td>
-								<td class="column100 column2" data-column="column2">8:00 AM</td>
-								<td class="column100 column3" data-column="column3">--</td>
-								<td class="column100 column4" data-column="column4">--</td>
-								<td class="column100 column5" data-column="column5">8:00 AM</td>
-								<td class="column100 column6" data-column="column6">--</td>
-								<td class="column100 column7" data-column="column7">5:00 PM</td>
-								<td class="column100 column8" data-column="column8">8:00 AM</td>
-							</tr>
-
-							<tr class="row100">
-								<td class="column100 column1" data-column="column1">Jane Medina</td>
-								<td class="column100 column2" data-column="column2">--</td>
-								<td class="column100 column3" data-column="column3">5:00 PM</td>
-								<td class="column100 column4" data-column="column4">5:00 PM</td>
-								<td class="column100 column5" data-column="column5">--</td>
-								<td class="column100 column6" data-column="column6">9:00 AM</td>
-								<td class="column100 column7" data-column="column7">--</td>
-								<td class="column100 column8" data-column="column8">--</td>
-							</tr>
-
-							<tr class="row100">
-								<td class="column100 column1" data-column="column1">Billy Mitchell</td>
-								<td class="column100 column2" data-column="column2">9:00 AM</td>
-								<td class="column100 column3" data-column="column3">--</td>
-								<td class="column100 column4" data-column="column4">--</td>
-								<td class="column100 column5" data-column="column5">--</td>
-								<td class="column100 column6" data-column="column6">--</td>
-								<td class="column100 column7" data-column="column7">2:00 PM</td>
-								<td class="column100 column8" data-column="column8">8:00 AM</td>
-							</tr>
-
-							<tr class="row100">
-								<td class="column100 column1" data-column="column1">Beverly Reid</td>
-								<td class="column100 column2" data-column="column2">--</td>
-								<td class="column100 column3" data-column="column3">5:00 PM</td>
-								<td class="column100 column4" data-column="column4">5:00 PM</td>
-								<td class="column100 column5" data-column="column5">--</td>
-								<td class="column100 column6" data-column="column6">9:00 AM</td>
-								<td class="column100 column7" data-column="column7">--</td>
-								<td class="column100 column8" data-column="column8">--</td>
-							</tr>
-
-							<tr class="row100">
-								<td class="column100 column1" data-column="column1">Tiffany Wade</td>
-								<td class="column100 column2" data-column="column2">8:00 AM</td>
-								<td class="column100 column3" data-column="column3">--</td>
-								<td class="column100 column4" data-column="column4">--</td>
-								<td class="column100 column5" data-column="column5">8:00 AM</td>
-								<td class="column100 column6" data-column="column6">--</td>
-								<td class="column100 column7" data-column="column7">5:00 PM</td>
-								<td class="column100 column8" data-column="column8">8:00 AM</td>
-							</tr>
-
-							<tr class="row100">
-								<td class="column100 column1" data-column="column1">Sean Adams</td>
-								<td class="column100 column2" data-column="column2">--</td>
-								<td class="column100 column3" data-column="column3">5:00 PM</td>
-								<td class="column100 column4" data-column="column4">5:00 PM</td>
-								<td class="column100 column5" data-column="column5">--</td>
-								<td class="column100 column6" data-column="column6">9:00 AM</td>
-								<td class="column100 column7" data-column="column7">--</td>
-								<td class="column100 column8" data-column="column8">--</td>
-							</tr>
-
-							<tr class="row100">
-								<td class="column100 column1" data-column="column1">Rachel Simpson</td>
-								<td class="column100 column2" data-column="column2">9:00 AM</td>
-								<td class="column100 column3" data-column="column3">--</td>
-								<td class="column100 column4" data-column="column4">--</td>
-								<td class="column100 column5" data-column="column5">--</td>
-								<td class="column100 column6" data-column="column6">--</td>
-								<td class="column100 column7" data-column="column7">2:00 PM</td>
-								<td class="column100 column8" data-column="column8">8:00 AM</td>
-							</tr>
-
-							<tr class="row100">
-								<td class="column100 column1" data-column="column1">Mark Salazar</td>
-								<td class="column100 column2" data-column="column2">8:00 AM</td>
-								<td class="column100 column3" data-column="column3">--</td>
-								<td class="column100 column4" data-column="column4">--</td>
-								<td class="column100 column5" data-column="column5">8:00 AM</td>
-								<td class="column100 column6" data-column="column6">--</td>
-								<td class="column100 column7" data-column="column7">5:00 PM</td>
-								<td class="column100 column8" data-column="column8">8:00 AM</td>
+								<td class="column100 column1" data-column="column1">{{$history->hotelName}}</td>
+								<td class="column100 column2" data-column="column2">{{$history->checkIn}}</td>
+								<td class="column100 column3" data-column="column3">{{$history->checkOut}}</td>
+								<td class="column100 column4" data-column="column4">{{$history->totalCats}}</td>
+								<td class="column100 column5" data-column="column5">{{$history->created_at}}</td>
 							</tr>
 						</tbody>
+@endif
+@endforeach
 					</table>
 				</div>
 			</div>

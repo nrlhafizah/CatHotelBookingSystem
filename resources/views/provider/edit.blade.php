@@ -111,7 +111,7 @@
 </div>
 
     <div class="mt-5 md:mt-0 md:col-span-2">
-        <form action="/editprof" method="post">
+        <form action="/editprof" method="post" enctype="multipart/form-data">
             @csrf
             <div class="px-4 py-5 bg-white sm:p-6 shadow sm:rounded-tl-md sm:rounded-tr-md">
                 <div class="grid grid-cols-6 gap-6">
@@ -187,13 +187,58 @@
         </div>
 
 		<!-- IMG -->
+		<div class="col-span-6 sm:col-span-4">
+		<div class="image">
+			<label class="block font-medium text-sm text-gray-700">
+    		Image 1
+			</label>
+      		<input type="file" class="form-control" required name="image1">
+    	</div>
+        </div>
 
 		<div class="col-span-6 sm:col-span-4">
-            <label class="block font-medium text-sm text-gray-700">
-    		Images
+		<div class="image">
+			<label class="block font-medium text-sm text-gray-700">
+    		Image 2
 			</label>
-            <input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$exdata->img ?? ''}}" name="imgs" id="imgs" type="text">
+      		<input type="file" class="form-control" required name="image2">
+    	</div>
         </div>
+
+		<div class="col-span-6 sm:col-span-4">
+		<div class="image">
+			<label class="block font-medium text-sm text-gray-700">
+    		Image 3
+			</label>
+      		<input type="file" class="form-control" required name="image3">
+    	</div>
+        </div>
+
+		<div class="col-span-6 sm:col-span-4">
+		<div class="image">
+			<label class="block font-medium text-sm text-gray-700">
+    		Image 4
+			</label>
+      		<input type="file" class="form-control" required name="image4">
+    	</div>
+        </div>
+
+		<div class="col-span-6 sm:col-span-4">
+		<div class="image">
+			<label class="block font-medium text-sm text-gray-700">
+    		Image 5
+			</label>
+      		<input type="file" class="form-control" required name="image5">
+    	</div>
+        </div>
+
+		<div class="col-span-6 sm:col-span-4">
+		<div class="image">
+			<label class="block font-medium text-sm text-gray-700">
+    		Image 6
+			</label>
+      		<input type="file" class="form-control" required name="image6">
+    	</div>
         </div>
     </div>
 

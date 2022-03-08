@@ -17,6 +17,7 @@ use App\Models\Booking;
 use App\Models\Search;
 use App\Models\User;
 use App\Models\Profile;
+use Carbon\Carbon;
 
 class custControl extends Controller
 {
@@ -45,7 +46,7 @@ class custControl extends Controller
       function addProject(Request $req)
     {
 
-        
+        $data=User::find($req->bookid);
         $newBook= new Booking;
 
         $newBook->name=$req->name;
@@ -56,6 +57,8 @@ class custControl extends Controller
         $newBook->checkOut=$req->out;
         $newBook->UserID=Auth::user()->id;
         $newBook->hotelID=$req->bookid;
+        $newBook->hotelName=$data->hotelName;
+        $newBook->created_at = Carbon::now();
         $newBook->save();
 
         return view('customer.success');
@@ -86,9 +89,10 @@ class custControl extends Controller
         return view('customer.manage.edit');
     }
 
-    function showHistory()
+    function showHistory() 
     {
-        return view('customer.history');
+        $history = Booking::all();
+        return view('customer.history', ['history' => $history]);
     }
     function success()
     {

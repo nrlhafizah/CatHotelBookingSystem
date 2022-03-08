@@ -117,91 +117,95 @@
 				</div>
 			</div>
 		</div> <!-- / section -->
-		<p class="text-center"><a href="" class="btn btn-action">Make a booking</a></p>
+		
 	
 		<div class="row section recentworks topspace">
 			
 			<h2 class="section-title"><span>Pictures</span></h2>
 			
 			<div class="thumbnails recentworks row">
+			
 				
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="sidebar-right.html">
+					<a  href="sidebar-right.html">
 						<span class="img">
-							<img src="profile/assets/images/s1.jpg" alt="">
-							<span class="cover"><span class="more">See details &rarr;</span></span>
+						<image src="{{ asset('storage/images/services/'.$data->image1) }}" width="700" height="300"/>
+							<span class="cover"></span>
 						</span>
-						<span class="title">Sample title - big data solutions</span>
+					
 					</a>
-					<span class="details"><a href="">Web design</a> | <a href="">Wordpress</a> | <a href="">Logotype</a></span>
+					<span ><a href="">  </a>  <a href="">  </a></span>
 					<h4></h4>
 					<p></p>
 				</div>
 				
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="sidebar-right.html">
+					<a  href="sidebar-right.html">
 						<span class="img">
-							<img src="profile/assets/images/s1.jpg" alt="">
-							<span class="cover"><span class="more">See details &rarr;</span></span>
+						<image src="{{ asset('storage/images/services/'.$data->image2) }}" width="700" height="300"/>
+							<span class="cover"></span>
 						</span>
-						<span class="title">Pure ipsum - development services for people</span>
+					
 					</a>
-					<span class="details"><a href="">Web design</a> | <a href="">Wordpress</a></span>
+					<span ><a href="">  </a>  <a href="">  </a></span>
 					<h4></h4>
 					<p></p>
 				</div>
 				
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="sidebar-right.html">
-						<span class="img">
-							<img src="profile/assets/images/s1.jpg" alt="">
-							<span class="cover"><span class="more">See details &rarr;</span></span>
-						</span>
-						<span class="title">Lorem studios - interior and patio design</span>
-					</a>
-					<span class="details"><a href="">Web design</a> | <a href="">Logotype</a></span>
-					<h4></h4>
-					<p></p>
-				</div>
 
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="sidebar-right.html">
+					<a  href="sidebar-right.html">
 						<span class="img">
-							<img src="profile/assets/images/s1.jpg" alt="">
-							<span class="cover"><span class="more">See details &rarr;</span></span>
+						<image src="{{ asset('storage/images/services/'.$data->image3) }}" width="700" height="300"/>
+							<span class="cover"></span>
 						</span>
-						<span class="title">Pure ipsum - development services for people</span>
+					
 					</a>
-					<span class="details"><a href="">Web design</a> | <a href="">Wordpress</a></span>
+					<span ><a href="">  </a>  <a href="">  </a></span>
+					<h4></h4>
+					<p></p>
+				</div>
+				
+				
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+					<a  href="sidebar-right.html">
+						<span class="img">
+						<image src="{{ asset('storage/images/services/'.$data->image4) }}" width="700" height="300" />
+							<span class="cover"></span>
+						</span>
+					
+					</a>
+					<span ><a href="">  </a>  <a href="">  </a></span>
 					<h4></h4>
 					<p></p>
 				</div>
 				
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="sidebar-right.html">
+					<a  href="sidebar-right.html">
 						<span class="img">
-							<img src="profile/assets/images/s1.jpg" alt="">
-							<span class="cover"><span class="more">See details &rarr;</span></span>
+						<image src="{{ asset('storage/images/services/'.$data->image5) }}" width="700" height="300" />
+							<span class="cover"></span>
 						</span>
-						<span class="title">Lorem studios - interior and patio design</span>
+					
 					</a>
-					<span class="details"><a href="">Web design</a> | <a href="">Logotype</a></span>
+					<span ><a href="">  </a>  <a href="">  </a></span>
 					<h4></h4>
 					<p></p>
 				</div>
-
+				
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="sidebar-right.html">
+					<a  href="sidebar-right.html">
 						<span class="img">
-							<img src="profile/assets/images/s1.jpg" alt="">
-							<span class="cover"><span class="more">See details &rarr;</span></span>
+						<image src="{{ asset('storage/images/services/'.$data->image6) }}" width="700" height="300" />
+							<span class="cover"></span>
 						</span>
-						<span class="title">Lorem studios - interior and patio design</span>
+					
 					</a>
-					<span class="details"><a href="">Web design</a> | <a href="">Logotype</a></span>
+					<span ><a href="">  </a>  <a href="">  </a></span>
 					<h4></h4>
 					<p></p>
 				</div>
+				
 			</div>
 
 		</div> <!-- /section -->
