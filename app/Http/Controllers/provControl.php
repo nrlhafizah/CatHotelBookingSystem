@@ -22,6 +22,7 @@ use App\Models\Booking;
 use App\Models\Search;
 use App\Models\Registered;
 use App\Models\Profile;
+use App\Models\RequestCustomer;
 
 class provControl extends Controller
 {
@@ -137,7 +138,7 @@ class provControl extends Controller
         }
         $new->save();
 
-        $data=Profile::all();
+        $data=Profile::find($req->id);
 
         return view("provider.edit", ['data'=>$data]);
     }
@@ -155,6 +156,44 @@ class provControl extends Controller
         $history = Booking::all();
         return view('provider.list', ['history' => $history]);
 
+    }
+
+    function custRequest()
+    {
+        $history = RequestCustomer::all();
+        return view('provider.request', ['history' => $history]);
+
+    }
+
+    function acceptCust($id)
+    {
+        $info=RequestCustomer::find($id);
+        $data= new Booking;
+
+        $data->id=$info->id;
+        $data->name=$info->name;
+        $data->email=$info->email;
+        $data->phoneNumber=$info->phoneNumber;
+        $data->totalCats=$info->totalCats;
+        $data->checkIn=$info->checkIn;
+        $data->checkOut=$info->checkOut;
+        $data->hotelID=$info->hotelID;
+        $data->hotelName=$info->hotelName;
+        $data->created_at =$info->created_at;
+
+        $data->save();
+
+        $info->delete();
+
+        return view('provider.request');
+    }
+
+    function deleteReq($id)
+    {
+        $info=RequestCustomer::find($id);
+        $info->delete();
+
+        return view('provider.request');
     }
 
 }

@@ -40,6 +40,7 @@ Route::get("/profiletest",[homeControl::class,"testProf"]);
 Route::get("/change",[homeControl::class,"changePass"]);
 Route::get("/delete",[homeControl::class,"deleteACC"]);
 Route::get("/listDown",[provControl::class,"listOut"]);
+Route::get("/custRequest",[provControl::class,"custRequest"]);
 
 // Admin page
 
@@ -103,6 +104,9 @@ Route::POST("addprovider",[adminControl::class,'addprov']);
 
 Route::POST("insert/{id}",[adminControl::class,"acceptProv"]);
 Route::POST("delete/{id}",[adminControl::class,"deleteProv"]);
+
+Route::POST("accept/{id}",[provControl::class,"acceptCust"]);
+Route::POST("decline/{id}",[provControl::class,"deleteReq"]);
 
 //Email
 

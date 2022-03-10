@@ -19,6 +19,9 @@ use App\Models\User;
 use App\Models\Profile;
 use Carbon\Carbon;
 
+use App\Models\RequestCustomer;
+
+
 class custControl extends Controller
 {
 
@@ -47,15 +50,15 @@ class custControl extends Controller
     {
 
         $data=User::find($req->bookid);
-        $newBook= new Booking;
+        $newBook= new RequestCustomer;
 
+        $newBook->id=Auth::user()->id;
         $newBook->name=$req->name;
         $newBook->email=$req->email;
         $newBook->phoneNumber=$req->no;
         $newBook->totalCats=$req->cats;
         $newBook->checkIn=$req->in;
         $newBook->checkOut=$req->out;
-        $newBook->UserID=Auth::user()->id;
         $newBook->hotelID=$req->bookid;
         $newBook->hotelName=$data->hotelName;
         $newBook->created_at = Carbon::now();

@@ -46,7 +46,7 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="{{url('/redirect')}}">Home</a></li>
 					<li><a href="{{url('/listDown')}}">List</a></li>
-                    <li><a href="{{url('/listDown')}}">Request</a></li>
+                    <li><a href="{{url('/custRequest')}}">Request</a></li>
                     <li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
 						<ul class="dropdown-menu">					

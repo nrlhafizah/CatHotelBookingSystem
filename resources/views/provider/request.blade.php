@@ -1,70 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Meowie</title>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+	
+	<title>Meowie</title>
     <link rel="shortcut icon" type="cat/png" href="img/cat.png">
-<!--
 
-Tooplate 2095 Level
+	<link rel="shortcut icon" href="profile/assets/images/gt_favicon.png">
+	
+	<!-- Bootstrap -->
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
+	<!-- Icons -->
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<!-- Fonts -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="profile/assets/css/styles.css">
 
-https://www.tooplate.com/view/2095-level
+    <!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="tablelist/images/icons/favicon.ico"/>
+    
+<!--===============================================================================================-->
+	
+<!--===============================================================================================-->
 
--->
-    <!-- load stylesheets -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">                                      <!-- Bootstrap style -->
-    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="css/datepicker.css"/>
-    <link rel="stylesheet" href="css/tooplate-style.css">                                   <!-- Templatemo style -->
+<!--===============================================================================================-->
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-          <![endif]-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="tablelist/css/util.css">
+	<link rel="stylesheet" type="text/css" href="tablelist/css/main.css">
+<!--===============================================================================================-->
+
+	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
 </head>
+<body class="home">
 
-    <body>
-        <div class="tm-main-content" id="top">
-            <div class="tm-top-bar-bg"></div>
-            <div class="tm-top-bar" id="tm-top-bar">
-                <!-- Top Navbar -->
-                <div class="container">
-                    <div class="row">
-                        
-                        <nav class="navbar navbar-expand-lg narbar-light">
-                            <a class="navbar-brand mr-auto" href="#">
-                                <img src="img/cat1.png" alt="Site logo">
-                                MEOWIE
-                            </a>
-                            <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
-                                <ul class="navbar-nav ml-auto">
-                                <li class="active"><a href="{{url('/redirect')}}">Home</a></li>
+<header id="header">
+	<div id="head" class="parallax" parallax-speed="2">
+		<h1 id="logo" class="text-center">
+			<img class="img-circle" src="profile/assets/images/smirk.jpg" alt="">
+			<span class="title">JIMINSHIIII</span>
+			<span class="tagline">A mystery person<br><br>
+				<a href=""><b>anthony.russel42@example.com<b></a></span>
+		</h1>
+	</div>
+
+	<nav class="navbar navbar-default navbar-sticky">
+		<div class="container-fluid">
+			
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			</div>
+			
+			<div class="navbar-collapse collapse">
+				
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="{{url('/redirect')}}">Home</a></li>
 					<li><a href="{{url('/listDown')}}">List</a></li>
-                    <li><a href="{{url('/listDown')}}">Request</a></li>
+                    <li><a href="{{url('/custRequest')}}">Request</a></li>
                     <li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							
-							<li><a href={{"showProfile/".Auth::user()->id}}>Edit Profile</a></li>
-							
-						
-							
+						<li><a href={{"showProfile/".Auth::user()->id}}>Edit Profile</a></li>
 							<li><a href="{{url('/change')}}">Change Password</a></li>
 							<li><a href="{{url('/delete')}}">Delete Account</a></li>
 						</ul>
 					</li>
-                                  <li class="nav-item">
+                    <li>
                                   @auth
                                     
                                     <a href="{{ route('logout') }}"  onclick = "event.preventDefault();
@@ -75,9 +80,7 @@ https://www.tooplate.com/view/2095-level
                                     
                                     <a href="{{ route('logout') }}" 
                                     onclick="event.preventDefault();
-                                    this.closest('form').submit();"><span class="nav-link"><strong>LOG OUT</strong></span>
-                      
-                                    </a>
+                                    this.closest('form').submit();">LOG OUT</a>
   
                                     </form>
                                     </a>
@@ -85,99 +88,113 @@ https://www.tooplate.com/view/2095-level
                                  @endauth
                                  </li>
                                
-                           
-                                </ul>
-                            </div>                            
-                        </nav>            
-                    </div>
-                </div>
-            </div>
-            <div class="tm-section tm-bg-img" id="tm-section-1">
-                <div class="tm-form-white ie-container-width-fix-2">
-                    <div class="container ie-h-align-center-fix">
-                        <div class="row">
-                            
-                             
-                            </div>                        
-                        </div>      
-                    </div>
-                </div>                  
-            </div>
+				</ul>
+			
+			</div><!--/.nav-collapse -->			
+		</div>	
+	</nav>
+</header> 
 
-           
+<main id="main">
+
+	<div class="container">
+		
+		
+    </div>       
+</main>
 
 
-<footer class="tm-bg-dark-blue">
-                <div class="container">
-                    <div class="row">
-                        <p class="col-sm-12 text-center tm-font-light tm-color-white p-4 tm-margin-b-0">
-                        Copyright &copy; <span class="tm-current-year">2022</span> Nurul Hafizah</p>        
-                    </div>
-                </div>                
-            </footer>
-        </div>
-        
-      <!-- load JS files -->
-      <script src="js/jquery-1.11.3.min.js"></script>             <!-- jQuery (https://jquery.com/download/) -->
-        <script src="js/popper.min.js"></script>                    <!-- https://popper.js.org/ -->       
-        <script src="js/bootstrap.min.js"></script>                 <!-- https://getbootstrap.com/ -->
-        <script src="js/datepicker.min.js"></script>                <!-- https://github.com/qodesmith/datepicker -->
-        <script src="js/jquery.singlePageNav.min.js"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
-        <script src="slick/slick.min.js"></script>                  <!-- http://kenwheeler.github.io/slick/ -->
-        <script>
+	  <div class="limiter">
+
+<div class="container-table100">
+	<div class="wrap-table100">
+		<div class="table100 ver1 m-b-110">
+			<table data-vertable="ver1">
+				<thead>
+					<tr class="row100 head">
+					
+						<th class="column100 column2" data-column="column2">Hotel Name</th>
+						<th class="column100 column3" data-column="column3">Check In</th>
+						<th class="column100 column4" data-column="column4">Check Out</th>
+						<th class="column100 column5" data-column="column5">Total cats</th>
+						<th class="column100 column6" data-column="column6">Date of Booking</th>
+                        <th class="column100 column6" data-column="column6"></th>
+                        <th class="column100 column6" data-column="column6"></th>
+					</tr>
+				</thead>
+@foreach($history as $history)
+@if(Auth::user()->id == $history->hotelID)
+				<tbody>
+					<tr class="row100">
+						<td class="column100 column1" data-column="column1">{{$history->hotelName}}</td>
+						<td class="column100 column2" data-column="column2">{{$history->checkIn}}</td>
+						<td class="column100 column3" data-column="column3">{{$history->checkOut}}</td>
+						<td class="column100 column4" data-column="column4">{{$history->totalCats}}</td>
+						<td class="column100 column5" data-column="column5">{{$history->created_at}}</td>
+                        <form action="/accept/{{$history->id}}" method="post" >
+                            @csrf
+                        <td> <a><button class="badge badge-warning p-2" value="{{$history->UserID}}">Accept</button></a></td>
+                        </form>
+                        <form action="/decline/{{$history->id}}" method="post" >
+                            @csrf
+                        <td> <a><button class="badge badge-warning p-2" value="{{$history->UserID}}">Decline</button></a></td>
+                        </form>
+					</tr>
+				</tbody>
+@endif
+@endforeach
+			</table>
+		</div>
+	</div>
+</div>
+</div>
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+
+			
+			
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+<footer id="underfooter">
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p> </p>
+				</div>
+			</div>
+
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p class="text-right">
+						Copyright &copy; 2022 Nurul Hafizah<br> 
+						 </p>
+				</div>
+			</div>
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
 
 
-            var center;
+<!--===============================================================================================-->	
+<script src="tablelist/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="tablelist/vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="tablelist/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="tablelist/js/main.js"></script>
+<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="profile/assets/js/template.js"></script>
 
-            
-           
-
-            function setPageNav(){
-                if($(window).width() > 991) {
-                    $('#tm-top-bar').singlePageNav({
-                        currentClass:'active',
-                        offset: 79
-                    });   
-                }
-                else {
-                    $('#tm-top-bar').singlePageNav({
-                        currentClass:'active',
-                        offset: 65
-                    });   
-                }
-            }
-
-       
-            $(document).ready(function(){
-
-                $(window).on("scroll", function() {
-                    if($(window).scrollTop() > 100) {
-                        $(".tm-top-bar").addClass("active");
-                    } else {
-                        //remove the background property so it comes transparent again (defined in your css)
-                       $(".tm-top-bar").removeClass("active");
-                    }
-                });      
-
-             
-                // Slick carousel
-                setCarousel();
-                setPageNav();
-
-                $(window).resize(function() {
-                  setCarousel();
-                  setPageNav();
-                });
-
-                // Close navbar after clicked
-                $('.nav-link').click(function(){
-                    $('#mainNav').removeClass('show');
-                });
-
-                                
-            });
-
-        </script>             
 
 </body>
 </html>
