@@ -66,7 +66,7 @@
 			<div class="row justify-content-center">
 		
 			</div>
-            <button onclick="history.back()" class="button-40" role="button">Go Back</button><br><br><br>
+      <button onclick="history.back()" class="button-40" role="button"><a href="{{url('/')}}"> Go Back</a></button><br><br><br>
 			<div class="row justify-content-center">
                 
 				<div class="col-md-12 col-lg-10">

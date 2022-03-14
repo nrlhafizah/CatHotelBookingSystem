@@ -233,6 +233,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Input' => Illuminate\Support\Facades\Input::class,
         'Carbon' => 'Carbon\Carbon',
+        'providers' => UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
+        
 
     ],
 

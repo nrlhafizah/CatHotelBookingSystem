@@ -34,7 +34,7 @@ class custControl extends Controller
 		if (count ( $data ) > 0)
         return view ( 'customer.custpage' )->withData ( $data )->withQuery ( $q );
     else
-        return view ( 'customer.custpage' )->withMessage ( 'No Details found. Try to search again !' );
+    return back()->with('error','No details found! Try to search again.');
 		 
    }
 
@@ -64,7 +64,7 @@ class custControl extends Controller
         $newBook->created_at = Carbon::now();
         $newBook->save();
 
-        return view('customer.success');
+        return back()->with('success','Successfully booked!');
     }
 
     function show()

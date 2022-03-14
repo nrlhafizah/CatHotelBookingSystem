@@ -49,7 +49,7 @@ class adminControl extends Controller
 		if(count($data)>0){
 			return view('admin.customer')->withData($data);
 		}
-		return view('admin.customer')->withMessage("No Results Found!");
+		return back()->with('error','No results found!');
 	}
     }
 
@@ -72,7 +72,7 @@ class adminControl extends Controller
 		if(count($data)>0){
 			return view('admin.provider')->withData($data);
 		}
-		return view('admin.provider')->withMessage("No Results Found!");
+		return back()->with('error','No results found!');
 	}
     }
 
@@ -95,7 +95,7 @@ class adminControl extends Controller
 		if(count($data)>0){
 			return view('admin.request')->withData($data);
 		}
-		return view('admin.request')->withMessage("No Results Found!");
+		return back()->with('error','No results found!');
 	}
     }
 
@@ -111,7 +111,6 @@ class adminControl extends Controller
     {
         $data=Registered::find($id);
         $add = new User;
-        $hotel = new Hotel;
         $new = new Profile;
 
         $add->name=$data->name;
@@ -137,7 +136,6 @@ class adminControl extends Controller
             $new->desc3='  ';
             $new->service4='  ';
             $new->desc4='  ';
-            $new->img='  ';
        
  
             $new->save();
@@ -146,7 +144,7 @@ class adminControl extends Controller
             $data->delete();
             Mail::to($data->email)->send(new SendMail($data));
 
-            return redirect()->back()->with('message', 'IT WORKS!');
+            return back()->with('success','Provider successfully added.');
         
 
     }
@@ -160,7 +158,7 @@ class adminControl extends Controller
         $data1->delete();
 
         $data = Registered::paginate(9);
-        return view('admin.request')->withData($data);
+        return back()->with('success','Provider has been removed.');
     }
 
     function addprov(Request $request, User $user, Profile $new)
@@ -217,21 +215,6 @@ class adminControl extends Controller
 
         //Execute Query
         $user->save();
-
-        $new->description='hello';
-        $new->service1='hello';
-        $new->desc1='hello';
-        $new->service2='hello';
-        $new->desc2='hello';
-        $new->service3='hello';
-        $new->desc3='hello';
-        $new->service4='hello';
-        $new->desc4='hello';
-        $new->img='hello';
-        $new->userID='9';
-
-        $new->save();
-
 
             
      //If Success

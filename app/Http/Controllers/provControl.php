@@ -12,7 +12,7 @@ use App\view;
 use Illuminate\Support\Facades\Route;
 use Redirect;
 use Illuminate\Support\Facades\Validator;
-
+use Alert;
 use Illuminate\Support\Facades\Response;
 use App\Images;
 use Image;
@@ -170,13 +170,13 @@ class provControl extends Controller
         $info=RequestCustomer::find($id);
         $data= new Booking;
 
-        $data->id=$info->id;
         $data->name=$info->name;
         $data->email=$info->email;
         $data->phoneNumber=$info->phoneNumber;
         $data->totalCats=$info->totalCats;
         $data->checkIn=$info->checkIn;
         $data->checkOut=$info->checkOut;
+        $data->UserID=$info->id;
         $data->hotelID=$info->hotelID;
         $data->hotelName=$info->hotelName;
         $data->created_at =$info->created_at;
@@ -185,7 +185,8 @@ class provControl extends Controller
 
         $info->delete();
 
-        return view('provider.request');
+        Alert::success('Good job!')->persistent("Close");
+        return view('customer.success');
     }
 
     function deleteReq($id)

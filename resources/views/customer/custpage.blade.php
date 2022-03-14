@@ -113,9 +113,11 @@ https://www.tooplate.com/view/2095-level
                 </div>                  
             </div>
 
-            
+           
             <div class="container tm-pt-5 tm-pb-4 ">
+            @include('flash-message')
 <div class="row text-center">
+    
 
 @foreach ($data as $data)
 @if ($data->usertype=="2")

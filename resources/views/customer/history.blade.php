@@ -8,8 +8,6 @@
 	
 	<title>Meowie</title>
     <link rel="shortcut icon" type="cat/png" href="img/cat.png">
-
-	<link rel="shortcut icon" href="profile/assets/images/gt_favicon.png">
 	
 	<!-- Bootstrap -->
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
@@ -21,7 +19,7 @@
 	<link rel="stylesheet" href="profile/assets/css/styles.css">
 
     <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="tablelist/images/icons/favicon.ico"/>
+
     
 <!--===============================================================================================-->
 	
@@ -39,12 +37,12 @@
 <body class="home">
 
 <header id="header">
-	<div id="head" class="parallax" parallax-speed="2">
+<div id="head" class="parallax" parallax-speed="2">
 		<h1 id="logo" class="text-center">
-			<img class="img-circle" src="profile/assets/images/smirk.jpg" alt="">
-			<span class="title">JIMINSHIIII</span>
-			<span class="tagline">A mystery person<br><br>
-				<a href=""><b>anthony.russel42@example.com<b></a></span>
+			<img class="img-circle" src="{{ asset ('profile/assets/images/smirk.jpg')}}" alt="">
+			<span class="title">{{Auth::user()->name}}</span>
+			<span class="tagline">{{Auth::user()->name}}<br><br>
+				<a href=""><b>{{Auth::user()->name}}<b></a></span>
 		</h1>
 	</div>
 

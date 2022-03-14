@@ -177,6 +177,7 @@
         </form> 
       </div> <br/><br/>
             @if(isset($data))
+            @include('flash-message')
             <div class="row">
               <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">

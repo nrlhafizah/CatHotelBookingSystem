@@ -64,15 +64,17 @@
 <section class="ftco-section">
            
 		<div class="container">
-        <button onclick="history.back()" class="button-40" role="button">Go Back</button><br><br><br>
+        <button onclick="history.back()" class="button-40" role="button"><a href="{{url('/')}}"> Go Back</a></button><br><br><br>
 			<div class="row justify-content-center">
 		
 			</div>
+      @include('flash-message')
 			<div class="row justify-content-center">
 				<div class="col-md-12 col-lg-10">
 					<div class="wrap d-md-flex">
 						<div class="img" style="background-image: url(login1/images/30.jpg);">
 			      </div>
+            
 						<div class="login-wrap p-4 p-md-5">
 			      	<div class="d-flex">
 			      		<div class="w-100">
@@ -123,6 +125,7 @@
                     Register
                 </button>
             </div>
+            
 
 
                 

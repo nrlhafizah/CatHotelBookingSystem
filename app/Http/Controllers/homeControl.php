@@ -12,7 +12,7 @@ use App\view;
 use Illuminate\Support\Facades\Route;
 use Validator, Redirect;
 
-use Request;
+use Illuminate\Http\Request;
  
 use Session;
 
@@ -117,7 +117,7 @@ class homeControl extends Controller
         $new->SSM=$req->ssm;
         $new->save();
 
-        return view("success");
+        return back()->with('success','You are successfully registered.');
     }
 
     
