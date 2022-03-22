@@ -189,7 +189,7 @@
                       <table class="table">
                         <thead>
                         <tr>
-                            <th class="font-weight-bold">ID</th>
+                       
                             <th class="font-weight-bold">Name</th>
                             <th class="font-weight-bold">Email</th>
                             <th class="font-weight-bold">Created at</th>
@@ -202,7 +202,7 @@
                         @foreach($data as $user)
                         @if ($user->usertype=='2')
                         <tr>
-                            <td>{{$user->id}}</td>
+                       
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->created_at}}</td>

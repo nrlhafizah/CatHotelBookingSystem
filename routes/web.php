@@ -78,6 +78,7 @@ Route::get("/history",[custControl::class,"showHistory"]);
 Route::get("/create",[custControl::class,"success"]);
 
 Route::get("show/{id}",[homeControl::class,"showProfile"]);
+Route::get("show/contactHotel/{id}",[homeControl::class,"contact"]);
 Route::get("show/show/{id}",[homeControl::class,"showProfile"]);
 
 

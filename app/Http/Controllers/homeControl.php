@@ -70,6 +70,13 @@ class homeControl extends Controller
         return view('formprovider');
     }
 
+    function contact($id)
+    {
+        $data=User::find($id);
+        $prof=Profile::all();
+        return view('provider.contact', ['data'=>$data, 'prof'=> $prof]);
+    }
+
 
     function showProfile($id)
     {

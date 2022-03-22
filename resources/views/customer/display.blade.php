@@ -44,8 +44,8 @@
 			<div class="navbar-collapse collapse">
 				
 				<ul class="nav navbar-nav">
-					<li class="active"><a href={{"show/".$data['id']}}>Profile</a></li>
-					    <li><a href="{{url('/')}}">Contact</a></li>
+					<li class="active"><a href="">Profile</a></li>
+					    <li><a href={{"contactHotel/".$data['id']}}>Contact</a></li>
                     <li><a href="{{url('/redirect')}}">Go Back</a></li>
                     
 						
@@ -96,91 +96,82 @@
 
 			</div>
 		</div> <!-- / section -->
-		<p class="text-center"><a href={{"create/".$data['id']}} class="btn btn-action">Make a booking</a></p>
+		<p class="text-center"><a href={{"create/".$prof['id']}} class="btn btn-action">Make a booking</a></p>
 	
 		<div class="row section recentworks topspace">
 			
 			<h2 class="section-title"><span>Pictures</span></h2>
 			
 			<div class="thumbnails recentworks row">
-				
+			
+			
+   
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="sidebar-right.html">
 						<span class="img">
-							<img src="{{$data->image}}" alt="">
-							<span class="cover"><span class="more">See details &rarr;</span></span>
+						<img src="{{ asset('storage/images/services/'.$prof->image1)}}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  width="700" height="300"/>
 						</span>
-						<span class="title">Sample title - big data solutions</span>
-					</a>
-					<span class="details"><a href="">Web design</a> | <a href="">Wordpress</a> | <a href="">Logotype</a></span>
-					<h4></h4>
-					<p></p>
 				</div>
 				
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="sidebar-right.html">
 						<span class="img">
-							<img src="{{ asset ('profile/assets/images/s1.jpg')}}" alt="">
-							<span class="cover"><span class="more">See details &rarr;</span></span>
+						<image src="{{ asset('storage/images/services/'.$prof->image2) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" width="700" height="300"/>
 						</span>
-						<span class="title">Pure ipsum - development services for people</span>
-					</a>
-					<span class="details"><a href="">Web design</a> | <a href="">Wordpress</a></span>
-					<h4></h4>
-					<p></p>
 				</div>
 				
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="sidebar-right.html">
-						<span class="img">
-							<img src="{{ asset ('profile/assets/images/s1.jpg')}}" alt="">
-							<span class="cover"><span class="more">See details &rarr;</span></span>
-						</span>
-						<span class="title">Lorem studios - interior and patio design</span>
-					</a>
-					<span class="details"><a href="">Web design</a> | <a href="">Logotype</a></span>
-					<h4></h4>
-					<p></p>
-				</div>
 
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="sidebar-right.html">
+					<a  href="sidebar-right.html">
 						<span class="img">
-							<img src="{{ asset ('profile/assets/images/s1.jpg')}}" alt="">
-							<span class="cover"><span class="more">See details &rarr;</span></span>
+						<image src="{{ asset('storage/images/services/'.$prof->image3) }}"  onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" width="700" height="300"/>
+							<span class="cover"></span>
 						</span>
-						<span class="title">Pure ipsum - development services for people</span>
+					
 					</a>
-					<span class="details"><a href="">Web design</a> | <a href="">Wordpress</a></span>
+				
+					<h4></h4>
+					<p></p>
+				</div>
+				
+				
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+					<a  href="sidebar-right.html">
+						<span class="img">
+						<image src="{{ asset('storage/images/services/'.$prof->image4) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" width="700" height="300" />
+							<span class="cover"></span>
+						</span>
+					
+					</a>
+					<span ><a href="">  </a>  <a href="">  </a></span>
 					<h4></h4>
 					<p></p>
 				</div>
 				
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="sidebar-right.html">
+					<a  href="sidebar-right.html">
 						<span class="img">
-							<img src="{{ asset ('profile/assets/images/s1.jpg')}}" alt="">
-							<span class="cover"><span class="more">See details &rarr;</span></span>
+						<image src="{{ asset('storage/images/services/'.$prof->image5) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" width="700" height="300" />
+							<span class="cover"></span>
 						</span>
-						<span class="title">Lorem studios - interior and patio design</span>
+					
 					</a>
-					<span class="details"><a href="">Web design</a> | <a href="">Logotype</a></span>
+					<span ><a href="">  </a>  <a href="">  </a></span>
 					<h4></h4>
 					<p></p>
 				</div>
-
+				
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="sidebar-right.html">
+					<a  href="sidebar-right.html">
 						<span class="img">
-							<img src="{{ asset ('profile/assets/images/s1.jpg')}}" alt="">
-							<span class="cover"><span class="more">See details &rarr;</span></span>
+						<image src="{{ asset('storage/images/services/'.$prof->image6) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" width="700" height="300" />
+							<span class="cover"></span>
 						</span>
-						<span class="title">Lorem studios - interior and patio design</span>
+					
 					</a>
-					<span class="details"><a href="">Web design</a> | <a href="">Logotype</a></span>
+					<span ><a href="">  </a>  <a href="">  </a></span>
 					<h4></h4>
 					<p></p>
 				</div>
+				
 			</div>
 
 		</div> <!-- /section -->
@@ -230,4 +221,4 @@
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="{{ asset ('profile/assets/js/template.js')}}"></script>
 </body>
-</html>
+</html> 

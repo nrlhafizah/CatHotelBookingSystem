@@ -48,7 +48,8 @@ class adminControl extends Controller
            'q' => Request::get('q'),
 		));
 		if(count($data)>0){
-			return view('admin.customer')->withData($data);
+			$booking = Booking::all();
+            return view('admin.customer', ['data'=>$data, 'booking'=>$booking]);
 		}
 		return back()->with('error','No results found!');
 	}
@@ -59,7 +60,8 @@ class adminControl extends Controller
     function provSearch()
     {
         $data = User::paginate(9);
-        return view('admin.provider')->withData($data);
+        $booking = Booking::all();
+        return view('admin.provider', ['data'=>$data, 'booking'=>$booking]);
     }
 
     function provGo()
@@ -71,7 +73,8 @@ class adminControl extends Controller
            'q' => Request::get('q'),
 		));
 		if(count($data)>0){
-			return view('admin.provider')->withData($data);
+			$booking = Booking::all();
+        return view('admin.provider', ['data'=>$data, 'booking'=>$booking]);
 		}
 		return back()->with('error','No results found!');
 	}
