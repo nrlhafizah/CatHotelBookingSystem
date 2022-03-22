@@ -29,7 +29,7 @@
 			<span class="title">{{Auth::user()->name}}</span>
 			<span class="tagline">{{Auth::user()->name}}<br><br>
 				<a href=""><b>{{Auth::user()->name}}<b></a></span>
-		</h1>
+		</h1> 
 	</div>
 
 	<nav class="navbar navbar-default navbar-sticky">

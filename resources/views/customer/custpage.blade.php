@@ -55,7 +55,7 @@ https://www.tooplate.com/view/2095-level
                                   
                             
                                   <li class="nav-item">
-                                    <a class="nav-link" href="{{url('/prof')}}"><strong>My Profile</strong></a>
+                                    <a class="nav-link" href="{{url('/history')}}"><strong>My Profile</strong></a>
                                   </li>
                                   <li class="nav-item">
                                   @auth
@@ -116,6 +116,7 @@ https://www.tooplate.com/view/2095-level
            
             <div class="container tm-pt-5 tm-pb-4 ">
             @include('flash-message')
+            <br><br>
 <div class="row text-center">
     
 

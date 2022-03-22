@@ -87,8 +87,9 @@ class homeControl extends Controller
 
             $provider = User::where('usertype','=','2')->count();
             $customer = User::where('usertype','=','1')->count();
+            $booking = Booking::All()->count();
             $total = User::All()->count();
-            return view('admin.adminpage', ['provider'=>$provider, 'customer'=>$customer], ['total'=>$total]);
+            return view('admin.adminpage', ['provider'=>$provider, 'customer'=>$customer, 'total'=>$total, 'booking'=>$booking]);
           
         }
         else if($typeuser=='1')
@@ -117,7 +118,7 @@ class homeControl extends Controller
         $new->SSM=$req->ssm;
         $new->save();
 
-        return back()->with('success','You are successfully registered.');
+        return back()->with('success','You have successfully registered. Please wait until you received email from the admin.');
     }
 
     

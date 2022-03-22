@@ -81,8 +81,8 @@
                   <p class="designation">Administrator</p>
                 </div>
                 <div class="icon-container">
-                  <i class="icon-bubbles"></i>
-                  <div class="dot-indicator bg-danger"></div>
+              
+             
                 </div>
               </a>
             </li>
@@ -135,7 +135,7 @@
                   </div>
                   <div class="d-md-flex row m-0 quick-action-btns" role="group" aria-label="Quick action buttons">
                   <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
-                      <a href="{{ url('/reg') }}" type="button" class="btn px-0"> <i class="icon-user mr-2"></i> Add New Provider</a>
+                  <a  type="button" class="btn px-0"> <i class="icon-user mr-2"></i> </a>
                     </div>
                     <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
                       <a href="{{url('/listRequest')}}" type="button" class="btn px-0"><i class="icon-docs mr-2"></i> Request</a>
@@ -158,7 +158,7 @@
                     <div class="row">
                       <div class="col-md-12">
                         <div class="d-sm-flex align-items-baseline report-summary-header">
-                          <h5 class="font-weight-semibold">System Summary</h5> <span class="ml-auto">Updated Report</span> <button class="btn btn-icons border-0 p-2"><i class="icon-refresh"></i></button>
+                          <h5 class="font-weight-semibold">System Summary</h5> </button>
                         </div>
                       </div>
                     </div>
@@ -186,7 +186,7 @@
                       <div class="col-md-6 col-xl report-inner-card">
                         <div class="inner-card-text">
                           <span class="report-title">BOOKING</span><br>
-                          <h4>-</h4>
+                          <h4>{{$booking}}</h4>
        
                         </div>
                         <div class="inner-card-icon bg-warning">

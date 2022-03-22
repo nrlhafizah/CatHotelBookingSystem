@@ -81,8 +81,7 @@
                   <p class="designation">Administrator</p>
                 </div>
                 <div class="icon-container">
-                  <i class="icon-bubbles"></i>
-                  <div class="dot-indicator bg-danger"></div>
+
                 </div>
               </a>
             </li>
@@ -145,7 +144,7 @@
                   </div>
                   <div class="d-md-flex row m-0 quick-action-btns" role="group" aria-label="Quick action buttons">
                   <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
-                      <a href="{{ url('/reg') }}" type="button" class="btn px-0"> <i class="icon-user mr-2"></i> Add New Provider</a>
+                      <a  type="button" class="btn px-0"> <i class="icon-user mr-2"></i> </a>
                     </div>
                     <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
                       <a href="{{url('/listRequest')}}" type="button" class="btn px-0"><i class="icon-docs mr-2"></i> Request</a>
@@ -184,7 +183,7 @@
                   <div class="card-body">
                     <div class="d-sm-flex align-items-center mb-4">
                       <h4 class="card-title mb-sm-0">Request List</h4>
-                      <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Products</a>
+                   
                     </div>
                     <div class="table-responsive border rounded p-1">
                    

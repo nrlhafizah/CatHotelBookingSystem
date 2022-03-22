@@ -39,15 +39,14 @@
 <body class="home">
 
 <header id="header">
-	<div id="head" class="parallax" parallax-speed="2">
+<div id="head" class="parallax" parallax-speed="2">
 		<h1 id="logo" class="text-center">
 			<img class="img-circle" src="profile/assets/images/smirk.jpg" alt="">
-			<span class="title">JIMINSHIIII</span>
-			<span class="tagline">A mystery person<br><br>
-				<a href=""><b>anthony.russel42@example.com<b></a></span>
+			<span class="title">{{Auth::user()->hotelName}} </span>
+			<span class="tagline">{{Auth::user()->email}} <br><br>
+				<a href=""><b>{{Auth::user()->address}} <b></a></span>
 		</h1>
 	</div>
-
 	<nav class="navbar navbar-default navbar-sticky">
 		<div class="container-fluid">
 			

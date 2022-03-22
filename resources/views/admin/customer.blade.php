@@ -21,7 +21,37 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="admin/assets/css/style.css">
     <!-- End layout styles -->
-   
+   <style>
+
+.modal-dialog {
+ 
+          width: 1500px;
+ 
+        }
+ 
+.modal-header {
+ 
+    background-color:#F2F070  ;
+
+    color:#000;
+ 
+    border-bottom:2px dashed #F2F070  ;
+ 
+ }
+
+ .modal-content
+ {
+   width:1000px;
+ }
+
+ .badge-button{
+        width:70px;
+        height:35px;
+        font-size:13px;
+      background-color:#F2F070 ;
+        color:#000;
+ }
+     </style>
   </head>
   <body>
     <div class="container-scroller">
@@ -81,8 +111,7 @@
                   <p class="designation">Administrator</p>
                 </div>
                 <div class="icon-container">
-                  <i class="icon-bubbles"></i>
-                  <div class="dot-indicator bg-danger"></div>
+                  
                 </div>
               </a>
             </li>
@@ -145,7 +174,7 @@
                   </div>
                   <div class="d-md-flex row m-0 quick-action-btns" role="group" aria-label="Quick action buttons">
                   <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
-                      <a href="{{ url('/reg') }}" type="button" class="btn px-0"> <i class="icon-user mr-2"></i> Add New Provider</a>
+                  <a  type="button" class="btn px-0"> <i class="icon-user mr-2"></i> </a>
                     </div>
                     <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
                       <a href="{{url('/listRequest')}}" type="button" class="btn px-0"><i class="icon-docs mr-2"></i> Request</a>
@@ -178,14 +207,17 @@
 
         </form> 
       </div> <br/><br/>
+
+     
             @if(isset($data))
+            @include('flash-message')
             <div class="row">
               <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <div class="d-sm-flex align-items-center mb-4">
                       <h4 class="card-title mb-sm-0">Customer List</h4>
-                      <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Products</a>
+          
                     </div>
                     <div class="table-responsive border rounded p-1">
                       <table class="table">
@@ -202,22 +234,82 @@
                         </thead>
                         <tbody>
                         @foreach($data as $user)
+                       
                         @if ($user->usertype=='1')
+                        
+                      
                         <tr>
                             <td>{{$user->id}}</td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->created_at}}</td>
                             <td>{{$user->updated_at}}</td>
+                          
+
+                           <!-- Button trigger modal -->
+<td><button type="button" class="badge badge-warning p-2" data-toggle="modal" data-target="#exampleModalCenter{{$user->id}}">
+  Detail
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle{{$user->id}}" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <h5 class="modal-title" id="exampleModalCenterTitle{{$user->id}}">Booking History</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+  
+
+      <table>
+  <tr>
+    <th>Hotel Name</th>
+    <th>Total Cats</th>
+    <th>Check In</th>
+    <th>Check Out</th>
+    <th>Date</th>
+    
+  </tr>
+  @foreach($booking as $booking)
+  @if( $booking->UserID == $user->id )
+
+  <tr>
+  <td>{{$booking->hotelName}}</td>
+    <td>{{$booking->totalCats}}</td>
+    <td>{{$booking->checkIn}}</td>
+    <td>{{$booking->checkOut}}</td>
+    <td>{{$booking->created_at}}</td>
+  </tr>
+  @endif
+@endforeach
+</table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="badge badge-button" data-dismiss="modal">Close</button>
+  
+      </div>
+    </div>
+  </div>
+</div></td>
+                            <form action="/deletecustomer/{{$user->id}}" method="post" >
+                            @csrf
                             <td>
                               <button class="badge badge-warning p-2">Delete</button>
                             </td>
+                            </form>
                             
                           </tr>
 
                   
                         </tbody>
+                       
+                        
                         @endif
+                       
                         @endforeach
 
                         <br/>

@@ -52,7 +52,7 @@ https://templatemo.com/tm-538-digital-trend
                     </li>
             
                             <li class="nav-item">
-                                <a class="nav-link contact " href="{{url('/beflogin')}}">Login</a>
+                                <a class="nav-link contact " href="{{ route('login') }}">Login</a>
                             </li>
                            
                 

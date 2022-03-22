@@ -28,7 +28,7 @@
 	<div id="head" class="parallax" parallax-speed="2">
 		<h1 id="logo" class="text-center">
 			<img class="img-circle" src="{{ asset ('profile/assets/images/smirk.jpg')}}" alt="">
-			<span class="title">{{$data->name}}</span>
+			<span class="title">{{$data->hotelName}}</span>
 			<span class="tagline">{{$data->email}}<br><br>
 				<a href=""><b>{{$data->address}}<b></a></span>
 		</h1>

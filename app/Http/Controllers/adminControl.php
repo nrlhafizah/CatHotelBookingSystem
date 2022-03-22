@@ -35,7 +35,8 @@ class adminControl extends Controller
     function custSearch()
     {
         $data = User::paginate(9);
-        return view('admin.customer')->withData($data);
+        $booking = Booking::all();
+        return view('admin.customer', ['data'=>$data, 'booking'=>$booking]);
     }
 
     function custGo()
@@ -159,6 +160,22 @@ class adminControl extends Controller
 
         $data = Registered::paginate(9);
         return back()->with('success','Provider has been removed.');
+    }
+
+    function providerDel($id)
+    {
+        $data1=User::find($id);
+        $data1->delete();
+
+        return back()->with('success','Provider has been removed.');
+    }
+
+    function customerDel($id)
+    {
+        $data1=User::find($id);
+        $data1->delete();
+
+        return back()->with('success','Customer has been removed.');
     }
 
     function addprov(Request $request, User $user, Profile $new)

@@ -21,12 +21,10 @@ use App\Http\Controllers\SendEmailController;
 //     return view('landing');
 // });
 
+//home 
 
 Route::get('/', [homeControl::class,"landing"]);
 Route::get("/redirect",[homeControl::class,"redirectFunct"]);
-Route::any('/findtheuser',[custControl::class,"resultOf"]);
-
-
 
 Route::get("/befregister",[homeControl::class,"beforeReg"]);
 Route::get("/beflogin",[homeControl::class,"beforeLog"]);
@@ -36,11 +34,6 @@ Route::get("/form",[homeControl::class,"formReg"]);
 Route::view('provForm', 'formprovider');
 Route::POST("addProv",[homeControl::class,"newProvider"]);
 
-Route::get("/profiletest",[homeControl::class,"testProf"]);
-Route::get("/change",[homeControl::class,"changePass"]);
-Route::get("/delete",[homeControl::class,"deleteACC"]);
-Route::get("/listDown",[provControl::class,"listOut"]);
-Route::get("/custRequest",[provControl::class,"custRequest"]);
 
 // Admin page
 
@@ -53,9 +46,22 @@ Route::any('/provSearch',[adminControl::class,"provGo"]);
 Route::get('/listRequest', [adminControl::class,"reqSearch"]);
 Route::any('/reqSearch',[adminControl::class,"reqGo"]); 
 
+Route::POST("insert/{id}",[adminControl::class,"acceptProv"]);
+Route::POST("delete/{id}",[adminControl::class,"deleteProv"]);
+
+Route::POST("deleteprovider/{id}",[adminControl::class,"providerDel"]);
+Route::POST("deletecustomer/{id}",[adminControl::class,"customerDel"]);
+
+Route::get("/reg",[adminControl::class,"regprov"]);
+
+Route::view('addprov', 'auth.registerprov');
+Route::POST("addprovider",[adminControl::class,'addprov']);
+
 
 // Customer page
   
+Route::any('/findtheuser',[custControl::class,"resultOf"]);
+
 Route::get("/prof",[custControl::class,"show"]);
 
 Route::get("show/create/{id}",[custControl::class,"bookie"]);
@@ -71,6 +77,9 @@ Route::get("/history",[custControl::class,"showHistory"]);
 
 Route::get("/create",[custControl::class,"success"]);
 
+Route::get("show/{id}",[homeControl::class,"showProfile"]);
+Route::get("show/show/{id}",[homeControl::class,"showProfile"]);
+
 
 // Provider page
 
@@ -81,32 +90,21 @@ Route::POST("/editprof",[provControl::class,"testOnly"]);
 
 Route::get("/req",[provControl::class,"reqBook"]);
 
-// test
+Route::get("/profiletest",[homeControl::class,"testProf"]);
+Route::get("/change",[homeControl::class,"changePass"]);
+Route::get("/delete",[homeControl::class,"deleteACC"]);
+Route::get("/listDown",[provControl::class,"listOut"]);
+Route::get("/custRequest",[provControl::class,"custRequest"]);
 
-Route::get("/reg",[adminControl::class,"regprov"]);
-
-Route::get("show/{id}",[homeControl::class,"showProfile"]);
-Route::get("show/show/{id}",[homeControl::class,"showProfile"]);
-
-// Route::view('edit', 'provider.edit');
-// Route::POST("action",[provControl::class,'updateProject']);
-
-// Route::get("/action",[provControl::class,"showForm"]);
-// Route::get("/upd{id}",[provControl::class,"showDetail"]);
+Route::POST("accept/{id}",[provControl::class,"acceptCust"]);
+Route::POST("decline/{id}",[provControl::class,"deleteReq"]);
 
 Route::POST("action",[provControl::class,'addProvider']);
 Route::get("/createproject",[provControl::class,"show"]);
 
-Route::view('addprov', 'auth.registerprov');
-Route::POST("addprovider",[adminControl::class,'addprov']);
 
 
 
-Route::POST("insert/{id}",[adminControl::class,"acceptProv"]);
-Route::POST("delete/{id}",[adminControl::class,"deleteProv"]);
-
-Route::POST("accept/{id}",[provControl::class,"acceptCust"]);
-Route::POST("decline/{id}",[provControl::class,"deleteReq"]);
 
 //Email
 
@@ -114,10 +112,6 @@ Route::get('/sendemail', 'App\Http\Controllers\SendEmailController@index');
 Route::post('/sendemail/send', 'App\Http\Controllers\adminControl@acceptProv');
 
 // Middleware
-
-
-
-
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
       return view('dashboard');
