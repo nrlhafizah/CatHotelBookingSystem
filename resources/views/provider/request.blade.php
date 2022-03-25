@@ -104,7 +104,7 @@
 
 
 	  <div class="limiter">
-
+	  @include('flash-message')
 <div class="container-table100">
 	<div class="wrap-table100">
 		<div class="table100 ver1 m-b-110">
@@ -112,7 +112,7 @@
 				<thead>
 					<tr class="row100 head">
 					
-						<th class="column100 column2" data-column="column2">Hotel Name</th>
+						<th class="column100 column2" data-column="column2">Name</th>
 						<th class="column100 column3" data-column="column3">Check In</th>
 						<th class="column100 column4" data-column="column4">Check Out</th>
 						<th class="column100 column5" data-column="column5">Total cats</th>
@@ -125,7 +125,7 @@
 @if(Auth::user()->id == $history->hotelID)
 				<tbody>
 					<tr class="row100">
-						<td class="column100 column1" data-column="column1">{{$history->hotelName}}</td>
+						<td class="column100 column1" data-column="column1">{{$history->name}}</td>
 						<td class="column100 column2" data-column="column2">{{$history->checkIn}}</td>
 						<td class="column100 column3" data-column="column3">{{$history->checkOut}}</td>
 						<td class="column100 column4" data-column="column4">{{$history->totalCats}}</td>

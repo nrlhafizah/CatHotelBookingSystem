@@ -108,13 +108,13 @@
    
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 						<span class="img">
-						<img src="{{ asset('storage/images/services/'.$prof->image1)}}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  width="700" height="300"/>
+						<img src="{{ asset('storage/images/services/'.$prof->image1)}}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
 						</span>
 				</div>
 				
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$prof->image2) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" width="700" height="300"/>
+						<image src="{{ asset('storage/images/services/'.$prof->image2) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" />
 						</span>
 				</div>
 				
@@ -122,7 +122,7 @@
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 					<a  href="sidebar-right.html">
 						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$prof->image3) }}"  onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" width="700" height="300"/>
+						<image src="{{ asset('storage/images/services/'.$prof->image3) }}"  onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" />
 							<span class="cover"></span>
 						</span>
 					
@@ -136,20 +136,7 @@
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 					<a  href="sidebar-right.html">
 						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$prof->image4) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" width="700" height="300" />
-							<span class="cover"></span>
-						</span>
-					
-					</a>
-					<span ><a href="">  </a>  <a href="">  </a></span>
-					<h4></h4>
-					<p></p>
-				</div>
-				
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a  href="sidebar-right.html">
-						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$prof->image5) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" width="700" height="300" />
+						<image src="{{ asset('storage/images/services/'.$prof->image4) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" />
 							<span class="cover"></span>
 						</span>
 					
@@ -162,7 +149,20 @@
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 					<a  href="sidebar-right.html">
 						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$prof->image6) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" width="700" height="300" />
+						<image src="{{ asset('storage/images/services/'.$prof->image5) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
+							<span class="cover"></span>
+						</span>
+					
+					</a>
+					<span ><a href="">  </a>  <a href="">  </a></span>
+					<h4></h4>
+					<p></p>
+				</div>
+				
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+					<a  href="sidebar-right.html">
+						<span class="img">
+						<image src="{{ asset('storage/images/services/'.$prof->image6) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" />
 							<span class="cover"></span>
 						</span>
 					

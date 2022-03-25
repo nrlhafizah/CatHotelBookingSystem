@@ -46,11 +46,7 @@ https://templatemo.com/tm-538-digital-trend
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    
-                    <li class="nav-item">
-                        <a href="#project" class="nav-link smoothScroll">About us</a>
-                    </li>
-            
+               
                             <li class="nav-item">
                                 <a class="nav-link contact " href="{{ route('login') }}">Login</a>
                             </li>

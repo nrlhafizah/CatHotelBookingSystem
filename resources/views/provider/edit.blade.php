@@ -25,7 +25,7 @@
 <header id="header">
 <div id="head" class="parallax" parallax-speed="2">
 		<h1 id="logo" class="text-center">
-			<img class="img-circle" src="profile/assets/images/smirk.jpg" alt="">
+			<img class="img-circle" src="{{ asset ('profile/assets/images/smirk.jpg')}}" alt="">
 			<span class="title">{{Auth::user()->hotelName}} </span>
 			<span class="tagline">{{Auth::user()->email}} <br><br>
 				<a href=""><b>{{Auth::user()->address}} <b></a></span>

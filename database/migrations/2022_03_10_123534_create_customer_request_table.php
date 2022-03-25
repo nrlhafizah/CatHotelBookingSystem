@@ -21,7 +21,6 @@ class CreateCustomerRequestTable extends Migration
             $table->integer('totalCats');
             $table->date('checkIn');
             $table->date('checkOut');
-            $table->integer('UserID');
             $table->integer('hotelID');
             $table->string('hotelName');
             $table->timestamps();

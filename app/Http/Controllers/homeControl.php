@@ -125,7 +125,7 @@ class homeControl extends Controller
         $new->SSM=$req->ssm;
         $new->save();
 
-        return back()->with('success','You have successfully registered. Please wait until you received email from the admin.');
+        return back()->with('success','You have successfully registered. Please wait until you receive email from the admin.');
     }
 
     

@@ -96,18 +96,18 @@
 			<h2 class="section-title"><span>Services</span></h2>
 			<div class="row">
 				<div class="col-sm-6 col-md-3">
+					<h3 class="text-center">{{$data->service3}}</h3>
+					<p>{{$data->desc3}}</p>
+		
+				</div>
+				<div class="col-sm-6 col-md-3">
 					<h3 class="text-center">{{$data->service1}}</h3>
 					<p>{{$data->desc1}}</p>
-		
+				
 				</div>
 				<div class="col-sm-6 col-md-3">
 					<h3 class="text-center">{{$data->service2}}</h3>
 					<p>{{$data->desc2}}</p>
-				
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<h3 class="text-center">{{$data->service3}}</h3>
-					<p>{{$data->desc3}}</p>
 			
 				</div>
 				<div class="col-sm-6 col-md-3">
@@ -115,6 +115,8 @@
 					<p>{{$data->desc4}}</p>
 					
 				</div>
+
+			
 			</div>
 		</div> <!-- / section -->
 		
@@ -126,42 +128,28 @@
 			<div class="thumbnails recentworks row">
 			
 				
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a  href="sidebar-right.html">
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$data->image1) }}" width="700" height="300"/>
-							<span class="cover"></span>
+						<img src="{{ asset('storage/images/services/'.$data->image1)}}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
 						</span>
-					
-					</a>
-					<span ><a href="">  </a>  <a href="">  </a></span>
-					<h4></h4>
-					<p></p>
 				</div>
 				
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a  href="sidebar-right.html">
 						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$data->image2) }}" width="700" height="300"/>
-							<span class="cover"></span>
+						<image src="{{ asset('storage/images/services/'.$data->image2) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" />
 						</span>
-					
-					</a>
-					<span ><a href="">  </a>  <a href="">  </a></span>
-					<h4></h4>
-					<p></p>
 				</div>
 				
 
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 					<a  href="sidebar-right.html">
 						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$data->image3) }}" width="700" height="300"/>
+						<image src="{{ asset('storage/images/services/'.$data->image3) }}"  onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"/>
 							<span class="cover"></span>
 						</span>
 					
 					</a>
-					<span ><a href="">  </a>  <a href="">  </a></span>
+				
 					<h4></h4>
 					<p></p>
 				</div>
@@ -170,20 +158,7 @@
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 					<a  href="sidebar-right.html">
 						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$data->image4) }}" width="700" height="300" />
-							<span class="cover"></span>
-						</span>
-					
-					</a>
-					<span ><a href="">  </a>  <a href="">  </a></span>
-					<h4></h4>
-					<p></p>
-				</div>
-				
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a  href="sidebar-right.html">
-						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$data->image5) }}" width="700" height="300" />
+						<image src="{{ asset('storage/images/services/'.$data->image4) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" />
 							<span class="cover"></span>
 						</span>
 					
@@ -196,7 +171,20 @@
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 					<a  href="sidebar-right.html">
 						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$data->image6) }}" width="700" height="300" />
+						<image src="{{ asset('storage/images/services/'.$data->image5) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
+							<span class="cover"></span>
+						</span>
+					
+					</a>
+					<span ><a href="">  </a>  <a href="">  </a></span>
+					<h4></h4>
+					<p></p>
+				</div>
+				
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+					<a  href="sidebar-right.html">
+						<span class="img">
+						<image src="{{ asset('storage/images/services/'.$data->image6) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
 							<span class="cover"></span>
 						</span>
 					

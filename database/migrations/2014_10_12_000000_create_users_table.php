@@ -24,6 +24,10 @@ class CreateUsersTable extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
+            $table->integer('phoneNumber')->nullable();
+            $table->string('hotelName')->nullable();
+            $table->string('address')->nullable();
+            $table->integer('SSM')->nullable();
         });
     }
 

@@ -64,7 +64,7 @@ class custControl extends Controller
         $newBook->created_at = Carbon::now();
         $newBook->save();
 
-        return back()->with('success','Successfully booked!');
+        return back()->with('success','Successfully booked! Please wait until they approve your request.');
     }
 
     function show()

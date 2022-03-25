@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
-use Request;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\User;
 use App\Models\Hotel;
@@ -32,11 +33,17 @@ class adminControl extends Controller
      */
 
     //Customer Management 
-    function custSearch()
+    function custSearch(Request $request)
     {
         $data = User::paginate(9);
         $booking = Booking::all();
-        return view('admin.customer', ['data'=>$data, 'booking'=>$booking]);
+
+        if($request->has('view_deleted'))
+        {
+            $data = User::onlyTrashed()->get();
+        }
+
+        return view('admin.customer', compact('data'));
     }
 
     function custGo()
@@ -53,6 +60,20 @@ class adminControl extends Controller
 		}
 		return back()->with('error','No results found!');
 	}
+    }
+
+    public function restore($id)
+    {
+        User::withTrashed()->find($id)->restore();
+
+        return back()->with('success', 'Customer Restored successfully');
+    }
+
+    public function restore_all()
+    {
+        User::onlyTrashed()->restore();
+
+        return back()->with('success', 'All Customer Restored successfully');
     }
 
 
@@ -175,8 +196,7 @@ class adminControl extends Controller
 
     function customerDel($id)
     {
-        $data1=User::find($id);
-        $data1->delete();
+        User::find($id)->delete();
 
         return back()->with('success','Customer has been removed.');
     }

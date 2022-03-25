@@ -24,6 +24,12 @@ class CreateOwnerprofTable extends Migration
             $table->string('desc3')->nullable();
             $table->string('service4')->nullable();
             $table->string('desc4')->nullable();
+            $table->string('image1')->nullable();
+            $table->string('image2')->nullable();
+            $table->string('image3')->nullable();
+            $table->string('image4')->nullable();
+            $table->string('image5')->nullable();
+            $table->string('image6')->nullable();
             $table->timestamps();
         });
     }

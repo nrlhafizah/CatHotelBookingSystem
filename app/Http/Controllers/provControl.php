@@ -185,8 +185,7 @@ class provControl extends Controller
 
         $info->delete();
 
-        Alert::success('Good job!')->persistent("Close");
-        return view('customer.success');
+        return back()->with('success','Customer accepted!');
     }
 
     function deleteReq($id)

@@ -37,7 +37,7 @@ Route::POST("addProv",[homeControl::class,"newProvider"]);
 
 // Admin page
 
-Route::get('/listCustomer', [adminControl::class,"custSearch"]);
+Route::get('/listCustomer', [adminControl::class,"custSearch"])->name('post.index');
 Route::any('/custSearch',[adminControl::class,"custGo"]);
 
 Route::get('/listProvider', [adminControl::class,"provSearch"]);
@@ -50,7 +50,10 @@ Route::POST("insert/{id}",[adminControl::class,"acceptProv"]);
 Route::POST("delete/{id}",[adminControl::class,"deleteProv"]);
 
 Route::POST("deleteprovider/{id}",[adminControl::class,"providerDel"]);
-Route::POST("deletecustomer/{id}",[adminControl::class,"customerDel"]);
+Route::delete('deletecustomer/{id}', [adminControl::class, 'customerDel']);
+// Route::POST("deletecustomer/{id}",[adminControl::class,"customerDel"]);
+Route::get('/restore_all', [adminControl::class, 'restore_all'])->name('post.restore_all');
+Route::get('/restore/one/{id}', [adminControl::class, 'restore'])->name('post.restore');
 
 Route::get("/reg",[adminControl::class,"regprov"]);
 

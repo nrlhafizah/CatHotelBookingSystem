@@ -73,7 +73,7 @@
 						<div class="login-wrap p-4 p-md-5">
 			      	<div class="d-flex">
 			      		<div class="w-100">
-			      			<h3 class="mb-4">REGISTER</h3>
+			      		
 			      		</div>
 								
 			      	</div>
