@@ -84,7 +84,7 @@
 
                 </div>
               </a>
-            </li>
+            </li> 
             <li class="nav-item nav-category">
               <span class="nav-link">Dashboard</span>
             </li>
@@ -175,7 +175,7 @@
           </div>
         </form> 
       </div> <br/><br/>
-            @if(isset($data))
+
             @include('flash-message')
             <div class="row">
               <div class="col-md-12 grid-margin stretch-card">
@@ -183,7 +183,18 @@
                   <div class="card-body">
                     <div class="d-sm-flex align-items-center mb-4">
                       <h4 class="card-title mb-sm-0">Provider List</h4>
-                    
+                      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      @if(request()->has('view_deleted'))
+                      <a href="{{ route('provider.index') }}" class="badge badge-warning p-2" >View All List</a>
+                      &ensp;
+                      <a href="{{ route('post.restore_all') }}" class="badge badge-warning p-2" >Restore All</a>
+                      @else
+                      &emsp;&emsp;
+                    <a href="{{ route('provider.index', ['view_deleted' => 'DeletedRecords']) }}" class="badge badge-warning p-2">View Deleted Data</a>
+
+                      @endif
                     </div>
                     <div class="table-responsive border rounded p-1">
                       <table class="table">
@@ -207,12 +218,22 @@
                             <td>{{$user->email}}</td>
                             <td>{{$user->created_at}}</td>
                             <td>{{$user->updated_at}}</td>
+
+                            @if(request()->has('view_deleted'))
+                            <td>
+                            <a href="{{ route('post.restore', $user->id) }}" class="badge badge-warning p-2">Restore</a>
+                                        @else
+                          
                             <form action="/deleteprovider/{{$user->id}}" method="post" >
+                            </td>
                             @csrf
                             <td>
-                              <button class="badge badge-warning p-2">Delete</button>
+                            <input type="hidden" name="_method" value="DELETE" />
+                              <button type="submit" class="badge badge-warning p-2">Delete</button>
                             </td>
                             </form>
+                       @endif
+                         
                             
                           </tr>
 
@@ -228,11 +249,7 @@
                     </div>
                     
                     
-                @endif
-               
-                
-                    
-                      {{ $data->links('vendor.pagination.custom') }}
+             
                         <!-- <ul class="pagination separated pagination-info">
                           <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-left"></i></a></li>
                           <li class="page-item active"><a href="#" class="page-link">1</a></li>

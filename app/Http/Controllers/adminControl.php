@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
 use App\Models\Booking;
 use App\Models\User;
 use App\Models\Hotel;
@@ -36,7 +36,6 @@ class adminControl extends Controller
     function custSearch(Request $request)
     {
         $data = User::paginate(9);
-        $booking = Booking::all();
 
         if($request->has('view_deleted'))
         {
@@ -62,27 +61,27 @@ class adminControl extends Controller
 	}
     }
 
-    public function restore($id)
+    function customerDel($id)
     {
-        User::withTrashed()->find($id)->restore();
+        User::find($id)->delete();
 
-        return back()->with('success', 'Customer Restored successfully');
+        return back()->with('success','Customer has been removed.');
     }
 
-    public function restore_all()
-    {
-        User::onlyTrashed()->restore();
-
-        return back()->with('success', 'All Customer Restored successfully');
-    }
+   
 
 
     //Provider Management 
-    function provSearch()
+    function provSearch(Request $request)
     {
         $data = User::paginate(9);
-        $booking = Booking::all();
-        return view('admin.provider', ['data'=>$data, 'booking'=>$booking]);
+
+        if($request->has('view_deleted'))
+        {
+            $data = User::onlyTrashed()->get();
+        }
+        
+        return view('admin.provider', compact('data'));
     }
 
     function provGo()
@@ -99,6 +98,28 @@ class adminControl extends Controller
 		}
 		return back()->with('error','No results found!');
 	}
+    }
+
+    function providerDel($id)
+    {
+        User::find($id)->delete();
+
+        return back()->with('success','Provider has been removed.');
+    }
+
+    //Restore after soft delete
+    public function restore($id)
+    {
+        User::withTrashed()->find($id)->restore();
+
+        return back()->with('success', 'User Restored Successfully');
+    }
+
+    public function restore_all()
+    {
+        User::onlyTrashed()->restore();
+
+        return back()->with('success', 'All User Restored Successfully');
     }
 
 
@@ -174,9 +195,13 @@ class adminControl extends Controller
 
     }
 
-    function deleteProv($id)
+    function deleteProv($id, Request $request)
     {
         $data1=Registered::find($id);
+
+        $data1->reason=$request->reason;
+
+        $data1->save();
 
         Mail::to($data1->email)->send(new declineMail($data1));
 
@@ -186,20 +211,9 @@ class adminControl extends Controller
         return back()->with('success','Provider has been removed.');
     }
 
-    function providerDel($id)
-    {
-        $data1=User::find($id);
-        $data1->delete();
+    
 
-        return back()->with('success','Provider has been removed.');
-    }
-
-    function customerDel($id)
-    {
-        User::find($id)->delete();
-
-        return back()->with('success','Customer has been removed.');
-    }
+    
 
     function addprov(Request $request, User $user, Profile $new)
     {

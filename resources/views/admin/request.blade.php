@@ -21,7 +21,31 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset ('admin/assets/css/style.css')}}">
     <!-- End layout styles -->
-   
+   <style>
+
+
+.modal-header {
+  background-color:#F2F070  ;
+  color:#000;
+  border-bottom:2px dashed #F2F070  ;
+}
+.modal-content {
+ width:1000px;
+}
+
+.modal-size {
+  height:50px;
+  width:280px;
+}
+
+.badge-button{
+width:65px;
+height:30px;
+font-size:12px;
+background-color:#F2F070 ;
+color:#000;
+}
+</style>
   </head>
   <body>
     <div class="container-scroller">
@@ -221,14 +245,44 @@
                               <a><button class="badge badge-warning p-2" value="{{$user->id}}">Accept</button></a>
                             </td>
                             </form>
-                            
-                            <form action="/delete/{{$user->id}}" method="post" >
+                            <td><button type="button" class="badge badge-warning p-2" data-toggle="modal" data-target="#exampleModalCenter{{$user->id}}">
+  Decline
+</button>
+<td>
+<form action="/delete/{{$user->id}}" method="post" >
+        @csrf
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle{{$user->id}}" aria-hidden="true">
+  <div class="modal-dialog modal-size modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <h5 class="modal-title" id="exampleModalCenterTitle{{$user->id}}">Reason for decline</h5>
+      </div>
+      <div class="modal-body ">
+  
+      <input type="radio" id="html" name="reason" value="1">
+      <label for="html">SSM Number Invalid</label><br><br>
+      <input type="radio" id="css" name="reason" value="2">
+      <label for="css">Inadequate Information</label><br><br>
+      <input type="radio" id="javascript" name="reason" value="3">
+      <label for="javascript">Inaccurate Information</label>
+      <!-- <input type="text" class="form-control" name="reason" placeholder="Type here"> -->
+      <div class="modal-footer">
+        <br><br>
+        <button  class="badge badge-button" >Submit</button>
+      </div>
+      </div>
+      
+    </div>
+  </div>
+</div> </form></td>
+                            <!-- <form action="/delete/{{$user->id}}" method="post" >
                             @csrf
                             <td>
                               <button class="badge badge-warning p-2">Decline</button>
                             </td>
                             </form>
-                            
+                             -->
                           </tr>
              
                   

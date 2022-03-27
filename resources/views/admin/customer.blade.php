@@ -21,37 +21,8 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="admin/assets/css/style.css">
     <!-- End layout styles -->
-   <style>
 
-.modal-dialog {
- 
-          width: 1500px;
- 
-        }
- 
-.modal-header {
- 
-    background-color:#F2F070  ;
 
-    color:#000;
- 
-    border-bottom:2px dashed #F2F070  ;
- 
- }
-
- .modal-content
- {
-   width:1000px;
- }
-
- .badge-button{
-        width:70px;
-        height:35px;
-        font-size:13px;
-      background-color:#F2F070 ;
-        color:#000;
- }
-     </style>
   </head>
   <body>
     <div class="container-scroller">
@@ -221,12 +192,12 @@
                       &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                       &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                       @if(request()->has('view_deleted'))
-                      <a href="{{ route('post.index') }}" class="badge badge-warning p-2" >View All List</a>
+                      <a href="{{ route('customer.index') }}" class="badge badge-warning p-2" >View All List</a>
                       &ensp;
                       <a href="{{ route('post.restore_all') }}" class="badge badge-warning p-2" >Restore All</a>
                       @else
-
-                    <a href="{{ route('post.index', ['view_deleted' => 'DeletedRecords']) }}" class="badge badge-warning p-2">View Deleted Data</a>
+                      &emsp;&emsp;
+                    <a href="{{ route('customer.index', ['view_deleted' => 'DeletedRecords']) }}" class="badge badge-warning p-2">View Deleted Data</a>
 
                       @endif
                     </div>
@@ -255,46 +226,8 @@
                             <td>{{$user->email}}</td>
                             <td>{{$user->created_at}}</td>
                             <td>{{$user->updated_at}}</td>
-                          
+                   
 
-                           <!-- Button trigger modal -->
-<!-- <td><button type="button" class="badge badge-warning p-2" data-toggle="modal" data-target="#exampleModalCenter{{$user->id}}">
-  Detail
-</button> -->
-
-<!-- Modal -->
-<!-- <div class="modal fade" id="exampleModalCenter{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle{{$user->id}}" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header ">
-        <h5 class="modal-title" id="exampleModalCenterTitle{{$user->id}}">Booking History</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body ">
-  
-
-      <table>
-  <tr>
-    <th>Hotel Name</th>
-    <th>Total Cats</th>
-    <th>Check In</th>
-    <th>Check Out</th>
-    <th>Date</th>
-    
-  </tr>
- 
-</table>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="badge badge-button" data-dismiss="modal">Close</button>
-  
-      </div>
-    </div>
-  </div>
-</div></td> -->
                           @if(request()->has('view_deleted'))
 <td>
                             <a href="{{ route('post.restore', $user->id) }}" class="badge badge-warning p-2">Restore</a>

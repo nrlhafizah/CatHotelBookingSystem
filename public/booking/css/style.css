@@ -149,12 +149,12 @@
 .booking-form input[type="date"].form-control+.form-label,
 .booking-form input[type="time"].form-control+.form-label {
 	color: rgba(255, 255, 255, 0.3);
-	opacity: 1;
+	
 }
 
 .booking-form input[type="date"].form-control:focus+.form-label,
 .booking-form input[type="time"].form-control:focus+.form-label {
-	opacity: 1;
+
 	top: 0px;
 	color: #ffc600 !important;
 }

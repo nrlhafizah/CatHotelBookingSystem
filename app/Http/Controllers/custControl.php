@@ -65,7 +65,7 @@ class custControl extends Controller
         $newBook->save();
 
         return back()->with('success','Successfully booked! Please wait until they approve your request.');
-    }
+    } 
 
     function show()
     {
@@ -105,7 +105,8 @@ class custControl extends Controller
     function bookie($id)
     {
         $data=User::find($id);
-        return view('customer.booking', ['data' => $data]);
+        $info=Booking::all();
+        return view('customer.booking', ['data' => $data, 'info' => $info]);
     }
 
  

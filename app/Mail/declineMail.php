@@ -16,9 +16,9 @@ class declineMail extends Mailable
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($data1)
     {
-        $this->data = $data;
+        $this->data1 = $data1;
     }
 
     /**
@@ -28,6 +28,6 @@ class declineMail extends Mailable
      */
     public function build()
     {
-        return $this->from('nrlhafizahkmrddn@gmail.com')->subject('Register Unsuccessful')->view('declineEmail')->with('data', $this->data);
+        return $this->from('nrlhafizahkmrddn@gmail.com')->subject('Register Unsuccessful')->view('declineEmail')->with('data1', $this->data1);
     }
 }

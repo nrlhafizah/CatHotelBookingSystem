@@ -127,20 +127,23 @@
 			
 			<div class="thumbnails recentworks row">
 			
-				
+			@if($data->image1)	
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 						<span class="img">
 						<img src="{{ asset('storage/images/services/'.$data->image1)}}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
 						</span>
 				</div>
-				
+	
+				@endif
+				@if($data->image2)
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 						<span class="img">
 						<image src="{{ asset('storage/images/services/'.$data->image2) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" />
 						</span>
 				</div>
-				
 
+				@endif
+				@if($data->image3)
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 					<a  href="sidebar-right.html">
 						<span class="img">
@@ -153,8 +156,9 @@
 					<h4></h4>
 					<p></p>
 				</div>
-				
-				
+
+				@endif
+				@if($data->image4)
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 					<a  href="sidebar-right.html">
 						<span class="img">
@@ -167,7 +171,9 @@
 					<h4></h4>
 					<p></p>
 				</div>
-				
+	
+				@endif
+				@if($data->image5)
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 					<a  href="sidebar-right.html">
 						<span class="img">
@@ -175,24 +181,30 @@
 							<span class="cover"></span>
 						</span>
 					
-					</a>
-					<span ><a href="">  </a>  <a href="">  </a></span>
-					<h4></h4>
-					<p></p>
-				</div>
-				
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a  href="sidebar-right.html">
-						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$data->image6) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
-							<span class="cover"></span>
-						</span>
 					
 					</a>
 					<span ><a href="">  </a>  <a href="">  </a></span>
 					<h4></h4>
 					<p></p>
 				</div>
+
+				@endif
+				@if($data->image6)
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+					<a  href="sidebar-right.html">
+						<span class="img">
+						<image src="{{ asset('storage/images/services/'.$data->image6) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
+							<span class="cover"></span>
+				
+					
+					</a>
+					<span ><a href="">  </a>  <a href="">  </a></span>
+					<h4></h4>
+					<p></p>
+				</div>
+				</span>
+	
+				@endif
 				
 			</div>
 

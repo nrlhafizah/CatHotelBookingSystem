@@ -45,7 +45,7 @@
 				
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="">Profile</a></li>
-					    <li><a href={{"contactHotel/".$data['id']}}>Contact</a></li>
+					    <!-- <li><a href={{"contactHotel/".$data['id']}}>Contact</a></li> -->
                     <li><a href="{{url('/redirect')}}">Go Back</a></li>
                     
 						
@@ -106,23 +106,27 @@
 			
 			
    
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+			@if($prof->image1)	
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 						<span class="img">
 						<img src="{{ asset('storage/images/services/'.$prof->image1)}}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
 						</span>
 				</div>
-				
+	
+				@endif
+				@if($prof->image2)
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 						<span class="img">
 						<image src="{{ asset('storage/images/services/'.$prof->image2) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" />
 						</span>
 				</div>
-				
 
+				@endif
+				@if($prof->image3)
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 					<a  href="sidebar-right.html">
 						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$prof->image3) }}"  onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" />
+						<image src="{{ asset('storage/images/services/'.$prof->image3) }}"  onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"/>
 							<span class="cover"></span>
 						</span>
 					
@@ -131,8 +135,9 @@
 					<h4></h4>
 					<p></p>
 				</div>
-				
-				
+
+				@endif
+				@if($prof->image4)
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 					<a  href="sidebar-right.html">
 						<span class="img">
@@ -145,7 +150,9 @@
 					<h4></h4>
 					<p></p>
 				</div>
-				
+	
+				@endif
+				@if($prof->image5)
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 					<a  href="sidebar-right.html">
 						<span class="img">
@@ -153,25 +160,30 @@
 							<span class="cover"></span>
 						</span>
 					
-					</a>
-					<span ><a href="">  </a>  <a href="">  </a></span>
-					<h4></h4>
-					<p></p>
-				</div>
-				
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a  href="sidebar-right.html">
-						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$prof->image6) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" />
-							<span class="cover"></span>
-						</span>
 					
 					</a>
 					<span ><a href="">  </a>  <a href="">  </a></span>
 					<h4></h4>
 					<p></p>
 				</div>
+
+				@endif
+				@if($prof->image6)
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+					<a  href="sidebar-right.html">
+						<span class="img">
+						<image src="{{ asset('storage/images/services/'.$prof->image6) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
+							<span class="cover"></span>
 				
+					
+					</a>
+					<span ><a href="">  </a>  <a href="">  </a></span>
+					<h4></h4>
+					<p></p>
+				</div>
+				</span>
+	
+				@endif
 			</div>
 
 		</div> <!-- /section -->

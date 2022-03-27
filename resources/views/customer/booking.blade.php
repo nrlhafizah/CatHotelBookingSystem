@@ -14,15 +14,6 @@
 
 <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 
-	   <!--date picker -->
-	   <!-- <script>
-	   $(document).ready(function(){
-	   $("#datepicker").datepicker({
-	   minDate: +2
-	   });
-	   
-	   });
-	   </script> -->
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
 
@@ -129,13 +120,13 @@
 							<div class="row">
 							<div class="col-md-6">
 									<div class="form-group">
-										<input name="in" class="form-control" type="date" required>
-										<span class="form-label">Check Out</span>
+										<input name="date" class="form-control" id="date" type="date" required>
+										<span class="form-label">Check In</span>
 									</div>
 								</div>
                                 <div class="col-md-6">
 									<div class="form-group">
-										<input name="out" class="form-control" type="date" required>
+										<input name="out" class="form-control" id="date"  required>
 										<span class="form-label">Check Out</span>
 									</div>
 								</div>
@@ -162,7 +153,20 @@
 			</div>
 		</div>
 	</div>
-	
+	<script type="text/javascript">
+  var dates = ["20/03/2022", "21/03/2022"];
+
+function DisableDates(date) {
+    var string = jQuery.datepicker.formatDate('dd/mm/yy', date);
+    return [dates.indexOf(string) == -1];
+}
+
+$(function() {
+     $("#date").datepicker({
+         beforeShowDay: DisableDates
+     });
+});
+</script>
 	<script src="booking/js/jquery.min.js"></script>
 	<script>
 		$('.form-control').each(function () {
