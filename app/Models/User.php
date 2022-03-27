@@ -36,6 +36,9 @@ class User extends Authenticatable
 
     ];
 
+    protected $table = "users";
+   
+
     protected $dates = ['deleted_at'];
 
     /**
@@ -67,6 +70,8 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    
 
     
 }

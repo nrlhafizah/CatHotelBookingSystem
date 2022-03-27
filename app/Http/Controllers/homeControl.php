@@ -91,7 +91,7 @@ class homeControl extends Controller
 
         if($typeuser=='0')
         {
-
+ 
             $provider = User::where('usertype','=','2')->count();
             $customer = User::where('usertype','=','1')->count();
             $booking = Booking::All()->count();
@@ -115,13 +115,28 @@ class homeControl extends Controller
 
     function newProvider(Request $req)
     {
+            $this->validate($req, [
+            "firstname" => 'max:30',
+            "lastname" => 'max:30',
+            "phoneNumber" => 'unique:users,phoneNumber|min:10|max:10',
+            "email" => 'unique:users,email',
+            "hotelName" => 'unique:users,hotelName',
+            "address" => 'unique:users,address',
+            "state" => 'required',
+            "ssm" => 'unique:users,SSM|min:12|max:12',
+
+        ]);
+
         $new= new Registered;
 
-        $new->name=$req->name;
-        $new->email=$req->email;
+        $new->firstname=$req->fname;
+        $new->lastname=$req->lname;
         $new->phoneNumber=$req->no;
+        $new->email=$req->email;
         $new->hotelName=$req->hname;
         $new->address=$req->address;
+        $new->postcode=$req->postcode;
+        $new->state=$req->state;
         $new->SSM=$req->ssm;
         $new->save();
 

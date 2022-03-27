@@ -54,93 +54,147 @@
     padding: .75rem 1.5rem;
   }
 }
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: .75em;
+  padding-right: .75em;
+}
+.card-registration .select-arrow {
+  top: 13px;
+}
+
+
     </style>
 
 </head>
 <body>
-
-        
-
-<section class="ftco-section">
-           
-		<div class="container">
-        <button onclick="history.back()" class="button-40" role="button"><a href="{{url('/')}}"> Go Back</a></button><br><br><br>
-			<div class="row justify-content-center">
-		
-			</div>
+  <section class="h-100 bg-dark">
+  <div class="container py-5 h-100">
+  <button onclick="history.back()" class="button-40" role="button"><a href="{{url('/')}}"> Go Back</a></button><br><br><br>
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
       @include('flash-message')
-			<div class="row justify-content-center">
-				<div class="col-md-12 col-lg-10">
-					<div class="wrap d-md-flex">
-						<div class="img" style="background-image: url(login1/images/30.jpg);">
-			      </div>
-            
-						<div class="login-wrap p-4 p-md-5">
-			      	<div class="d-flex">
-			      		<div class="w-100">
-			      			<h3 class="mb-4">REGISTER</h3>
-			      		</div>
-								
-			      	</div>
-     
-            <div class="mb-4 font-medium text-sm text-green-600">
-
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img
+                src="login1/images/30.jpg"
+                alt="Sample photo"
+                class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;"
+              />
             </div>
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase">REGISTRATION FORM</h3>
+                <form class="signin-form" method="POST" action="/addProv">
   
+  @csrf
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                    <label class="form-label" for="form3Example1m">First name</label>
+                      <input type="text" name="fname" id="form3Example1m" class="form-control form-control-lg" required/>
+                      <p style=color:red; >@error('firstname') {{$message}} @enderror</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                   
+                    <label class="form-label" for="form3Example1n">Last name</label>
+                      <input type="text" name="lname" id="form3Example1n" class="form-control form-control-lg" required/>
+                      <p style=color:red; >@error('lastname') {{$message}} @enderror</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example9">Phone Number</label>
+                  <input type="text" name="no" id="form3Example9" class="form-control form-control-lg" required/>
+                  <p style=color:red; >@error('phoneNumber') {{$message}} @enderror</p>
+                </div>
 
-        <form class="signin-form" method="POST" action="/addProv">
-  
-        @csrf
+                <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example90">Email Address</label>             
+                  <input type="text" name="email" id="form3Example90" class="form-control form-control-lg" required/>
+                  <p style=color:red; >@error('email') {{$message}} @enderror</p>
+                </div>
+                
 
-            <div class="form-group mb-3">
-                <label class="label" for="name">Name</label>
-                <input type="name" class="form-control" type="name" name="name" required/>
-            </div>
+                <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example8">Hotel's Name</label>
+                  <input type="text" name="hname" id="form3Example8" class="form-control form-control-lg" required/>
+                  <p style=color:red; >@error('hotelName') {{$message}} @enderror</p>
+                </div>
 
-            <div class="form-group mb-3">
-                <label class="label" for="password">Email</label>
-                <input id="email"  class="form-control" type="email" name="email" required/>
-            </div>
-            <div class="form-group mb-3">
-                <label class="label" for="password">Phone Number</label>
-                <input id="no"  class="form-control" type="number" name= "no" required/>
-            </div>
-            <div class="form-group mb-3">
-                <label class="label" for="password">Hotel Name</label>
-                <input id="hname"  class="form-control" type="text" name="hname" required/>
-            </div>
-            <div class="form-group mb-3">
-                <label class="label" for="password">Address Hotel</label>
-                <input id="hname"  class="form-control" type="text" name="address" required/>
-            </div>
-            <div class="form-group mb-3">
-                <label class="label" for="password">SSM Number</label>
-                <input id="ssm"  class="form-control" type="number" name="ssm" required/>
-            </div>
+                <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example8">Address</label>
+                  <input type="text" name="address" id="form3Example8" class="form-control form-control-lg" required/>
+                  <p style=color:red; >@error('address') {{$message}} @enderror</p>
+                </div>
 
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                    <label class="form-label" for="form3Example1m">Postcode</label>
+                      <input type="text" name="postcode" id="form3Example1m" class="form-control form-control-lg" required/>
+                      <p style=color:red; >@error('postcode') {{$message}} @enderror</p>
+                    </div>
+                  </div>
 
-            <br>
-            <div class="form-group">
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                  <label class="form-label" for="form3Example1m">State</label>
+                    <select name="state" class="select">
+                      <option value="Perak">Perak</option>
+                      <option value="Negeri Sembilan">Negeri Sembilan</option>
+                      <option value="Selangor">Selangor</option>
+                      <option value="Pahang">Pahang</option>
+                      <option value="Kedah">Kedah</option>
+                      <option value="Johor">Johor</option>
+                      <option value="Terengganu">Terengganu</option>
+                      <option value="Melaka">Melaka</option>
+                      <option value="Kelantan">Kelantan</option>
+                      <option value="Sabah">Sabah</option>
+                      <option value="Perlis">Perlis</option>
+                      <option value="Penang">Penang</option>
+                      <option value="Sarawak">Sarawak</option>
+                      <option value="Putrajaya">Putrajaya</option>
+                    </select>
+                    <p style=color:red; >@error('state') {{$message}} @enderror</p>
+                  </div>
+
+                </div><br>
+</div>
+
+                <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example99">SSM</label>
+                  <input type="text" name="ssm" id="form3Example99" class="form-control form-control-lg"/>
+                  @error('ssm') <p style=color:red; > {{$message}} </p> @enderror
+                </div>
+
+              
+
+                <div class="form-group">
                 <button class="form-control btn btn-primary rounded submit px-3">
                     Register
                 </button>
+
+</form>
             </div>
-            
 
-
-                
-
-        </form>
-
-
-                      
-		        </div>
-		      </div>
-				</div>
-			</div>
-		</div>
-	</section>
-
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 	<script src="login1/js/jquery.min.js"></script>
   <script src="login1/js/popper.js"></script>
   <script src="login1/js/bootstrap.min.js"></script>

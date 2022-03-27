@@ -161,6 +161,7 @@ input[type='text']:focus, [type='email']:focus, textarea:focus {
     <div class="submit">
       <input type="submit" value="Send Message" id="form_button" />
     </div>
+    
   </form><!-- // End form -->
 </div><!-- // End #container -->
     </div>

@@ -59,6 +59,7 @@ class custControl extends Controller
         $newBook->totalCats=$req->cats;
         $newBook->checkIn=$req->in;
         $newBook->checkOut=$req->out;
+        $newBook->additional=$req->additional;
         $newBook->hotelID=$req->bookid;
         $newBook->hotelName=$data->hotelName;
         $newBook->created_at = Carbon::now();
