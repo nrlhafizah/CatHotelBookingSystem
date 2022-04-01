@@ -124,6 +124,20 @@
 			</label>
         	<input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$data->description ?? ''}}" name="desc" id="desc" type="text" >
     	</div>
+		<div class="col-span-6 sm:col-span-4">
+		<label class="block font-medium text-sm text-gray-700">
+    		Services
+			</label>
+		<select id="ddselect" onchange="ddlselect();">
+			<option>Grooming</option>
+			<option>Vaccination</option>
+			<option>Walking</option>
+			<option>Petting</option>
+			<option>Boarding</option>
+			</select>
+			
+		<input type="text"  id="test"/><br><br>
+</div>
 
         <!-- S1 -->
         <div class="col-span-6 sm:col-span-4">
@@ -264,7 +278,14 @@
 
 </x-app-layout>
 
-
+<script>
+	function ddlselect(){
+		var d=document.getElementById("ddselect");
+		var displaytext=d.options[d.selectedIndex].text;
+		document.getElementById("test").value=displaytext;
+	}
+	</script>
+	
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>

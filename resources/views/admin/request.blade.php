@@ -221,9 +221,10 @@ color:#000;
                             <th class="font-weight-bold">Contact Number</th>
                             <th class="font-weight-bold">Hotel Name</th>
                             <th class="font-weight-bold">Address</th>
-                            <th class="font-weight-bold">SSM Number</th>
+                            <th class="font-weight-bold">SSM</th>
                             <th class="font-weight-bold">  </th>
                             <th class="font-weight-bold">  </th>
+       
                           </tr>
                         </thead>
                         <tbody>
@@ -236,8 +237,9 @@ color:#000;
                             <td>{{$user->email}}</td>
                             <td>{{$user->phoneNumber}}</td>
                             <td>{{$user->hotelName}}</td>
-                            <td>{{$user->address}}</td>
+                            <td>{{$user->address}}, {{$user->postcode}}, {{$user->state}}</td>
                             <td>{{$user->SSM}}</td>
+                    
                             
                             <form action="/insert/{{$user->id}}" method="post" >
                             @csrf

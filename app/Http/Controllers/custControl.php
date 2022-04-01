@@ -49,12 +49,17 @@ class custControl extends Controller
       function addProject(Request $req)
     {
 
+        $req->validate([
+            'checkIn' => 'unique:booking,checkIn',
+            'checkOut' => 'date|before:start_date'
+        ]);
+
         $data=User::find($req->bookid);
         $newBook= new RequestCustomer;
 
         $newBook->id=Auth::user()->id;
-        $newBook->name=$req->name;
-        $newBook->email=$req->email;
+        $newBook->name=Auth::user()->name;
+        $newBook->email=Auth::user()->email;
         $newBook->phoneNumber=$req->no;
         $newBook->totalCats=$req->cats;
         $newBook->checkIn=$req->in;

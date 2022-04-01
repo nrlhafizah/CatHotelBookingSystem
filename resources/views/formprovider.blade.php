@@ -92,24 +92,14 @@
                 <form class="signin-form" method="POST" action="/addProv">
   
   @csrf
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                    <label class="form-label" for="form3Example1m">First name</label>
-                      <input type="text" name="fname" id="form3Example1m" class="form-control form-control-lg" required/>
-                      <p style=color:red; >@error('firstname') {{$message}} @enderror</p>
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                   
-                    <label class="form-label" for="form3Example1n">Last name</label>
-                      <input type="text" name="lname" id="form3Example1n" class="form-control form-control-lg" required/>
-                      <p style=color:red; >@error('lastname') {{$message}} @enderror</p>
-                    </div>
-                  </div>
+             
+
+                <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example9">Name</label>
+                  <input type="text" name="name" id="form3Example9" class="form-control form-control-lg" required/>
+                  <p style=color:red; >@error('phoneNumber') {{$message}} @enderror</p>
                 </div>
-                
+
                 <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example9">Phone Number</label>
                   <input type="text" name="no" id="form3Example9" class="form-control form-control-lg" required/>

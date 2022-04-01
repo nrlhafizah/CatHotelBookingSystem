@@ -111,6 +111,7 @@
 									<div class="form-group">
 										<span class="form-label">Check In</span>
 										<input class="form-control" name="in" type="date" required>
+										@error('checkIn') <p style=color:red; > The date is not available. </p> @enderror
 									</div>
 								</div>
 								<div class="col-md-3">

@@ -123,14 +123,13 @@ class homeControl extends Controller
             "hotelName" => 'unique:users,hotelName',
             "address" => 'unique:users,address',
             "state" => 'required',
-            "ssm" => 'unique:users,SSM|min:12|max:12',
+            "ssm" => 'unique:users,SSM|numeric',
 
         ]);
 
         $new= new Registered;
 
-        $new->firstname=$req->fname;
-        $new->lastname=$req->lname;
+        $new->name=$req->name;
         $new->phoneNumber=$req->no;
         $new->email=$req->email;
         $new->hotelName=$req->hname;
