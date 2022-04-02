@@ -74,7 +74,7 @@
 								<h3>Book Your Hotel</h3>
 							</div>
 							</div>
-							<div class="row">
+							<div class="row"> 
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Name</span>

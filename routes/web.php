@@ -25,17 +25,19 @@ use App\Http\Controllers\SendEmailController;
 
 Route::get('/', [homeControl::class,"landing"]);
 Route::get("/redirect",[homeControl::class,"redirectFunct"]);
-
 Route::get("/befregister",[homeControl::class,"beforeReg"]);
 Route::get("/beflogin",[homeControl::class,"beforeLog"]);
 Route::get("/form",[homeControl::class,"formReg"]);
-
-
 Route::view('provForm', 'formprovider');
 Route::POST("addProv",[homeControl::class,"newProvider"]);
 
 
+// Route::middleware(['prevent-back-history', 'auth'], function () {
+
+
 // Admin page
+Route::group(['middleware' => ['prevent-back-history', 'auth']],function(){
+      Route::get("/redirect",[homeControl::class,"redirectFunct"]);
 
 Route::get('/listCustomer', [adminControl::class,"custSearch"])->name('customer.index');
 Route::any('/custSearch',[adminControl::class,"custGo"]);
@@ -60,6 +62,7 @@ Route::get("/reg",[adminControl::class,"regprov"]);
 Route::view('addprov', 'auth.registerprov');
 Route::POST("addprovider",[adminControl::class,'addprov']);
 
+});
 
 // Customer page
   
@@ -83,6 +86,7 @@ Route::get("/create",[custControl::class,"success"]);
 Route::get("show/{id}",[homeControl::class,"showProfile"]);
 Route::get("show/contactHotel/{id}",[homeControl::class,"contact"]);
 Route::get("show/show/{id}",[homeControl::class,"showProfile"]);
+
 
 
 // Provider page
