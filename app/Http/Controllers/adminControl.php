@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Http\Request; 
+use Request;
 use App\Models\Booking;
 use App\Models\User;
 use App\Models\Hotel;
@@ -37,7 +37,7 @@ class adminControl extends Controller
     {
         $data = User::paginate(9);
 
-        if($request->has('view_deleted'))
+        if($request::has('view_deleted'))
         {
             $data = User::onlyTrashed()->get();
         }
@@ -76,7 +76,7 @@ class adminControl extends Controller
     {
         $data = User::paginate(9);
 
-        if($request->has('view_deleted'))
+        if($request::has('view_deleted'))
         {
             $data = User::onlyTrashed()->get();
         }

@@ -37,6 +37,7 @@ Route::POST("addProv",[homeControl::class,"newProvider"]);
 
 // Admin page
 Route::group(['middleware' => ['prevent-back-history', 'auth']],function(){
+
       Route::get("/redirect",[homeControl::class,"redirectFunct"]);
 
 Route::get('/listCustomer', [adminControl::class,"custSearch"])->name('customer.index');
@@ -62,7 +63,6 @@ Route::get("/reg",[adminControl::class,"regprov"]);
 Route::view('addprov', 'auth.registerprov');
 Route::POST("addprovider",[adminControl::class,'addprov']);
 
-});
 
 // Customer page
   
@@ -119,11 +119,13 @@ Route::get("/createproject",[provControl::class,"show"]);
 Route::get('/sendemail', 'App\Http\Controllers\SendEmailController@index');
 Route::post('/sendemail/send', 'App\Http\Controllers\adminControl@acceptProv');
 
+});
+
 // Middleware
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-      return view('dashboard');
- })->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//       return view('dashboard');
+//  })->name('dashboard');
 
 
 

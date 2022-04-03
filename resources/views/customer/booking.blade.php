@@ -10,6 +10,14 @@
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="{{ asset ('booking5/css/bootstrap.min.css')}}" />
 	<link type="text/css" rel="stylesheet" href="{{ asset ('booking5/css/style.css')}}" />
+	
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+   
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
 
 <style>
 
@@ -54,6 +62,9 @@
 }
 
 </style>
+
+
+
 
 </head>
 
@@ -109,15 +120,15 @@
 								
 								<div class="col-md-3">
 									<div class="form-group">
-										<span class="form-label">Check In</span>
-										<input class="form-control" name="in" type="date" required>
-										@error('checkIn') <p style=color:red; > The date is not available. </p> @enderror
+										<span class="form-label" >Check In</span>
+										<input class="form-control" type="text" id="in" name="in" required>
 									</div>
 								</div>
+								
 								<div class="col-md-3">
 									<div class="form-group">
-										<span class="form-label">Check Out</span>
-										<input class="form-control" name="out" type="date" required>
+										<span class="form-label" >Check Out</span>
+										<input class="form-control" type="text" id="out" name="out" required>
 									</div>
 								</div>
 								
@@ -147,6 +158,42 @@
 			</div>
 		</div>
 	</div>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+	<input class="form-control" id="appointment_datepicker" name="appointment_datepicker" type="text" placeholder="Select Date">
+
+</body>
+@foreach($info as $info)
+<script>
+	
+var msg = "{{$info->checkIn}}";
+var dateToday = new Date();
+$('#in').datepicker({
+	minDate: dateToday,
+  beforeShowDay: function(date) {
+    var day = jQuery.datepicker.formatDate('yy-mm-dd', date);
+    return [msg.indexOf(day) == -1]
+	
+  }
+});
+
+</script>
+
+<script>
+
+var msg = "{{$info->checkIn}}";
+var dateToday = new Date();
+$('#out').datepicker({
+	minDate: dateToday,
+  beforeShowDay: function(date) {
+    var day = jQuery.datepicker.formatDate('yy-mm-dd', date);
+    return [msg.indexOf(day) == -1]
+	
+  }
+});
+
+</script>
+@endforeach
+
+
+
 
 </html>
