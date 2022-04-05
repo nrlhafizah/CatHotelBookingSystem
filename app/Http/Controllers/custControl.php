@@ -49,11 +49,6 @@ class custControl extends Controller
       function addProject(Request $req)
     {
 
-        $req->validate([
-            'checkIn' => 'unique:booking,checkIn',
-            'checkOut' => 'date|before:start_date'
-        ]);
-
         $data=User::find($req->bookid);
         $newBook= new RequestCustomer;
 
@@ -62,8 +57,8 @@ class custControl extends Controller
         $newBook->email=Auth::user()->email;
         $newBook->phoneNumber=$req->no;
         $newBook->totalCats=$req->cats;
-        $newBook->checkIn=$req->in;
-        $newBook->checkOut=$req->out;
+        $newBook->checkIn=Carbon::parse($req->in)->format('Y-m-d');
+        $newBook->checkOut=Carbon::parse($req->out)->format('Y-m-d');
         $newBook->additional=$req->additional;
         $newBook->hotelID=$req->bookid;
         $newBook->hotelName=$data->hotelName;
@@ -103,6 +98,13 @@ class custControl extends Controller
         $history = Booking::all();
         return view('customer.history', ['history' => $history]);
     }
+
+    function showRequest() 
+    {
+        $history = RequestCustomer::all();
+        return view('customer.request', ['history' => $history]);
+    }
+
     function success()
     {
         return view('customer.success');

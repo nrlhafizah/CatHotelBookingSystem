@@ -124,7 +124,7 @@
 			</label>
         	<input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$data->description ?? ''}}" name="desc" id="desc" type="text" >
     	</div>
-		<div class="col-span-6 sm:col-span-4">
+		<!-- <div class="col-span-6 sm:col-span-4">
 		<label class="block font-medium text-sm text-gray-700">
     		Services
 			</label>
@@ -137,7 +137,7 @@
 			</select>
 			
 		<input type="text"  id="test"/><br><br>
-</div>
+</div> -->
 
         <!-- S1 -->
         <div class="col-span-6 sm:col-span-4">

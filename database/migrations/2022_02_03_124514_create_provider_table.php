@@ -20,6 +20,8 @@ class CreateProviderTable extends Migration
             $table->integer('phoneNumber');
             $table->string('hotelName');
             $table->string('address');
+            $table->string('postcode');
+            $table->string('state');
             $table->integer('SSM');
             $table->timestamps();
         });

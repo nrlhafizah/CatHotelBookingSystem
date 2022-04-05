@@ -158,10 +158,12 @@
 			</div>
 		</div>
 	</div>
-	<input class="form-control" id="appointment_datepicker" name="appointment_datepicker" type="text" placeholder="Select Date">
+
 
 </body>
+
 @foreach($info as $info)
+@if($data->id == $info->hotelID)
 <script>
 	
 var msg = "{{$info->checkIn}}";
@@ -191,6 +193,7 @@ $('#out').datepicker({
 });
 
 </script>
+@endif
 @endforeach
 
 

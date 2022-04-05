@@ -10,6 +10,9 @@ use App\Http\Controllers\Controller;
 use App\TestModel;
 use App\view;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendAcceptEmail;
+use App\Mail\SendDeclineMail;
 use Redirect;
 use Illuminate\Support\Facades\Validator;
 use Alert;
@@ -67,7 +70,7 @@ class provControl extends Controller
 
     public function testOnly(Request $req)
     {
-    
+        
         $new=Profile::find($req->id);
         
         $new->id=$req->catid;
@@ -167,6 +170,7 @@ class provControl extends Controller
 
     function acceptCust($id)
     {
+        
         $info=RequestCustomer::find($id);
         $data= new Booking;
 
@@ -176,13 +180,16 @@ class provControl extends Controller
         $data->totalCats=$info->totalCats;
         $data->checkIn=$info->checkIn;
         $data->checkOut=$info->checkOut;
+        $data->additional=$info->additional;
         $data->UserID=$info->id;
         $data->hotelID=$info->hotelID;
+        $data->status="Ongoing";
         $data->hotelName=$info->hotelName;
         $data->created_at =$info->created_at;
 
         $data->save();
 
+        Mail::to($info->email)->send(new SendAcceptEmail($info));
         $info->delete();
 
         return back()->with('success','Customer accepted!');
@@ -191,9 +198,11 @@ class provControl extends Controller
     function deleteReq($id)
     {
         $info=RequestCustomer::find($id);
+
+        Mail::to($info->email)->send(new SendDeclinemail($info));
         $info->delete();
 
-        return view('provider.request');
+        return back()->with('success','Customer has been removed!');
     }
 
 }

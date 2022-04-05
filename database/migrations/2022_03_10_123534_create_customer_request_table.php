@@ -16,13 +16,15 @@ class CreateCustomerRequestTable extends Migration
         Schema::create('customer_request', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->integer('phoneNumber');
             $table->integer('totalCats');
             $table->date('checkIn');
             $table->date('checkOut');
+            $table->string('additional');
             $table->integer('hotelID');
             $table->string('hotelName');
+            $table->string('status');
             $table->timestamps();
         });
     }

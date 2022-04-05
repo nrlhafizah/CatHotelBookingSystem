@@ -58,7 +58,7 @@
 						
             <ul class="nav navbar-nav">
 					<li class="active"><a href="{{url('/redirect')}}">Home</a></li>
-					<li><a href="{{url('/requestBooking')}}">Request</a></li>
+                    <li><a href="">Request</a></li>
 					<li><a href="{{url('/history')}}">History</a></li>
                     <li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
@@ -111,22 +111,22 @@
 								<th class="column100 column3" data-column="column3">Check In</th>
 								<th class="column100 column4" data-column="column4">Check Out</th>
 								<th class="column100 column5" data-column="column5">Total cats</th>
-								<th class="column100 column5" data-column="column5">Additional Notes</th>
+                                <th class="column100 column5" data-column="column5">Additional Notes</th>
 								<th class="column100 column6" data-column="column6">Date of Booking</th>
-								<th class="column100 column6" data-column="column6">Status</th>
+                                <th class="column100 column6" data-column="column6">Status</th>
 							</tr>
 						</thead>
 @foreach($history as $history)
-@if(Auth::user()->id == $history->UserID)
+@if(Auth::user()->id == $history->id)
 						<tbody>
 							<tr class="row100">
 								<td class="column100 column1" data-column="column1">{{$history->hotelName}}</td>
 								<td class="column100 column2" data-column="column2">{{$history->checkIn}}</td>
 								<td class="column100 column3" data-column="column3">{{$history->checkOut}}</td>
 								<td class="column100 column4" data-column="column4">{{$history->totalCats}}</td>
-								<td class="column100 column4" data-column="column4">{{$history->additional}}</td>
+                                <td class="column100 column4" data-column="column4">{{$history->additional}}</td>
 								<td class="column100 column5" data-column="column5">{{$history->created_at}}</td>
-								<td class="column100 column5" data-column="column5">{{$history->status}}</td>
+                                <td class="column100 column5" data-column="column5">{{$history->status}}</td>
 							</tr>
 						</tbody>
 @endif

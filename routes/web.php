@@ -80,6 +80,7 @@ Route::get("/deleteaccount",[custControl::class,"delete"]);
 Route::get("/editaccount",[custControl::class,"edit"]);
       
 Route::get("/history",[custControl::class,"showHistory"]);
+Route::get("/requestBooking",[custControl::class,"showRequest"]);
 
 Route::get("/create",[custControl::class,"success"]);
 
@@ -123,9 +124,9 @@ Route::post('/sendemail/send', 'App\Http\Controllers\adminControl@acceptProv');
 
 // Middleware
 
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//       return view('dashboard');
-//  })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+      return view('dashboard');
+ })->name('dashboard');
 
 
 

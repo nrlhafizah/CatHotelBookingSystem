@@ -101,9 +101,9 @@
 		
     </div>       
 </main>
+ 
 
-
-	  <div class="limiter">
+	  
 	  @include('flash-message')
 <div class="container-table100">
 	<div class="wrap-table100">
@@ -147,6 +147,10 @@
 	</div>
 </div>
 </div>
+
+                    
+                    
+          
 <footer id="footer">
 	<div class="container">
 		<div class="row">

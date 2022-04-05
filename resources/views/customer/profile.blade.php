@@ -43,6 +43,7 @@
 				
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="{{url('/redirect')}}">Home</a></li>
+					<li><a href="{{url('/requestBooking')}}">Request</a></li>
 					<li><a href="{{url('/history')}}">History</a></li>
                     <li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>

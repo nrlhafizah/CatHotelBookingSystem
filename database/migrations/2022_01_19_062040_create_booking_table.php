@@ -16,14 +16,16 @@ class CreateBookingTable extends Migration
         Schema::create('booking', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->integer('phoneNumber');
             $table->integer('totalCats');
             $table->date('checkIn');
             $table->date('checkOut');
+            $table->string('additional');
             $table->integer('UserID');
             $table->integer('hotelID');
             $table->string('hotelName');
+            $table->string('status')->default("Pending");;
             $table->timestamps();
         });
     }
