@@ -117,7 +117,10 @@
 						<th class="column100 column3" data-column="column3">Check In</th>
 						<th class="column100 column4" data-column="column4">Check Out</th>
 						<th class="column100 column5" data-column="column5">Total cats</th>
+					
 						<th class="column100 column6" data-column="column6">Date of Booking</th>
+						<th class="column100 column5" data-column="column5">Status</th>
+						<th class="column100 column6" data-column="column6"></th>
 					</tr>
 				</thead>
 @foreach($history as $history)
@@ -129,6 +132,14 @@
 						<td class="column100 column3" data-column="column3">{{$history->checkOut}}</td>
 						<td class="column100 column4" data-column="column4">{{$history->totalCats}}</td>
 						<td class="column100 column5" data-column="column5">{{$history->created_at}}</td>
+						<td class="column100 column4" data-column="column4">{{$history->mark == false ? 'Ongoing' : 'Completed'}}</td>
+						
+						<form action="mark/{{$history->id}}" method="post" >
+                            @csrf
+							
+                        <td> <button class="badge badge-warning p-2" value="{{$history->UserID}}">{{$history->mark == true ? 'Mark Ongoing' : 'Mark Complete'}}</button></td>
+                        </form>
+						
 					</tr>
 				</tbody>
 @endif

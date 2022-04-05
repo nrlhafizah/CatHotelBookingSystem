@@ -27,7 +27,7 @@
 		<h1 id="logo" class="text-center">
 			<img class="img-circle" src="{{ asset ('profile/assets/images/smirk.jpg')}}" alt="">
 			<span class="title">{{Auth::user()->name}}</span>
-			<span class="tagline">{{Auth::user()->name}}<br><br>
+			<span class="tagline">{{Auth::user()->email}}<br><br>
 				<a href=""><b>{{Auth::user()->name}}<b></a></span>
 		</h1> 
 	</div>

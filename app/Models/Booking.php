@@ -10,4 +10,6 @@ class Booking extends Model
     use HasFactory;
     public $timestamps = false;
     protected $table="booking";
+
+    protected $fillable = ['mark'];
 }

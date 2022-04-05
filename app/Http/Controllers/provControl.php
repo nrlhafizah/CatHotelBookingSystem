@@ -52,6 +52,29 @@ class provControl extends Controller
 
     }
 
+    function markComplete($id)
+    {
+        $history = Booking::find($id);
+        
+        
+
+        if($history->mark == false)
+        {
+            $history->mark = true;
+            $history->update(['mark' => $history->mark]);
+            return back()->with('success','Reservation completed!');
+        }
+        else
+        {
+            $history->mark = false;
+            $history->update(['mark' => $history->mark]);
+            return back()->with('success','Reservation pending!');
+        }
+
+    
+
+
+    }
 
     function addProvider(Request $req)
     {
@@ -204,5 +227,7 @@ class provControl extends Controller
 
         return back()->with('success','Customer has been removed!');
     }
+
+
 
 }

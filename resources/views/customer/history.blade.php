@@ -41,8 +41,8 @@
 		<h1 id="logo" class="text-center">
 			<img class="img-circle" src="{{ asset ('profile/assets/images/smirk.jpg')}}" alt="">
 			<span class="title">{{Auth::user()->name}}</span>
-			<span class="tagline">{{Auth::user()->name}}<br><br>
-				<a href=""><b>{{Auth::user()->name}}<b></a></span>
+			<span class="tagline">{{Auth::user()->email}}<br><br>
+				<a href=""><b><b></a></span>
 		</h1>
 	</div>
 
@@ -126,7 +126,7 @@
 								<td class="column100 column4" data-column="column4">{{$history->totalCats}}</td>
 								<td class="column100 column4" data-column="column4">{{$history->additional}}</td>
 								<td class="column100 column5" data-column="column5">{{$history->created_at}}</td>
-								<td class="column100 column5" data-column="column5">{{$history->status}}</td>
+								<td class="column100 column5" data-column="column5">{{$history->mark == false ? 'Ongoing' : 'Completed'}}</td>
 							</tr>
 						</tbody>
 @endif

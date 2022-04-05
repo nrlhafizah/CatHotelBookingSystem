@@ -107,6 +107,7 @@ Route::get("/custRequest",[provControl::class,"custRequest"]);
 
 Route::POST("accept/{id}",[provControl::class,"acceptCust"]);
 Route::POST("decline/{id}",[provControl::class,"deleteReq"]);
+Route::post("mark/{id}",[provControl::class,"markComplete"]);
 
 Route::POST("action",[provControl::class,'addProvider']);
 Route::get("/createproject",[provControl::class,"show"]);
