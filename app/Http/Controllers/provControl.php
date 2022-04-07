@@ -218,11 +218,17 @@ class provControl extends Controller
         return back()->with('success','Customer accepted!');
     }
 
-    function deleteReq($id)
+    function deleteReq($id,  Request $request)
     {
         $info=RequestCustomer::find($id);
 
+        $info->reason=$request->reason;
+
+        $info->save();
+
+ 
         Mail::to($info->email)->send(new SendDeclinemail($info));
+
         $info->delete();
 
         return back()->with('success','Customer has been removed!');

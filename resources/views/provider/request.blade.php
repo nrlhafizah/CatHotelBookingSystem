@@ -35,6 +35,25 @@
 <!--===============================================================================================-->
 
 	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
+	<style>
+
+
+.modal-header {
+  background-color:#E1D5F4 ;
+  color:#000;
+  border-bottom:2px dashed #E1D5F4   ;
+}
+
+
+.badge-button{
+width:65px;
+height:30px;
+font-size:12px;
+font-style:bold;
+background-color:#E1D5F4  ;
+color:#000;
+}
+</style>
 </head>
 <body class="home">
 
@@ -116,7 +135,9 @@
 						<th class="column100 column3" data-column="column3">Check In</th>
 						<th class="column100 column4" data-column="column4">Check Out</th>
 						<th class="column100 column5" data-column="column5">Total cats</th>
+						<th class="column100 column6" data-column="column6">Additional Notes</th>
 						<th class="column100 column6" data-column="column6">Date of Booking</th>
+						
                         <th class="column100 column6" data-column="column6"></th>
                         <th class="column100 column6" data-column="column6"></th>
 					</tr>
@@ -129,15 +150,38 @@
 						<td class="column100 column2" data-column="column2">{{$history->checkIn}}</td>
 						<td class="column100 column3" data-column="column3">{{$history->checkOut}}</td>
 						<td class="column100 column4" data-column="column4">{{$history->totalCats}}</td>
+						<td class="column100 column5" data-column="column5">{{$history->additional}}</td>
 						<td class="column100 column5" data-column="column5">{{$history->created_at}}</td>
                         <form action="/accept/{{$history->id}}" method="post" >
                             @csrf
                         <td> <a><button class="badge badge-warning p-2" value="{{$history->UserID}}">Accept</button></a></td>
                         </form>
-                        <form action="/decline/{{$history->id}}" method="post" >
-                            @csrf
-                        <td> <a><button class="badge badge-warning p-2" value="{{$history->UserID}}">Decline</button></a></td>
-                        </form>
+                        
+                        <td> <button class="badge badge-warning p-2" data-toggle="modal" data-target="#exampleModalCenter{{$history->id}}">Decline</button>
+                    
+						
+<form action="/decline/{{$history->id}}" method="post" >
+        @csrf
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter{{$history->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle{{$history->id}}" aria-hidden="true">
+  <div class="modal-dialog modal-size modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <h5 class="modal-title" id="exampleModalCenterTitle{{$history->id}}"><b>Reason for decline</b></h5>
+      </div>
+      <div class="modal-body ">
+  
+      
+      <input type="text" class="form-control" name="reason" placeholder="Type here">
+      <div class="modal-footer">
+        <br><br>
+        <button  class="badge badge-button" >Submit</button>
+      </div>
+      </div>
+      
+    </div>
+  </div>
+</div> </form></td>
 					</tr>
 				</tbody>
 @endif

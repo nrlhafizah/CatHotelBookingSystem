@@ -18,7 +18,7 @@ a:hover,
 a:focus {
 	text-decoration: none;
 	outline: none;
-}
+} 
 
 
 
@@ -32,7 +32,7 @@ a:focus {
 .tm-color-primary {	color: black; }
 .tm-bg-primary { background: #B79059 ; }
 .tm-bg-gray { background: #F4F4F4; }
-.tm-bg-white { background: #E7A53B; }
+.tm-bg-white { background: #B79059}
 .tm-bg-dark-blue { background: #1f3646; }
 
 .tm-bg-white-shadow {
@@ -112,7 +112,7 @@ p {
     z-index: 10000;
     transition: all 0.2s ease-in-out;
     height: 119px;
-    background: #E7A53B;
+    background: #B79059;
 }
 
 .tm-top-bar.active {
@@ -130,7 +130,7 @@ p {
 }
 
 #tm-section-1 {	
-	background-image: url('../img/kit.jpg');	
+	background-image: url('../img/fur.jpg');	
 	height: 300px;
 }
 
@@ -308,6 +308,7 @@ select.tm-select::-ms-expand { display: none; }
 .tm-article {
 	padding: 40px;
 	transition: all 0.3s ease;
+	background:rgb(241, 234, 227);
 	
 	
 }

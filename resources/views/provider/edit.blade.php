@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
 	<!-- Custom styles -->
 	<link rel="stylesheet" href="{{ asset ('profile/assets/css/styles.css')}}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
 </head>
@@ -124,20 +125,37 @@
 			</label>
         	<input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$data->description ?? ''}}" name="desc" id="desc" type="text" >
     	</div>
-		<!-- <div class="col-span-6 sm:col-span-4">
+		<div class="col-span-6 sm:col-span-4">
 		<label class="block font-medium text-sm text-gray-700">
-    		Services
+    		List Services
 			</label>
-		<select id="ddselect" onchange="ddlselect();">
-			<option>Grooming</option>
-			<option>Vaccination</option>
-			<option>Walking</option>
-			<option>Petting</option>
-			<option>Boarding</option>
-			</select>
-			
-		<input type="text"  id="test"/><br><br>
-</div> -->
+		<select required name="Service1" id="Service1">
+		<option selected disabled value="Select one">Select</option>
+			<option value="1">Grooming</option>
+			<option value="2">Vaccination</option>
+			<option value="3">Walking</option>
+			<option value="4">Boarding</option>
+			</select><br>
+			<div class="col-span-8 sm:col-span-4">
+			<input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$data->service1 ?? ''}}"  name="s1" id="s1" type="text">
+</div>
+		</div>
+<br>
+		<div class="col-span-6 sm:col-span-4">
+	
+		<select required name="Service2" id="Service2">
+		<option selected disabled value="Select one">Select</option>
+			<option value="1">Grooming</option>
+			<option value="2">Vaccination</option>
+			<option value="3">Walking</option>
+			<option value="4">Boarding</option>
+			</select><br>
+		
+			<div class="col-span-8 sm:col-span-4">
+			<input class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" value="{{$data->service1 ?? ''}}"  name="s1" id="s1" type="text">
+</div>
+		
+		</div>
 
         <!-- S1 -->
         <div class="col-span-6 sm:col-span-4">
@@ -278,12 +296,32 @@
 
 </x-app-layout>
 
-<script>
-	function ddlselect(){
-		var d=document.getElementById("ddselect");
+	<script>
+		var d=document.getElementById("Service1");
 		var displaytext=d.options[d.selectedIndex].text;
-		document.getElementById("test").value=displaytext;
-	}
+// When the user selects an option in "Sender" dropdown selection, this function disables in the "Receiver" dropdown selection the person selected in the other dropdown
+	$('[name="Service1"]').change(function () { 
+		console.log("Service1 changed to value "+this.value+"!");
+		$('[name="Service2"]>option').removeAttr("disabled");
+		$('[name="Service2"]>option[value="Select one"]').attr("disabled","disabled");
+		$('[name="Service2"]>option[value="'+this.value+'"]').attr("disabled","disabled");
+		
+		// var d=document.getElementById("Service1");
+		// var displaytext=d.options[d.selectedIndex].text;
+		// document.getElementById("s1").value=displaytext;
+	});
+
+// When the user selects an option in "Receiver" dropdown selection, this function disables in the "Sender" dropdown selection the person selected in the other dropdown
+	$('[name="Service2"]').change(function () { 
+		console.log("Service2 changed to value "+this.value+"!");
+		$('[name="Service1"]>option').removeAttr("disabled");
+		$('[name="Service1"]>option[value="Select one"]').attr("disabled","disabled");
+		$('[name="Service1"]>option[value="'+this.value+'"]').attr("disabled","disabled");
+
+		// var d=document.getElementById("Service2");
+		// var displaytext=d.options[d.selectedIndex].text;
+		// document.getElementById("s2").value=displaytext;
+	});
 	</script>
 	
 

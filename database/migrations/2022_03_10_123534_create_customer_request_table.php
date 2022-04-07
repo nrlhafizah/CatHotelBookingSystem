@@ -24,7 +24,7 @@ class CreateCustomerRequestTable extends Migration
             $table->string('additional');
             $table->integer('hotelID');
             $table->string('hotelName');
-            $table->string('status');
+            $table->string('status')->default("Pending");
             $table->timestamps();
         });
     }

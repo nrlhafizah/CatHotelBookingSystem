@@ -21,7 +21,8 @@ https://www.tooplate.com/view/2095-level
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" href="css/datepicker.css"/>
-    <link rel="stylesheet" href="css/tooplate-style.css">                                   <!-- Templatemo style -->
+    <link rel="stylesheet" href="css/tooplate-style.css">  
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>                                 <!-- Templatemo style -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -126,7 +127,7 @@ https://www.tooplate.com/view/2095-level
     
             
                         <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">                            
-                            <i class="fa tm-fa-6x fa-legal tm-color-primary tm-margin-b-20"></i>
+                            <i class="fa tm-fa-6x fa-cat tm-color-primary tm-margin-b-20"></i><br><br>
                             <h3 class="tm-color-primary tm-article-title-1">{{ $data->hotelName }}</h3>
                             <p>{{ $data->address }}</p>
                             <a href={{"show/".$data['id']}} name="id" value="{{$data->id}}" class="text-uppercase tm-color-primary tm-font-semibold">DETAILS</a>

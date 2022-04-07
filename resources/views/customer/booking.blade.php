@@ -162,6 +162,32 @@
 
 </body>
 
+<script>
+	
+var msg = "";
+var dateToday = new Date();
+$('#in').datepicker({
+	minDate: dateToday,
+  beforeShowDay: function(date) {
+    var day = jQuery.datepicker.formatDate('yy-mm-dd', date);
+    return [msg.indexOf(day) == -1]
+	
+  }
+});
+
+var msg = "";
+var dateToday = new Date();
+$('#out').datepicker({
+	minDate: dateToday,
+  beforeShowDay: function(date) {
+    var day = jQuery.datepicker.formatDate('yy-mm-dd', date);
+    return [msg.indexOf(day) == -1]
+	
+  }
+});
+
+</script>
+
 @foreach($info as $info)
 @if($data->id == $info->hotelID)
 <script>

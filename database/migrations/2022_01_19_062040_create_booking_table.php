@@ -25,7 +25,8 @@ class CreateBookingTable extends Migration
             $table->integer('UserID');
             $table->integer('hotelID');
             $table->string('hotelName');
-            $table->string('status')->default("Pending");;
+            $table->string('status')->default("Ongoing");
+            $table->boolean('mark')->default(0);
             $table->timestamps();
         });
     }

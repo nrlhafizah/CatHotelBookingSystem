@@ -186,7 +186,7 @@ class adminControl extends Controller
  
             $new->save();
 
-        
+         
             $data->delete();
             Mail::to($data->email)->send(new SendMail($data));
 

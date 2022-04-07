@@ -5,6 +5,7 @@ use App\Http\Controllers\custControl;
 use App\Http\Controllers\adminControl;
 use App\Http\Controllers\provControl;
 use App\Http\Controllers\SendEmailController;
+use App\Http\Controllers\DynamicFieldController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +34,7 @@ Route::POST("addProv",[homeControl::class,"newProvider"]);
 
 
 // Route::middleware(['prevent-back-history', 'auth'], function () {
-
-
+      
 // Admin page
 Route::group(['middleware' => ['prevent-back-history', 'auth']],function(){
 
@@ -111,9 +111,6 @@ Route::post("mark/{id}",[provControl::class,"markComplete"]);
 
 Route::POST("action",[provControl::class,'addProvider']);
 Route::get("/createproject",[provControl::class,"show"]);
-
-
-
 
 
 //Email
