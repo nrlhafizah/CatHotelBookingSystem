@@ -36,7 +36,8 @@ class homeControl extends Controller
         return view('home')->withData($data);
 
     }
-
+   
+    
     
 
     // OPTION BEFORE USER LOGIN/REGISTER

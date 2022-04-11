@@ -91,7 +91,7 @@
 				<p class="lead text-center text-muted"> {{$data->description}} </p>
 			</div>
 		</div> <!-- / section -->
-		
+		@if(isset($data))
 		<div class="row section featured topspace">
 			<h2 class="section-title"><span>Services</span></h2>
 			<div class="row">
@@ -119,99 +119,42 @@
 			
 			</div>
 		</div> <!-- / section -->
-		
-	
+		@endif
+	@if($data['images'])
 		<div class="row section recentworks topspace">
 			
 			<h2 class="section-title"><span>Pictures</span></h2>
 			
 			<div class="thumbnails recentworks row">
 			
-			@if($data->image1)	
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-						<span class="img">
-						<img src="{{ asset('storage/images/services/'.$data->image1)}}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
-						</span>
-				</div>
 	
-				@endif
-				@if($data->image2)
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$data->image2) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" />
-						</span>
-				</div>
-
-				@endif
-				@if($data->image3)
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a  href="sidebar-right.html">
-						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$data->image3) }}"  onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"/>
-							<span class="cover"></span>
-						</span>
-					
-					</a>
+				
+				@php $images = json_decode($data->images,true); @endphp
+   			@if(is_array($images) && !empty($images))
+			   
+   			@foreach ($images as $images)
+			   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+			   <span class="img">
+     			<img src="{{ asset('storage/images/services/'.$images)}}"/>
+				 </span>
+				 </a>
 				
 					<h4></h4>
 					<p></p>
-				</div>
+				 </div>
+				 @endforeach
+   			@endif	
+			 	
 
-				@endif
-				@if($data->image4)
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a  href="sidebar-right.html">
-						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$data->image4) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" />
-							<span class="cover"></span>
-						</span>
-					
-					</a>
-					<span ><a href="">  </a>  <a href="">  </a></span>
-					<h4></h4>
-					<p></p>
-				</div>
-	
-				@endif
-				@if($data->image5)
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a  href="sidebar-right.html">
-						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$data->image5) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
-							<span class="cover"></span>
-						</span>
-					
-					
-					</a>
-					<span ><a href="">  </a>  <a href="">  </a></span>
-					<h4></h4>
-					<p></p>
-				</div>
+   			
+			
 
-				@endif
-				@if($data->image6)
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a  href="sidebar-right.html">
-						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$data->image6) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
-							<span class="cover"></span>
 				
-					
-					</a>
-					<span ><a href="">  </a>  <a href="">  </a></span>
-					<h4></h4>
-					<p></p>
-				</div>
-				</span>
-	
-				@endif
-				
-			</div>
 
 		</div> <!-- /section -->
 
 	</div>	<!-- /container -->
-
+@endif
 </main>
 @endif
 @endforeach
