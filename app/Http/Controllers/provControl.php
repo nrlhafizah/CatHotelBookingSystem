@@ -19,21 +19,22 @@ use Alert;
 use Illuminate\Support\Facades\Response;
 use App\Images;
 use Image;
-
+use Carbon\Carbon;
 use Session;
 use App\Models\Booking;
 use App\Models\Search;
 use App\Models\Registered;
 use App\Models\Profile;
 use App\Models\RequestCustomer;
+use App\Models\Detail;
 
 class provControl extends Controller
 {
     function update($id)
     {
-
+        $detail=Detail::all();
         $data=Profile::find($id);
-        return view("provider.edit", ['data'=>$data]);
+        return view("provider.edit", ['data'=>$data, 'detail'=>$detail  ]);
     }
 
    
@@ -93,20 +94,14 @@ class provControl extends Controller
 
     public function testOnly(Request $req)
     {
+
         
         $new=Profile::find($req->id);
         
         $new->id=$req->catid;
         $new->description=$req->desc;
-        $new->service1=$req->s1;
-        $new->desc1=$req->ds1;
-        $new->service2=$req->s2;
-        $new->desc2=$req->ds2;
-        $new->service3=$req->s3;
-        $new->desc3=$req->ds3;
-        $new->service4=$req->s4;
-        $new->desc4=$req->ds4;
-
+        $new->services=implode(',',(array)$req->services);;
+       
         if($req->hasFile('images')){
             $names = [];
             foreach($req->file('images') as $image) {
@@ -115,39 +110,43 @@ class provControl extends Controller
                 $path = $image->storeAs($destination_path, $name);
                 array_push($names, $name); 
                 $new->images = json_encode($names);
-            }
-             
-                
-                
-            
+            } 
         }
-
+        $new->created_at=Carbon::now();
         $new->save();
 
         $data=Profile::find($req->id);
+        $detail=Detail::all();
 
-        return view("provider.edit", ['data'=>$data]);
+        return view("provider.edit", ['data'=>$data, 'detail'=>$detail  ]);
+
     }
 
-    
-    function show()
+    function changePass()
     {
-        $data=User::all();
-        return view('provider.profile',['data'=>$data]);
+        $detail=Detail::all();
+        return view('provider.changepass',['detail'=>$detail ]);
     }
 
+    function deleteACC()
+    {
+        $detail=Detail::all();
+        return view('provider.deleteaccount',['detail'=>$detail ]);
+    }
 
     function listOut()
-    {
+    { 
+        $detail=Detail::all();
         $history = Booking::all();
-        return view('provider.list', ['history' => $history]);
+        return view('provider.list', ['history' => $history, 'detail'=>$detail]);
 
     }
 
     function custRequest()
     {
+        $detail=Detail::all();
         $history = RequestCustomer::all();
-        return view('provider.request', ['history' => $history]);
+        return view('provider.request', ['history' => $history, 'detail'=>$detail]);
 
     }
 

@@ -164,7 +164,6 @@
                 <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example99">SSM</label>
                   <input type="text" name="ssm" id="form3Example99" class="form-control form-control-lg"/>
-                  @error('ssm') <p style=color:red; > {{$message}} </p> @enderror
                 </div>
 
               

@@ -21,7 +21,7 @@ use App\Models\Search;
 use App\Models\User;
 use App\Models\Registered;
 use App\Models\Profile;
-
+use App\Models\Detail;
 
 class homeControl extends Controller
 {
@@ -50,20 +50,7 @@ class homeControl extends Controller
         return view('beflogin');
     }
 
-    function testProf()
-    {
-        return view('provider.testprofile');
-    }
 
-    function changePass()
-    {
-        return view('provider.changepass');
-    }
-
-    function deleteACC()
-    {
-        return view('provider.deleteaccount');
-    }
 
     
     function formReg()
@@ -78,13 +65,6 @@ class homeControl extends Controller
         return view('provider.contact', ['data'=>$data, 'prof'=> $prof]);
     }
 
-
-    function showProfile($id)
-    {
-    $data=User::find($id);
-    $prof=Profile::all();
-    return view('customer.display', ['data'=>$data, 'prof'=> $prof]);
-    }
 
     function redirectFunct()
     {
@@ -108,8 +88,9 @@ class homeControl extends Controller
         }
         else 
         {
+            $detail=Detail::all();
             $data=Profile::all();
-            return view('provider.testprofile', compact('data'));
+            return view('provider.testprofile',  ['data'=>$data, 'detail'=>$detail]);
         }
 
     }
@@ -124,7 +105,6 @@ class homeControl extends Controller
             "hotelName" => 'unique:users,hotelName',
             "address" => 'unique:users,address',
             "state" => 'required',
-            "ssm" => 'unique:users,SSM|numeric',
 
         ]);
 

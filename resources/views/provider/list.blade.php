@@ -41,10 +41,14 @@
 <header id="header">
 <div id="head" class="parallax" parallax-speed="2">
 		<h1 id="logo" class="text-center">
-			<img class="img-circle" src="profile/assets/images/smirk.jpg" alt="">
-			<span class="title">{{Auth::user()->hotelName}} </span>
+			<img class="img-circle" src="profile/assets/images/logo.jpg" alt="">
+			@foreach($detail as $detail)
+			@if($detail->userID == Auth::id())
+			<span class="title">{{$detail->hotelName}} </span>
 			<span class="tagline">{{Auth::user()->email}} <br><br>
-				<a href=""><b>{{Auth::user()->address}} <b></a></span>
+			<a href=""><b>{{$detail->address}} <b></a></span>
+			@endif
+			@endforeach
 		</h1>
 	</div>
 

@@ -12,6 +12,7 @@ use App\Models\Hotel;
 use App\Models\Search;
 use App\Models\Registered;
 use App\Models\Profile;
+use App\Models\Detail;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Fortify\PasswordValidationRules;
@@ -158,6 +159,7 @@ class adminControl extends Controller
         $data=Registered::find($id);
         $add = new User;
         $new = new Profile;
+        $detail = new Detail;
 
         $add->name=$data->name;
         $add->email=$data->email;
@@ -166,27 +168,27 @@ class adminControl extends Controller
         $add->phoneNumber=$data->phoneNumber;
         $add->hotelName=$data->hotelName;
         $add->address=$data->address;
-        $add->SSM=$data->ssm;
+        $add->SSM=$data->SSM;
         
         $add->save();
 
         $userID = DB::table('users')->where('email', $data->email)->first()->id;
          
+        $detail->userID=$userID;
+        $detail->phoneNumber=$data->phoneNumber;
+        $detail->address=$data->address;
+        $detail->hotelName=$data->hotelName;
+        $detail->SSM=$data->SSM;
+        $detail->created_at=Carbon::now();
+
+        $detail->save();
+
             $new->id=$userID;
             $new->description='  ';
-            $new->service1='  ';
-            $new->desc1='  ';
-            $new->service2='  ';
-            $new->desc2='  ';
-            $new->service3='  ';
-            $new->desc3='  ';
-            $new->service4='  ';
-            $new->desc4='  ';
-       
- 
+            $new->images='  ';
+        
             $new->save();
 
-         
             $data->delete();
             Mail::to($data->email)->send(new SendMail($data));
 

@@ -17,6 +17,7 @@ use App\Models\Booking;
 use App\Models\Search;
 use App\Models\User;
 use App\Models\Profile;
+use App\Models\Detail;
 use Carbon\Carbon;
  
 use App\Models\RequestCustomer;
@@ -83,6 +84,14 @@ class custControl extends Controller
         return view('customer.manage.changepass');
     }
 
+    function showProfile($id)
+    {
+        $detail=Detail::all();
+        $data=User::find($id);
+        $prof=Profile::all();
+        return view('customer.display', ['data'=>$data, 'prof'=> $prof, 'detail' => $detail]);
+    }
+
     function delete()
     {
         return view('customer.manage.deleteaccount');
@@ -114,6 +123,7 @@ class custControl extends Controller
     {
         $data=User::find($id);
         $info=Booking::all();
+
         return view('customer.booking', ['data' => $data, 'info' => $info]);
     }
 

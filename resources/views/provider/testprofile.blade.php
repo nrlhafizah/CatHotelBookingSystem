@@ -27,10 +27,14 @@
 <header id="header">
 <div id="head" class="parallax" parallax-speed="2">
 		<h1 id="logo" class="text-center">
-			<img class="img-circle" src="profile/assets/images/smirk.jpg" alt="">
-			<span class="title">{{Auth::user()->hotelName}} </span>
+			<img class="img-circle" src="profile/assets/images/logo.jpg" alt="">
+			@foreach($detail as $detail)
+			@if($detail->userID == Auth::id())
+			<span class="title">{{$detail->hotelName}} </span>
 			<span class="tagline">{{Auth::user()->email}} <br><br>
-				<a href=""><b>{{Auth::user()->address}} <b></a></span>
+			<a href=""><b>{{$detail->address}} <b></a></span>
+			@endif
+			@endforeach
 		</h1>
 	</div>
 
@@ -95,27 +99,8 @@
 		<div class="row section featured topspace">
 			<h2 class="section-title"><span>Services</span></h2>
 			<div class="row">
-				<div class="col-sm-6 col-md-3">
-					<h3 class="text-center">{{$data->service3}}</h3>
-					<p>{{$data->desc3}}</p>
-		
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<h3 class="text-center">{{$data->service1}}</h3>
-					<p>{{$data->desc1}}</p>
-				
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<h3 class="text-center">{{$data->service2}}</h3>
-					<p>{{$data->desc2}}</p>
-			
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<h3 class="text-center">{{$data->service4}}</h3>
-					<p>{{$data->desc4}}</p>
-					
-				</div>
-
+			<br>
+					<h3 class="text-center">{{$data->services}}</h3>
 			
 			</div>
 		</div> <!-- / section -->
@@ -133,7 +118,7 @@
    			@if(is_array($images) && !empty($images))
 			   
    			@foreach ($images as $images)
-			   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+			   <div class="col-xs-12 col-sm-6 ">
 			   <span class="img">
      			<img src="{{ asset('storage/images/services/'.$images)}}"/>
 				 </span>

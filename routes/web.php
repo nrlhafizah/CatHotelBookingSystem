@@ -84,7 +84,7 @@ Route::get("/requestBooking",[custControl::class,"showRequest"]);
 
 Route::get("/create",[custControl::class,"success"]);
 
-Route::get("show/{id}",[homeControl::class,"showProfile"]);
+Route::get("show/{id}",[custControl::class,"showProfile"]);
 Route::get("show/contactHotel/{id}",[homeControl::class,"contact"]);
 Route::get("show/show/{id}",[homeControl::class,"showProfile"]);
 
@@ -96,12 +96,9 @@ Route::get("show/show/{id}",[homeControl::class,"showProfile"]);
 Route::get("/showProfile/{id}",[provControl::class,"update"]);
 Route::POST("/editprof",[provControl::class,"testOnly"]);
 
-
 Route::get("/req",[provControl::class,"reqBook"]);
-
-Route::get("/profiletest",[homeControl::class,"testProf"]);
-Route::get("/change",[homeControl::class,"changePass"]);
-Route::get("/delete",[homeControl::class,"deleteACC"]);
+Route::get("/change",[provControl::class,"changePass"]);
+Route::get("/delete",[provControl::class,"deleteACC"]);
 Route::get("/listDown",[provControl::class,"listOut"]);
 Route::get("/custRequest",[provControl::class,"custRequest"]);
 
@@ -112,11 +109,6 @@ Route::post("mark/{id}",[provControl::class,"markComplete"]);
 Route::POST("action",[provControl::class,'addProvider']);
 Route::get("/createproject",[provControl::class,"show"]);
 
-
-//Email
-
-Route::get('/sendemail', 'App\Http\Controllers\SendEmailController@index');
-Route::post('/sendemail/send', 'App\Http\Controllers\adminControl@acceptProv');
 
 });
 

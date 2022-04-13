@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOwnerprofTable extends Migration
+class CreateDetailProviderTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateOwnerprofTable extends Migration
      */
     public function up()
     {
-        Schema::create('ownerprof', function (Blueprint $table) {
+        Schema::create('detail_provider', function (Blueprint $table) {
             $table->id();
-            $table->string('description')->nullable();
-            $table->string('services')->nullable();
-            $table->string('images')->nullable();
+            $table->integer('userID');
+            $table->integer('phoneNumber')->nullable();
+            $table->string('hotelName')->nullable();
+            $table->string('address')->nullable();
+            $table->integer('SSM')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateOwnerprofTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ownerprof');
+        Schema::dropIfExists('detail_provider');
     }
 }

@@ -27,10 +27,16 @@
 <header id="header">
 	<div id="head" class="parallax" parallax-speed="2">
 		<h1 id="logo" class="text-center">
-			<img class="img-circle" src="{{ asset ('profile/assets/images/smirk.jpg')}}" alt="">
-			<span class="title">{{$data->hotelName}}</span>
-			<span class="tagline">{{$data->email}}<br><br>
-				<a href=""><b>{{$data->address}}<b></a></span>
+			<img class="img-circle" src="{{ asset ('profile/assets/images/logo.jpg')}}" alt="">
+
+			@foreach($detail as $detail)
+			@if($detail->userID == $data->id)
+			<span class="title">{{$detail->hotelName}} </span>
+			<span class="tagline">{{Auth::user()->email}} <br><br>
+			<a href=""><b>{{$data->address}}<b></a></span>
+			@endif
+			@endforeach
+
 		</h1>
 	</div>
 
@@ -70,34 +76,19 @@
 			</div>
 		</div> <!-- / section -->
 		
+		@if(isset($prof))
 		<div class="row section featured topspace">
 			<h2 class="section-title"><span>Services</span></h2>
 			<div class="row">
-				<div class="col-sm-6 col-md-3">
-					<h3 class="text-center">{{$prof->service3}}</h3>
-					<p>{{$prof->desc3}}</p>
-		
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<h3 class="text-center">{{$prof->service1}}</h3>
-					<p>{{$prof->desc1}}</p>
-				
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<h3 class="text-center">{{$prof->service2}}</h3>
-					<p>{{$prof->desc2}}</p>
+			<br>
+					<h3 class="text-center">{{$prof->services}}</h3>
 			
-				</div>
-				<div class="col-sm-6 col-md-3">
-					<h3 class="text-center">{{$prof->service4}}</h3>
-					<p>{{$prof->desc4}}</p>
-					
-				</div>
-
 			</div>
 		</div> <!-- / section -->
+		@endif
+
 		<p class="text-center"><a href={{"create/".$prof['id']}} class="btn btn-action">Make a booking</a></p>
-	
+		@if($prof['images'])
 		<div class="row section recentworks topspace">
 			
 			<h2 class="section-title"><span>Pictures</span></h2>
@@ -106,90 +97,26 @@
 			
 			
    
-			@if($prof->image1)	
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-						<span class="img">
-						<img src="{{ asset('storage/images/services/'.$prof->image1)}}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
-						</span>
-				</div>
-	
-				@endif
-				@if($prof->image2)
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$prof->image2) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" />
-						</span>
-				</div>
-
-				@endif
-				@if($prof->image3)
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a  href="sidebar-right.html">
-						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$prof->image3) }}"  onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"/>
-							<span class="cover"></span>
-						</span>
-					
-					</a>
+			@php $images = json_decode($prof->images,true); @endphp
+   			@if(is_array($images) && !empty($images))
+			   
+   			@foreach ($images as $images)
+			   <div class="col-xs-12 col-sm-6 ">
+			   <span class="img">
+     			<img src="{{ asset('storage/images/services/'.$images)}}"/>
+				 </span>
+				 </a>
 				
 					<h4></h4>
 					<p></p>
-				</div>
-
-				@endif
-				@if($prof->image4)
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a  href="sidebar-right.html">
-						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$prof->image4) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" />
-							<span class="cover"></span>
-						</span>
-					
-					</a>
-					<span ><a href="">  </a>  <a href="">  </a></span>
-					<h4></h4>
-					<p></p>
-				</div>
-	
-				@endif
-				@if($prof->image5)
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a  href="sidebar-right.html">
-						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$prof->image5) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
-							<span class="cover"></span>
-						</span>
-					
-					
-					</a>
-					<span ><a href="">  </a>  <a href="">  </a></span>
-					<h4></h4>
-					<p></p>
-				</div>
-
-				@endif
-				@if($prof->image6)
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a  href="sidebar-right.html">
-						<span class="img">
-						<image src="{{ asset('storage/images/services/'.$prof->image6) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
-							<span class="cover"></span>
-				
-					
-					</a>
-					<span ><a href="">  </a>  <a href="">  </a></span>
-					<h4></h4>
-					<p></p>
-				</div>
-				</span>
-	
-				@endif
-			</div>
+				 </div>
+				 @endforeach
+   			@endif	
 
 		</div> <!-- /section -->
 
 	</div>	<!-- /container -->
-
+@endif
 </main>
 @endif
 @endforeach
