@@ -100,7 +100,7 @@ class provControl extends Controller
         
         $new->id=$req->catid;
         $new->description=$req->desc;
-        $new->services=implode(',',(array)$req->services);;
+        $new->services=implode(', ',(array)$req->services);;
        
         if($req->hasFile('images')){
             $names = [];

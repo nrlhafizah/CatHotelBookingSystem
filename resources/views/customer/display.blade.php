@@ -32,8 +32,8 @@
 			@foreach($detail as $detail)
 			@if($detail->userID == $data->id)
 			<span class="title">{{$detail->hotelName}} </span>
-			<span class="tagline">{{Auth::user()->email}} <br><br>
-			<a href=""><b>{{$data->address}}<b></a></span>
+			<span class="tagline">{{$data->email}} <br><br>
+			<a href=""><b>{{$detail->address}}<b></a></span>
 			@endif
 			@endforeach
 
@@ -64,6 +64,7 @@
 </header>
 @foreach($prof as $prof)
 @if ($data->id == $prof->id)
+@if(isset($prof->services))
 <main id="main">
 
 	<div class="container">
@@ -76,17 +77,22 @@
 			</div>
 		</div> <!-- / section -->
 		
-		@if(isset($prof))
+		
 		<div class="row section featured topspace">
 			<h2 class="section-title"><span>Services</span></h2>
 			<div class="row">
 			<br>
-					<h3 class="text-center">{{$prof->services}}</h3>
+			<?php
+				$name=$prof->services;
+				$result = str_replace(',', '<br> •', $name);
+
+				echo "<h3 class='text-center'> • $result</h3>"
+			?>				
 			
 			</div>
 		</div> <!-- / section -->
-		@endif
-
+		
+<br>
 		<p class="text-center"><a href={{"create/".$prof['id']}} class="btn btn-action">Make a booking</a></p>
 		@if($prof['images'])
 		<div class="row section recentworks topspace">
@@ -110,27 +116,21 @@
 					<h4></h4>
 					<p></p>
 				 </div>
-				 @endforeach
+			@endforeach
    			@endif	
 
 		</div> <!-- /section -->
 
 	</div>	<!-- /container -->
-@endif
+
 </main>
+
+@endif
+@endif
 @endif
 @endforeach
 
-<footer id="footer">
-	<div class="container">
-		<div class="row">
-
-			
-			
-		</div> <!-- /row of widgets -->
-	</div>
-</footer>
-
+@if(isset($prof->services))
 <footer id="underfooter">
 	<div class="container">
 		<div class="row">
@@ -152,6 +152,7 @@
 		</div> <!-- /row of widgets -->
 	</div>
 </footer>
+@endif
 
 
 

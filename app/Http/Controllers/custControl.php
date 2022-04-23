@@ -27,15 +27,15 @@ class custControl extends Controller
 {
 
 
-
    function resultOf(Request $request){
 
         $q = $request->get('q');
-        $data = User::where('hotelName', 'LIKE', '%' . $q . '%')->orWhere('address','like','%'.$q.'%')->paginate(5)->setpath('');
-		if (count ( $data ) > 0)
-        return view ( 'customer.custpage' )->withData ( $data )->withQuery ( $q );
-    else
-    return back()->with('error','No details found! Try to search again.');
+        $details = Detail::where('hotelName', 'LIKE', '%' . $q . '%')->orWhere('address','like','%'.$q.'%')->orWhere('state','like','%'.$q.'%')->paginate(5)->setpath('');
+		if (count ( $details ) > 0){
+        $data = User::paginate(9)->where("usertype", "=", "2");
+        return view ( 'customer.custpage', ['data'=>$data, 'details'=>$details]);
+        }
+        return back()->with('error','No details found! Try to search again.');
 		 
    }
 
@@ -117,7 +117,7 @@ class custControl extends Controller
     function success()
     {
         return view('customer.success');
-    }
+    } 
 
     function bookie($id)
     {

@@ -164,11 +164,7 @@ class adminControl extends Controller
         $add->name=$data->name;
         $add->email=$data->email;
         $add->usertype='2';
-        $add->password=Hash::make('12345678');
-        $add->phoneNumber=$data->phoneNumber;
-        $add->hotelName=$data->hotelName;
-        $add->address=$data->address;
-        $add->SSM=$data->SSM;
+        $add->password=Hash::make('12345678');        
         
         $add->save();
 
@@ -177,6 +173,8 @@ class adminControl extends Controller
         $detail->userID=$userID;
         $detail->phoneNumber=$data->phoneNumber;
         $detail->address=$data->address;
+        $detail->postcode=$data->postcode;
+        $detail->state=$data->state;
         $detail->hotelName=$data->hotelName;
         $detail->SSM=$data->SSM;
         $detail->created_at=Carbon::now();
@@ -214,70 +212,10 @@ class adminControl extends Controller
     }
 
     
-
+ 
     
 
-    function addprov(Request $request, User $user, Profile $new)
-    {
 
-
-      //Check Validation Request
-      $validate = $request->validate(
-        //Check Validation
-        [
-          'name' => ['required'],
-          'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-          'password' => ['required'],
-          'description' => ['required'],
-              'service1' => ['required'],
-              'desc1' => ['required'],
-              'service2' => ['required'],
-              'desc2' => ['required'],
-              'service3' => ['required'],
-              'desc3' => ['required'],
-              'service4' => ['required'],
-              'desc4' => ['required'],
-              'img' => ['required'],
-
-        ],
-        //Error Message
-        [
-          'name.required' => 'Firt Name is required',
-          'email.required' => 'Email is required',
-          'user_password.required' => 'Password is required',
-          'description.required' => 'Firt Name is required',
-                'service1.required' => 'Email is required',
-                'desc1.required' => 'Password is required',
-                'service2.required' => 'Email is required',
-                'desc2.required' => 'Password is required',
-                'service3.required' => 'Email is required',
-                'desc3.required' => 'Password is required',
-                'service4.required' => 'Email is required',
-                'desc4.required' => 'Password is required',
-                'img.required' => 'Email is required',
-
-
-        ]
-      );
-
-      //If Validate Success
-      if($validate){
-
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->usertype = '2';
-        $user->password = Hash::make('$request->password');
-
-
-        //Execute Query
-        $user->save();
-
-            
-     //If Success
-        return redirect()->route('login')
-                          ->with("message", "Account Succesffully Created");
-     }
-    }
 
 }
 

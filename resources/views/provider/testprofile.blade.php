@@ -100,7 +100,12 @@
 			<h2 class="section-title"><span>Services</span></h2>
 			<div class="row">
 			<br>
-					<h3 class="text-center">{{$data->services}}</h3>
+			<?php
+				$name=$data->services;
+				$result = str_replace(',', '<br> •', $name);
+
+				echo "<h3 class='text-center'> • $result</h3>"
+			?>	
 			
 			</div>
 		</div> <!-- / section -->
@@ -144,15 +149,7 @@
 @endif
 @endforeach
 
-<footer id="footer">
-	<div class="container">
-		<div class="row">
 
-			
-			
-		</div> <!-- /row of widgets -->
-	</div>
-</footer>
 
 <footer id="underfooter">
 	<div class="container">

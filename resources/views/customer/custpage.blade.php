@@ -119,25 +119,23 @@ https://www.tooplate.com/view/2095-level
             @include('flash-message')
             <br><br>
 <div class="row text-center">
-    
-
-@foreach ($data as $data)
-@if ($data->usertype=="2")
+@foreach($data as $data)    
+    @foreach($details as $detail)
+        @if($data->id == $detail->userID)
 <tr>
-    
-            
-                        <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">                            
+ 
+                            <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">                            
                             <i class="fa tm-fa-6x fa-cat tm-color-primary tm-margin-b-20"></i><br><br>
-                            <h3 class="tm-color-primary tm-article-title-1">{{ $data->hotelName }}</h3>
-                            <p>{{ $data->address }}</p>
+                            <h3 class="tm-color-primary tm-article-title-1">{{ $detail->hotelName }}</h3>
+                            <p>{{ $detail->address }}, {{ $detail->postcode }}, {{ $detail->state }}</p>
                             <a href={{"show/".$data['id']}} name="id" value="{{$data->id}}" class="text-uppercase tm-color-primary tm-font-semibold">DETAILS</a>
                         </article>
-                      
-                 
-          
+      
     </tr>
-@endif
-@endforeach 
+    
+        @endif  
+    @endforeach
+@endforeach
 
    
 </div>        

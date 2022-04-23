@@ -82,8 +82,11 @@ class homeControl extends Controller
         }
         else if($typeuser=='1')
         {
-            $data = User::paginate(9);
-            return view('customer.custpage')->withData($data);
+    
+            $details=Detail::all();
+            $data = User::paginate(9)->where("usertype", "=", "2");
+            return view('customer.custpage', ['data'=>$data, 'details'=>$details]);
+
      
         }
         else 
@@ -103,7 +106,7 @@ class homeControl extends Controller
             "phoneNumber" => 'unique:users,phoneNumber|min:10|max:10',
             "email" => 'unique:users,email',
             "hotelName" => 'unique:users,hotelName',
-            "address" => 'unique:users,address',
+            
             "state" => 'required',
 
         ]);
@@ -118,6 +121,7 @@ class homeControl extends Controller
         $new->postcode=$req->postcode;
         $new->state=$req->state;
         $new->SSM=$req->ssm;
+        
         $new->save();
 
         return back()->with('success','You have successfully registered. Please wait until you receive email from the admin.');

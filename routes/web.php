@@ -60,8 +60,7 @@ Route::get('/restore/one/{id}', [adminControl::class, 'restore'])->name('post.re
 
 Route::get("/reg",[adminControl::class,"regprov"]);
 
-Route::view('addprov', 'auth.registerprov');
-Route::POST("addprovider",[adminControl::class,'addprov']);
+
 
 
 // Customer page

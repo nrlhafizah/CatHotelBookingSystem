@@ -132,7 +132,7 @@
 		
 	
 	<div class="col-span-6 sm:col-span-4">
-    <label for="services" class="block font-medium text-sm text-gray-700">Services</label> <br>
+    <label for="services" class="block font-medium text-sm text-gray-700">Services (Please choose at least 1)</label> 
 
         <input type="checkbox" name="services[]" value="Boarding"/> Boarding <br>
         <input type="checkbox" name="services[]" value="Grooming"/> Grooming <br>
@@ -151,7 +151,7 @@
 <div class="image">
                       
 			<label class="block font-medium text-sm text-gray-700">
-    		Insert images (Maximum 5 images)
+    		Insert images (Maximum 5 images)<br>
 
 
 			</label>
@@ -162,6 +162,8 @@
 			
             </div>
 			{{$data->images}}
+
+           
 			<div class="user-image mb-3 text-center">
                 <div class="imgPreview" > 
 				

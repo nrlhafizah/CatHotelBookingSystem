@@ -19,6 +19,8 @@ class CreateDetailProviderTable extends Migration
             $table->integer('phoneNumber')->nullable();
             $table->string('hotelName')->nullable();
             $table->string('address')->nullable();
+            $table->integer('postcode')->nullable();
+            $table->string('state')->nullable();
             $table->integer('SSM')->nullable();
             $table->timestamps();
         });
