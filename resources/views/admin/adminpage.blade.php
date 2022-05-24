@@ -168,6 +168,7 @@
                         <div class="inner-card-text">
                           <span class="report-title">CUSTOMER</span><br>
                           <h4>{{$customer}}</h4>
+                 <br>
                  
                         </div>
                         <div class="inner-card-icon bg-success">
@@ -210,6 +211,62 @@
               </div>
             </div>
 
+            <div class="row">
+              <div class="col-md-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="d-sm-flex align-items-baseline report-summary-header">
+                          <h5 class="font-weight-semibold">Percentage Calculation</h5> </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row report-inner-cards-wrapper">
+                      <div class=" col-md -6 col-xl report-inner-card">
+                        <div class="inner-card-text"> 
+                          <label class="w3-text-green"><b>Target Customer</b></label>
+                          <input name="tot_pin_requested" onchange="calculateCust(this.value)" required>
+		                      <br><br>
+                          <label><b>Current percentage (%)</b></label>
+                          <input class="w3-input w3-border" name="cust" id="cust" type="text" readonly>
+                    </div>
+                  </div>
+          
+                      <div class=" col-md -6 col-xl report-inner-card">
+                        <div class="inner-card-text"> 
+                          <label class="w3-text-green"><b>Target Provider</b></label>
+                          <input name="tot_pin_requested" onchange="calculateProv(this.value)" required>
+		                      <br><br>
+                          <label><b>Current percentage (%)</b></label>
+                          <input class="w3-input w3-border" name="prov" id="prov" type="text" readonly>
+                    </div>
+                  </div>
+                  <div class=" col-md -6 col-xl report-inner-card">
+                        <div class="inner-card-text"> 
+                          <label class="w3-text-green"><b>Target Booking</b></label>
+                          <input name="tot_pin_requested" onchange="calculateBooking(this.value)" required>
+		                      <br><br>
+                          <label><b>Current percentage (%)</b></label>
+                          <input class="w3-input w3-border" name="booking" id="booking" type="text" readonly>
+                    </div>
+                  </div>
+                  <div class=" col-md -6 col-xl report-inner-card">
+                        <div class="inner-card-text"> 
+                          <label class="w3-text-green"><b>Target Total Users</b></label>
+                          <input name="tot_pin_requested" onchange="calculateTotal(this.value)" required>
+		                      <br><br>
+                          <label><b>Current percentage (%)</b></label>
+                          <input class="w3-input w3-border" name="total" id="total" type="text" readonly>
+                    </div>
+                  </div>
+         
+                  </div>
+                </div>
+              </div>
+            </div>
+
             
       
           </footer>
@@ -219,6 +276,43 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
+
+    <script>
+            function calculateCust(val) {
+              var msg = "{{$customer}}";
+                var tot_price = ((msg/val) * 100).toFixed(2);
+                /*display the result*/
+                var divobj = document.getElementById('cust');
+                divobj.value = tot_price;
+            }
+        </script>
+          <script>
+            function calculateProv(val) {
+              var msg = "{{$provider}}";
+                var tot_price = ((msg/val) * 100).toFixed(2);
+                /*display the result*/
+                var divobj = document.getElementById('prov');
+                divobj.value = tot_price;
+            }
+        </script>
+          <script>
+            function calculateBooking(val) {
+              var msg = "{{$booking}}";
+                var tot_price = ((msg/val) * 100).toFixed(2);
+                /*display the result*/
+                var divobj = document.getElementById('booking');
+                divobj.value = tot_price;
+            }
+        </script>
+          <script>
+            function calculateTotal(val) {
+              var msg = "{{$total}}";
+                var tot_price = ((msg/val) * 100).toFixed(2);
+                /*display the result*/
+                var divobj = document.getElementById('total');
+                divobj.value = tot_price;
+            }
+        </script>
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="admin/assets/vendors/js/vendor.bundle.base.js"></script>

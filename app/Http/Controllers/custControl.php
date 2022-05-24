@@ -25,14 +25,14 @@ use App\Models\RequestCustomer;
 
 class custControl extends Controller
 {
-
+ 
 
    function resultOf(Request $request){
 
         $q = $request->get('q');
         $details = Detail::where('hotelName', 'LIKE', '%' . $q . '%')->orWhere('address','like','%'.$q.'%')->orWhere('state','like','%'.$q.'%')->paginate(5)->setpath('');
 		if (count ( $details ) > 0){
-        $data = User::paginate(9)->where("usertype", "=", "2");
+        $data = User::paginate(20)->where("usertype", "=", "2");
         return view ( 'customer.custpage', ['data'=>$data, 'details'=>$details]);
         }
         return back()->with('error','No details found! Try to search again.');
@@ -62,7 +62,6 @@ class custControl extends Controller
         $newBook->checkOut=Carbon::parse($req->out)->format('Y-m-d');
         $newBook->additional=$req->additional;
         $newBook->hotelID=$req->bookid;
-        $newBook->hotelName=$data->hotelName;
         $newBook->created_at = Carbon::now();
         $newBook->save();
 
@@ -105,13 +104,15 @@ class custControl extends Controller
     function showHistory() 
     {
         $history = Booking::all();
-        return view('customer.history', ['history' => $history]);
+        $detail = Detail::all();
+        return view('customer.history', ['history' => $history, 'detail' => $detail]);
     }
 
     function showRequest() 
     {
         $history = RequestCustomer::all();
-        return view('customer.request', ['history' => $history]);
+        $user = Detail::all();
+        return view('customer.request', ['history' => $history, 'user' => $user]);
     }
 
     function success()

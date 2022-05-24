@@ -151,25 +151,69 @@
 <div class="image">
                       
 			<label class="block font-medium text-sm text-gray-700">
-    		Insert images (Maximum 5 images)<br>
+    		Insert images<br>
 
 
 			</label>
-            <div class="custom-file">
-                <input width="400" height="500" type="file" name="images[]" class="custom-file-input" id="images" multiple="multiple">
-				<br>
+            <div class="col-span-6 sm:col-span-4">
+		<div class="col-span-6 sm:col-span-4">
+		<div class="image">
+			<label class="block font-medium text-sm text-gray-700">
+    		Image 1
+			</label>
+      		<input type="file" class="form-control"  name="image1">{{$data->image1}}
+    	</div>
+        <br>
+        </div>
+		<div class="col-span-6 sm:col-span-4">
+		<div class="image">
+			<label class="block font-medium text-sm text-gray-700">
+    		Image 2
+			</label>
+      		<input type="file" class="form-control" name="image2">{{$data->image2}}
+    	</div>
+        <br>
+        </div>
+		<div class="col-span-6 sm:col-span-4">
+		<div class="image">
+			<label class="block font-medium text-sm text-gray-700">
+    		Image 3
+			</label>
+      		<input type="file" class="form-control" name="image3">{{$data->image3}}
+    	</div>
+        <br>
+        </div>
+        <div class="col-span-6 sm:col-span-4">
+		<div class="image">
+			<label class="block font-medium text-sm text-gray-700">
+    		Image 4
+			</label>
+      		<input type="file" class="form-control" name="image4">{{$data->image4}}
+    	</div>
+        <br>
+        </div>
+		<div class="col-span-6 sm:col-span-4">
+		<div class="image">
+			<label class="block font-medium text-sm text-gray-700">
+    		Image 5
+			</label>
+      		<input type="file" class="form-control"  name="image5">{{$data->image5}}
+    	</div>
+        </div>
+        <br>
+		<div class="col-span-6 sm:col-span-4">
+		<div class="image">
+			<label class="block font-medium text-sm text-gray-700">
+    		Image 6
+			</label>
+      		<input type="file" class="form-control"  name="image6">{{$data->image6}}
+    	</div>
+        </div>
+    </div>
+    </div>
 
-			
-            </div>
-			{{$data->images}}
 
-           
-			<div class="user-image mb-3 text-center">
-                <div class="imgPreview" > 
-				
-				</div>
-</div>
-</div>
+
 </div>
 </div>
 

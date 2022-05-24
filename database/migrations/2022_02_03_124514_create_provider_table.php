@@ -22,7 +22,7 @@ class CreateProviderTable extends Migration
             $table->string('address');
             $table->string('postcode');
             $table->string('state');
-            $table->integer('SSM');
+            $table->biginteger('SSM');
             $table->timestamps();
         });
     }

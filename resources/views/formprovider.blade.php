@@ -95,7 +95,7 @@
              
 
                 <div class="form-outline mb-4">
-                <label class="form-label" for="form3Example9">Name</label>
+                <label class="form-label" for="form3Example9">Owner Hotel Name</label>
                   <input type="text" name="name" id="form3Example9" class="form-control form-control-lg" required/>
                   <p style=color:red; >@error('phoneNumber') {{$message}} @enderror</p>
                 </div>
@@ -162,8 +162,9 @@
 </div>
 
                 <div class="form-outline mb-4">
-                <label class="form-label" for="form3Example99">SSM</label>
-                  <input type="text" name="ssm" id="form3Example99" class="form-control form-control-lg"/>
+                <label class="form-label" >Registration Number (12 digits)</label>
+                  <input type="text" name="ssm" class="form-control form-control-lg"/>
+                  <p style=color:red; >@error('ssm') {{$message}} @enderror</p>
                 </div>
 
               

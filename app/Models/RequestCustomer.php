@@ -9,5 +9,5 @@ class RequestCustomer extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $table="customer_request";
+    protected $table="booking_request";
 }

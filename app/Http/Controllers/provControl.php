@@ -102,15 +102,71 @@ class provControl extends Controller
         $new->description=$req->desc;
         $new->services=implode(', ',(array)$req->services);;
        
-        if($req->hasFile('images')){
-            $names = [];
-            foreach($req->file('images') as $image) {
-                $destination_path = 'public/images/services';
-                $name = $image->getClientOriginalName();
-                $path = $image->storeAs($destination_path, $name);
-                array_push($names, $name); 
-                $new->images = json_encode($names);
-            } 
+        // if($req->hasFile('images')){
+        //     $names = [];
+        //     foreach($req->file('images') as $image) {
+        //         $destination_path = 'public/images/services';
+        //         $name = $image->getClientOriginalName();
+        //         $path = $image->storeAs($destination_path, $name);
+        //         array_push($names, $name); 
+        //         $new->images = json_encode($names);
+        //     } 
+        // }
+
+        if($req->hasFile('image1')){
+
+            $destination_path = 'public/images/services';
+            $image = $req->file('image1');
+            $image_name = $image->getClientOriginalName();
+            $path = $req->file('image1')->storeAs($destination_path, $image_name);
+
+            $new->image1 = $image_name;
+        }
+
+        if($req->hasFile('image2')){
+
+            $destination_path = 'public/images/services';
+            $image = $req->file('image2');
+            $image_name = $image->getClientOriginalName();
+            $path = $req->file('image2')->storeAs($destination_path, $image_name);
+
+            $new->image2 = $image_name;
+        }
+        if($req->hasFile('image3')){
+
+            $destination_path = 'public/images/services';
+            $image = $req->file('image3');
+            $image_name = $image->getClientOriginalName();
+            $path = $req->file('image3')->storeAs($destination_path, $image_name);
+
+            $new->image3 = $image_name;
+        }
+        if($req->hasFile('image4')){
+
+            $destination_path = 'public/images/services';
+            $image = $req->file('image4');
+            $image_name = $image->getClientOriginalName();
+            $path = $req->file('image4')->storeAs($destination_path, $image_name);
+
+            $new->image4 = $image_name;
+        }
+        if($req->hasFile('image5')){
+
+            $destination_path = 'public/images/services';
+            $image = $req->file('image5');
+            $image_name = $image->getClientOriginalName();
+            $path = $req->file('image5')->storeAs($destination_path, $image_name);
+
+            $new->image5 = $image_name;
+        }
+        if($req->hasFile('image6')){
+
+            $destination_path = 'public/images/services';
+            $image = $req->file('image6');
+            $image_name = $image->getClientOriginalName();
+            $path = $req->file('image6')->storeAs($destination_path, $image_name);
+
+            $new->image6 = $image_name;
         }
         $new->created_at=Carbon::now();
         $new->save();
@@ -166,7 +222,6 @@ class provControl extends Controller
         $data->UserID=$info->id;
         $data->hotelID=$info->hotelID;
         $data->status="Ongoing";
-        $data->hotelName=$info->hotelName;
         $data->created_at =$info->created_at;
 
         $data->save();

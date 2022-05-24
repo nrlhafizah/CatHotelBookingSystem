@@ -94,38 +94,56 @@
 		
 <br>
 		<p class="text-center"><a href={{"create/".$prof['id']}} class="btn btn-action">Make a booking</a></p>
-		@if($prof['images'])
 		<div class="row section recentworks topspace">
-			
+
 			<h2 class="section-title"><span>Pictures</span></h2>
-			
+
 			<div class="thumbnails recentworks row">
-			
-			
-   
-			@php $images = json_decode($prof->images,true); @endphp
-   			@if(is_array($images) && !empty($images))
-			   
-   			@foreach ($images as $images)
-			   <div class="col-xs-12 col-sm-6 ">
-			   <span class="img">
-     			<img src="{{ asset('storage/images/services/'.$images)}}"/>
-				 </span>
-				 </a>
+
+			@if($prof->image1)	
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+						<span class="img">
+						<img src="{{ asset('storage/images/services/'.$prof->image1)}}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
+						</span>
+				</div>
+
+				@endif
+				@if($prof->image2)
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+						<span class="img">
+						<image src="{{ asset('storage/images/services/'.$prof->image2) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" />
+						</span>
+				</div>
+
+				@endif
+				@if($prof->image3)
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+					<a  href="sidebar-right.html">
+						<span class="img">
+						<image src="{{ asset('storage/images/services/'.$prof->image3) }}"  onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"/>
+							<span class="cover"></span>
+						</span>
+
+					</a>
+
 				
-					<h4></h4>
-					<p></p>
-				 </div>
-			@endforeach
-   			@endif	
+
+				@endif
+			
+			</div>
 
 		</div> <!-- /section -->
 
 	</div>	<!-- /container -->
 
+   			
+			
+
+				
+
+		
 </main>
 
-@endif
 @endif
 @endif
 @endforeach

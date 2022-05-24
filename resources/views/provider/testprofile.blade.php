@@ -86,6 +86,7 @@
 </header>
 @foreach($data as $data)
 @if (Auth::user()->id == $data-> id)
+@if(isset($data->services))
 <main id="main">
 
 	<div class="container">
@@ -110,42 +111,57 @@
 			</div>
 		</div> <!-- / section -->
 		@endif
-	@if($data['images'])
-		<div class="row section recentworks topspace">
-			
-			<h2 class="section-title"><span>Pictures</span></h2>
-			
-			<div class="thumbnails recentworks row">
-			
+	
 	
 				
-				@php $images = json_decode($data->images,true); @endphp
-   			@if(is_array($images) && !empty($images))
-			   
-   			@foreach ($images as $images)
-			   <div class="col-xs-12 col-sm-6 ">
-			   <span class="img">
-     			<img src="{{ asset('storage/images/services/'.$images)}}"/>
-				 </span>
-				 </a>
-				
-					<h4></h4>
-					<p></p>
-				 </div>
-				 @endforeach
-   			@endif	
-			 	
 
-   			
-			
+		<div class="row section recentworks topspace">
 
+			<h2 class="section-title"><span>Pictures</span></h2>
+
+			<div class="thumbnails recentworks row">
+
+			@if($data->image1)	
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+						<span class="img">
+						<img src="{{ asset('storage/images/services/'.$data->image1)}}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"  />
+						</span>
+				</div>
+
+				@endif
+				@if($data->image2)
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+						<span class="img">
+						<image src="{{ asset('storage/images/services/'.$data->image2) }}" onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'" />
+						</span>
+				</div>
+
+				@endif
+				@if($data->image3)
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+					<a  href="sidebar-right.html">
+						<span class="img">
+						<image src="{{ asset('storage/images/services/'.$data->image3) }}"  onerror="this.src='https://www.macmillandictionary.com/external/slideshow/full/White_full.png'"/>
+							<span class="cover"></span>
+						</span>
+
+					</a>
+
+
+				@endif
 				
+
+			</div>
 
 		</div> <!-- /section -->
 
 	</div>	<!-- /container -->
-@endif
+
+  	
+
+		
 </main>
+@endif
 @endif
 @endforeach
 

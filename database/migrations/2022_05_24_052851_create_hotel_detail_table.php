@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetailProviderTable extends Migration
+class CreateHotelDetailTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDetailProviderTable extends Migration
      */
     public function up()
     {
-        Schema::create('detail_provider', function (Blueprint $table) {
+        Schema::create('hotel_detail', function (Blueprint $table) {
             $table->id();
             $table->integer('userID');
             $table->integer('phoneNumber')->nullable();
@@ -21,7 +21,7 @@ class CreateDetailProviderTable extends Migration
             $table->string('address')->nullable();
             $table->integer('postcode')->nullable();
             $table->string('state')->nullable();
-            $table->integer('SSM')->nullable();
+            $table->biginteger('SSM')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreateDetailProviderTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_provider');
+        Schema::dropIfExists('hotel_detail');
     }
 }

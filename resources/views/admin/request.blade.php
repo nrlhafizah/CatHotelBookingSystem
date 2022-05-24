@@ -221,7 +221,7 @@ color:#000;
                             <th class="font-weight-bold">Contact Number</th>
                             <th class="font-weight-bold">Hotel Name</th>
                             <th class="font-weight-bold">Address</th>
-                            <th class="font-weight-bold">SSM</th>
+                            <th class="font-weight-bold">Registration Number</th>
                             <th class="font-weight-bold">  </th>
                             <th class="font-weight-bold">  </th>
        
@@ -238,7 +238,7 @@ color:#000;
                             <td>{{$user->phoneNumber}}</td>
                             <td>{{$user->hotelName}}</td>
                             <td>{{$user->address}}, {{$user->postcode}}, {{$user->state}}</td>
-                            <td>{{$user->SSM}}</td>
+                            <td><a href="https://www.ssm-einfo.my/member/index.php?id=uni" target="_blank" >{{$user->SSM}}</a></td>
                     
                             
                             <form action="/insert/{{$user->id}}" method="post" >

@@ -210,6 +210,7 @@
                           </tr>
                         </thead>
                         <tbody>
+                       
                         @foreach($data as $user)
                         @if ($user->usertype=='2')
                         <tr>

@@ -9,7 +9,7 @@ class Profile extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $table="ownerprof";
+    protected $table="provider_profile";
 
     protected $fillable = ['description','service1', 'desc1','phoneNumber', 'hotelName', 'SSM'];
 }

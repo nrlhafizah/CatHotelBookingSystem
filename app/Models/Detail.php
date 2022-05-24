@@ -9,7 +9,7 @@ class Detail extends Model
 {
     use HasFactory;
 
-    protected $table="detail_provider";
+    protected $table="hotel_detail";
 
     protected $fillable = ['phoneNumber', 'hotelName', 'address', 'SSM'];
 }

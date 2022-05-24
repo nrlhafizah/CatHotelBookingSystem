@@ -84,7 +84,7 @@ class homeControl extends Controller
         {
     
             $details=Detail::all();
-            $data = User::paginate(9)->where("usertype", "=", "2");
+            $data = User::paginate(20)->where("usertype", "=", "2");
             return view('customer.custpage', ['data'=>$data, 'details'=>$details]);
 
      
@@ -101,13 +101,8 @@ class homeControl extends Controller
     function newProvider(Request $req)
     {
             $this->validate($req, [
-            "firstname" => 'max:30',
-            "lastname" => 'max:30',
-            "phoneNumber" => 'unique:users,phoneNumber|min:10|max:10',
             "email" => 'unique:users,email',
-            "hotelName" => 'unique:users,hotelName',
-            
-            "state" => 'required',
+            "ssm" => 'unique:hotel_detail,SSM|min:12|max:12'
 
         ]);
 

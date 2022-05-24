@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Request;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 use App\Models\Booking;
 use App\Models\User;
 use App\Models\Hotel;
@@ -75,13 +76,12 @@ class adminControl extends Controller
     //Provider Management 
     function provSearch(Request $request)
     {
-        $data = User::paginate(9);
+        $data = User::paginate(30);
 
         if($request::has('view_deleted'))
         {
             $data = User::onlyTrashed()->get();
         }
-        
         return view('admin.provider', compact('data'));
     }
 
@@ -89,7 +89,7 @@ class adminControl extends Controller
     {
         $q = (Request::get('q'));
 	    if($q != ''){
-		$data =User::where('name','like','%'.$q.'%')->orWhere('email','like','%'.$q.'%')->paginate(5)->setpath('');
+		$data =User::where('name','like','%'.$q.'%')->orWhere('email','like','%'.$q.'%')->paginate(10)->setpath('');
 		$data->appends(array(
            'q' => Request::get('q'),
 		));
@@ -183,7 +183,12 @@ class adminControl extends Controller
 
             $new->id=$userID;
             $new->description='  ';
-            $new->images='  ';
+            $new->image1='  ';
+            $new->image2='  ';
+            $new->image3='  ';
+            $new->image4='  ';
+            $new->image5='  ';
+            $new->image6='  ';
         
             $new->save();
 

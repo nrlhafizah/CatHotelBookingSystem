@@ -120,7 +120,11 @@
 @if(Auth::user()->id == $history->UserID)
 						<tbody>
 							<tr class="row100">
-								<td class="column100 column1" data-column="column1">{{$history->hotelName}}</td>
+								@foreach($detail as $detail)
+								@if($history->hotelID == $detail->userID)
+								<td class="column100 column1" data-column="column1">{{$detail->hotelName}}</td>
+								@endif
+								@endforeach
 								<td class="column100 column2" data-column="column2">{{$history->checkIn}}</td>
 								<td class="column100 column3" data-column="column3">{{$history->checkOut}}</td>
 								<td class="column100 column4" data-column="column4">{{$history->totalCats}}</td>
